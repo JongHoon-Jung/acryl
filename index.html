@@ -1,0 +1,993 @@
+<html>
+<html lang="ko">
+<!-- <script src="/webjars/jquery/3.6.0/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width" name="viewport">
+
+	<title>아크릴공구 제작</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="/assets/img/favicon.ico" rel="icon">
+	<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Nanum Gothic"
+		rel="stylesheet">
+		
+	<link 
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+		rel="stylesheet" 
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+		crossorigin="anonymous">
+
+	<!-- Template Main CSS File -->
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<script>
+	$(function(){
+		
+		var filter = "win16|win32|win64|mac|macintel";
+
+		if ( navigator.platform ) {
+			if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) {
+				//$('#comp').attr("src", "/assets/img/comps-m.png");
+				$('.contents-txt2').css("top", "78%");
+				$('.contents-txt3').css("top", "78%");
+				$('.contents-txt4').css("top", "90%");
+				$('.contents-txt5').css("top", "90%");
+				
+				$('.pd-100').css("padding-top", "155px");
+			} else {
+				//$('#comp').attr("src", "/assets/img/comps.png");
+			}
+		}
+		
+		$('#color').change(function(){
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$('#thick').change(function(){
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$(document).on('change', '#width', function() {
+			var widthVal = $('#width').val();
+			
+			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+			
+		$('#width').keyup(function(){
+			var widthVal = $('#width').val();
+			
+			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$('#height').keyup(function(){
+			var heightVal = $('#height').val();
+			
+			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$(document).on('change', '#height', function() {
+			var heightVal = $('#height').val();
+			
+			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$('#cnt').keyup(function(){
+			var cntVal = $('#cnt').val();
+			
+			if(cntVal == 0){
+				$('#notice2').show();
+				$('#info').hide();
+			} else {
+				$('#notice2').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$(document).on('change', '#cnt', function() {
+			var cntVal = $('#cnt').val();
+			
+			if(cntVal == 0){
+				$('#notice2').show();
+				$('#info').hide();
+			} else {
+				$('#notice2').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		// 2T 계산함수
+		function calPrice2T(width, height, cnt) {
+		  
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+      var arrHeight10= ['1000','1000','1000','2000','2000','2000','3000','3000','3000','4000','4000','5000','10000','13000','16000','19000','21000','24000','27000','30000'];
+      var arrHeight20= ['1000','2000','2000','3000','3000','4000','5000','6000','6000','8000','8000','8000','15000','18000','21000','24000','26000','29000','33000','36000'];
+      var arrHeight30= ['1000','2000','3000','4000','5000','6000','7000','8000','9000','11000','11000','11000','20000','23000','26000','29000','31000','33000','39000','42000'];
+      var arrHeight40= ['2000','3000','4000','5000','7000','8000','9000','10000','12000','14000','14000','15000','28000','30000','33000','36000','38000','40000','45000','48000'];
+      var arrHeight50= ['2000','3000','5000','7000','8000','9000','11000','12000','14000','17000','17000','19000','35000','37000','40000','42000','44000','46000','51000','54000'];
+      var arrHeight60= ['2000','4000','6000','8000','9000','11000','13000','15000','17000','20000','20000','22000','41000','43000','46000','48000','50000','52000','57000','62000'];
+      var arrHeight70= ['3000','5000','7000','9000','11000','13000','15000','18000','19000','23000','24000','26000','45000','49000','52000','54000','56000','58000','63000','68000'];
+      var arrHeight80= ['3000','6000','8000','10000','12000','15000','18000','19000','23000','26000','27000','29000','50000','53000','56000','58000','60000','62000','69000','75000'];
+      var arrHeight90= ['3000','6000','9000','12000','14000','17000','19000','23000','25000','29000','30000','33000','58000','61000','64000','66000','68000','70000','76000','82000'];
+      var arrHeight100=['4000','8000','11000','14000','17000','20000','23000','26000','29000','35000','38000','45000','62000','66000','70000','74000','78000','82000','88000','92000'];
+      var arrHeight110=['','','','','','','','','','','','','','','','','','','',''];
+      var arrHeight120=['','','','','','','','','','','','','','','','','','','',''];
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 3T 계산함수
+		function calPrice3T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['1000','1000','2000','2000','3000','3000','4000','4000','5000','5000','5000','6000','11000','16000','21000','25000','29000','32000','37000','40000','43000','46000','49000','52000'];
+      var arrHeight20= ['1000','2000','3000','4000','4000','5000','6000','7000','8000','8000','9000','10000','20000','23000','26000','29000','31000','34000','47000','50000','53000','56000','59000','62000'];
+      var arrHeight30= ['2000','3000','4000','5000','6000','8000','9000','11000','12000','13000','14000','16000','28000','30000','33000','36000','39000','42000','56000','60000','64000','68000','72000','76000'];
+      var arrHeight40= ['2000','4000','5000','7000','9000','11000','12000','14000','15000','17000','19000','21000','34000','36000','38000','42000','46000','50000','65000','69000','73000','77000','81000','85000'];
+      var arrHeight50= ['3000','4000','6000','9000','11000','13000','16000','18000','20000','23000','25000','27000','41000','44000','47000','50000','54000','58000','73000','77000','81000','85000','89000','93000'];
+      var arrHeight60= ['3000','5000','8000','11000','13000','16000','19000','22000','24000','27000','30000','33000','50000','52000','54000','58000','62000','66000','82000','86000','90000','94000','98000','102000'];
+      var arrHeight70= ['4000','6000','9000','12000','16000','19000','22000','25000','28000','32000','35000','38000','56000','59000','64000','68000','71000','74000','91000','95000','99000','103000','107000','111000'];
+      var arrHeight80= ['4000','7000','11000','14000','18000','22000','25000','29000','32000','36000','40000','43000','62000','69000','73000','76000','79000','82000','100000','104000','108000','112000','116000','120000'];
+      var arrHeight90= ['5000','8000','12000','15000','20000','24000','28000','32000','36000','41000','45000','49000','68000','72000','78000','82000','86000','90000','109000','114000','119000','124000','129000','134000'];
+      var arrHeight100=['5000','8000','13000','17000','23000','27000','32000','36000','41000','47000','53000','59000','65000','71000','77000','83000','89000','95000','118000','124000','130000','136000','142000','148000'];
+      var arrHeight110=['6000','9000','14000','19000','25000','30000','35000','40000','45000','53000','60000','66000','73000','80000','87000','94000','101000','108000','127000','134000','141000','148000','155000','162000'];
+      var arrHeight120=['7000','10000','16000','21000','27000','33000','38000','43000','49000','59000','66000','74000','82000','90000','98000','106000','114000','122000','136000','144000','152000','160000','168000','176000'];
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 5T 계산함수
+		function calPrice5T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['1000','1000','2000','3000','4000','5000','5000','6000','7000','9000','11000','13000','15000','19000','23000','27000','31000','35000','40000','45000','50000','55000','60000','65000'];
+      var arrHeight20= ['2000','2000','4000','5000','7000','8000','9000','11000','12000','14000','15000','16000','23000','28000','32000','36000','40000','44000','55000','61000','67000','73000','79000','85000'];
+      var arrHeight30= ['2000','4000','6000','8000','10000','12000','14000','16000','19000','21000','23000','25000','32000','35000','38000','46000','50000','55000','70000','77000','84000','91000','98000','105000'];
+      var arrHeight40= ['3000','5000','8000','11000','14000','16000','19000','22000','25000','28000','31000','35000','41000','46000','51000','57000','62000','66000','85000','92000','99000','106000','113000','120000'];
+      var arrHeight50= ['4000','7000','10000','14000','17000','21000','24000','28000','31000','35000','38000','42000','51000','57000','62000','70000','74000','78000','100000','107000','114000','121000','128000','135000'];
+      var arrHeight60= ['5000','8000','12000','16000','21000','25000','29000','33000','38000','42000','46000','50000','61000','68000','75000','81000','86000','91000','115000','123000','131000','139000','147000','155000'];
+      var arrHeight70= ['5000','9000','14000','19000','24000','29000','34000','39000','44000','49000','54000','59000','70000','79000','87000','93000','99000','104000','130000','138000','146000','154000','162000','170000'];
+      var arrHeight80= ['6000','11000','16000','22000','28000','33000','39000','45000','50000','56000','62000','67000','76000','85000','94000','103000','110000','116000','145000','153000','161000','169000','177000','185000'];
+      var arrHeight90= ['7000','12000','19000','25000','31000','38000','44000','50000','57000','63000','70000','76000','86000','98000','109000','116000','123000','129000','160000','17000','180000','190000','200000','210000'];
+      var arrHeight100=['9000','14000','21000','28000','35000','42000','49000','56000','63000','71000','79000','87000','95000','103000','111000','119000','127000','135000','175000','185000','195000','205000','215000','225000'];
+      var arrHeight110=['11000','15000','23000','31000','38000','46000','54000','62000','70000','79000','87000','93000','101000','109000','120000','128000','136000','144000','190000','198000','206000','214000','222000','230000'];
+      var arrHeight120=['13000','16000','25000','35000','42000','50000','59000','67000','76000','87000','93000','103000','110000','120000','130000','140000','150000','160000','205000','215000','225000','235000','245000','255000'];
+ 			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 8T 계산함수
+		function calPrice8T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['2000','2000','3000','4000','5000','6000','7000','9000','10000','11000','12000','15000','20000','26000','33000','40000','46000','52000','60000','66000','72000','78000','84000','90000'];
+      var arrHeight20= ['2000','4000','6000','9000','11000','13000','15000','18000','20000','22000','25000','27000','34000','41000','49000','53000','59000','65000','80000','88000','96000','104000','112000','120000'];
+      var arrHeight30= ['3000','6000','10000','14000','17000','20000','24000','27000','31000','34000','38000','41000','50000','55000','60000','66000','72000','82000','100000','106000','112000','118000','124000','130000'];
+      var arrHeight40= ['4000','9000','14000','18000','23000','27000','31000','36000','41000','45000','50000','54000','67000','75000','80000','86000','93000','100000','120000','129000','138000','147000','156000','165000'];
+      var arrHeight50= ['5000','11000','17000','23000','28000','34000','40000','46000','51000','57000','63000','68000','80000','89000','98000','107000','116000','120000','140000','150000','160000','170000','180000','190000'];
+      var arrHeight60= ['6000','13000','20000','27000','34000','41000','48000','55000','62000','68000','75000','83000','91000','100000','111000','121000','131000','141000','160000','170000','180000','190000','200000','210000'];
+      var arrHeight70= ['7000','15000','24000','31000','40000','48000','56000','64000','72000','80000','88000','96000','114000','123000','132000','141000','150000','161000','180000','191000','202000','213000','224000','235000'];
+      var arrHeight80= ['9000','18000','27000','36000','46000','55000','64000','73000','83000','92000','101000','111000','121000','132000','143000','154000','165000','178000','200000','212000','224000','236000','248000','260000'];
+      var arrHeight90= ['10000','2000','31000','41000','51000','62000','72000','83000','92000','103000','113000','123000','143000','153000','163000','173000','183000','193000','230000','243000','256000','269000','282000','295000'];
+      var arrHeight100=['11000','22000','34000','45000','57000','68000','80000','92000','103000','118000','132000','146000','160000','174000','188000','202000','216000','230000','254000','268000','282000','296000','310000','324000'];
+      var arrHeight110=['12000','25000','38000','50000','63000','75000','88000','101000','113000','132000','147000','162000','177000','192000','207000','222000','237000','252000','278000','293000','308000','323000','338000','353000'];
+      var arrHeight120=['15000','27000','41000','54000','68000','83000','96000','111000','123000','146000','162000','177000','192000','207000','222000','237000','252000','267000','302000','317000','332000','347000','362000','377000'];
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 10T 계산함수
+		function calPrice10T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['2000','3000','4000','5000','7000','8000','10000','11000','13000','16000','18000','21000','25000','31000','37000','43000','50000','58000','67000','74000','81000','88000','95000','102000'];
+      var arrHeight20= ['3000','5000','8000','11000','14000','17000','20000','23000','26000','29000','32000','34000','41000','50000','58000','61000','64000','66000','75000','82000','89000','96000','103000','110000'];
+      var arrHeight30= ['4000','8000','13000','17000','22000','26000','30000','34000','39000','41000','46000','50000','60000','69000','79000','84000','90000','94000','101000','109000','117000','125000','133000','141000'];
+      var arrHeight40= ['5000','11000','17000','23000','29000','36000','42000','48000','54000','58000','64000','70000','81000','90000','101000','106000','113000','118000','125000','134000','143000','152000','161000','170000'];
+      var arrHeight50= ['7000','14000','22000','29000','36000','43000','51000','58000','65000','72000','79000','86000','98000','111000','123000','129000','136000','143000','150000','160000','170000','180000','190000','200000'];
+      var arrHeight60= ['8000','17000','26000','36000','43000','52000','61000','71000','79000','87000','95000','102000','116000','130000','142000','151000','162000','169000','179000','190000','201000','212000','223000','234000'];
+      var arrHeight70= ['10000','20000','30000','42000','51000','610000','71000','81000','93000','101000','111000','121000','136000','151000','166000','176000','186000','196000','205000','217000','229000','241000','253000','265000'];
+      var arrHeight80= ['11000','23000','34000','48000','58000','71000','81000','91000','104000','115000','126000','138000','155000','171000','187000','199000','210000','222000','231000','244000','257000','270000','283000','296000'];
+      var arrHeight90= ['13000','26000','39000','54000','65000','79000','93000','104000','118000','131000','143000','156000','174000','192000','209000','222000','235000','248000','257000','271000','285000','299000','313000','327000'];
+      var arrHeight100=['16000','29000','41000','58000','72000','87000','101000','115000','131000','146000','161000','176000','191000','206000','221000','236000','251000','266000','275000','290000','305000','320000','335000','350000'];
+      var arrHeight110=['18000','32000','46000','64000','79000','95000','111000','126000','143000','161000','178000','195000','212000','229000','246000','263000','280000','297000','305000','322000','339000','356000','373000','390000'];
+      var arrHeight120=['21000','34000','50000','70000','86000','102000','121000','138000','156000','176000','194000','212000','230000','248000','266000','284000','302000','320000','327000','345000','363000','381000','399000','417000'];
+      
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 12T 계산함수
+		function calPrice12T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 15T 계산함수
+		function calPrice15T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 20T 계산함수
+		function calPrice20T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 25T 계산함수
+		function calPrice25T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 30T 계산함수
+		function calPrice30T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 40T 계산함수
+		function calPrice40T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 50T 계산함수
+		function calPrice50T(width, height, cnt) {
+			var heightCnt = (height - 10)/10;
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(width == 10) {
+			  price = arrHeight10[heightCnt];
+			} else if(width == 20) {
+			  price = arrHeight20[heightCnt];
+			} else if(width == 30) {
+			  price = arrHeight30[heightCnt];
+			} else if(width == 40) {
+			  price = arrHeight40[heightCnt];
+			} else if(width == 50) {
+			  price = arrHeight50[heightCnt];
+			} else if(width == 60) {
+			  price = arrHeight60[heightCnt];
+			} else if(width == 70) {
+			  price = arrHeight70[heightCnt];
+			} else if(width == 80) {
+			  price = arrHeight80[heightCnt];
+			} else if(width == 90) {
+			  price = arrHeight90[heightCnt];
+			} else if(width == 100) {
+			  price = arrHeight100[heightCnt];
+			} else if(width == 110) {
+			  price = arrHeight110[heightCnt];
+			} else if(width == 120) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+
+		function formChk(color, thick, width, height, cnt){
+			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
+				//$('#info').hide();
+				//$('#priceEx').show();
+				
+				var totPrice = 0;
+				
+				if(thick == 2) {
+				  alert("thick : " + thick);
+					arrResult = calPrice2T(width, height, cnt);
+				} else if(thick == 3) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice3T(width, height, cnt);
+				} else if(thick == 5) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice5T(width, height, cnt);
+				} else if(thick == 8) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice8T(width, height, cnt);
+				} else if(thick == 10) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice10T(width, height, cnt);
+				} else if(thick == 12) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice12T(width, height, cnt);
+				} else if(thick == 15) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice15T(width, height, cnt);
+				} else if(thick == 20) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice20T(width, height, cnt);
+				} else if(thick == 25) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice25T(width, height, cnt);
+				} else if(thick == 30) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice30T(width, height, cnt);
+				} else if(thick == 40) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice40T(width, height, cnt);
+				} else if(thick == 50) {
+				  alert("thick : " + thick);
+				  arrResult = calPrice50T(width, height, cnt);
+				}
+				
+				$('.pd-150').css('padding-bottom', '0px');
+				
+				$('#p1').text(width + "x" + height + " 입력");
+				$('#p2').text(cnt + "개 입력");
+				$('#p3').text(color + " 선택");
+				$('#p4').text(thick + " 선택");
+				
+				$('#p-1').text(width + "x" + height + " / " + cnt + " / " + color + " / " + thick);
+				
+				var params = {
+					width : width,
+					height : height,
+					thick : thick
+				}
+				
+				$('#price').text(arrResult[0]);
+				$('#orderCnt').text(arrResult[1]);
+				$('#totalPrice').text(arrResult[2]);
+				$('#totalOrder').text(arrResult[3]);
+				
+				$.ajax({
+			    	type : "POST",           
+			        url : "/pricing",      
+			        data : params,            
+			        success : function(res){
+						
+						var price = Number(res).toLocaleString('en');
+						var totPrice = Number(res * cnt).toLocaleString('en');
+						
+						var totCnt = Number((res * cnt) / 1000);
+						
+			      $('#price').text(price);
+						$('#orderCnt').text(cnt);
+						
+						$('#p5').text("주문 수량 " + totCnt + "개 선택");
+						$('#p-2').text(totCnt);
+						$('#p-4').text("총 수량 " + totCnt + "개");
+						
+	        	$('#totalPrice').text(totPrice);
+	        	$('#p-3').text(totPrice + '원');
+	        	$('#p-5').text(totPrice + '원');
+	        }
+				});
+			}
+		}
+	})
+</script>
+
+<body>
+	<div class="container-fluid p-3">
+		<div class="text-center top">
+		</div>
+		
+		<div class="text-center titles">
+			아크릴 주문 금액 계산기<br/><br/>
+		</div>
+		
+		<div class="row heads">
+			<div>
+				주문은 최소 <span>가로 10cm X 세로 1cm</span> 이상 <span>최대 가로 120cm X 세로 240cm</span> 이하 까지 주문 가능합니다.<br/>
+				주문 및 장당 가격에 대한 내용은 아래 주문 방법 및 가격표 참고 부탁드립니다.<br/><br/>
+			</div>
+		</div>
+		
+		<!--
+		<div class="row red">
+			<div>
+				정확한 mm 사이즈의 재단이 필요하신분은 소숫점으로 입력하시면 됩니다.<br/>
+				(예시) 115mm = 11.5cm<br/><br/>
+			</div>
+		</div>
+		-->
+		
+		<div class="row justify-content-md-center pd-150">
+			
+			<div class="col col-4">
+				<select id="trans" class="form-select m-group">
+					<option value="">투명도</option>
+					<option value="1">1.투명아크릴</option>
+					<option value="2">2.불투명아크릴</option>
+					<option value="3">3.반투명아크릴</option>
+				</select>
+			</div>
+			
+			<div class="col col-4">
+				<select id="color" class="form-select m-group">
+					<option value="">색상</option>
+					<option value="1">1.빨강</option>
+					<option value="2">2.노랑</option>
+					<option value="3">3.파랑</option>
+				</select>
+			</div>
+			
+			<div class="col col0-4" style="padding-bottom:20px;">
+				<select id="thick" class="form-select m-group">
+					<option>두께</option>
+					<option value="2">아크릴2T</option>
+					<option value="3">아크릴3T</option>
+					<option value="5">아크릴5T</option>
+					<option value="8">아크릴8T</option>
+					<option value="10">아크릴10T</option>
+					<option value="12">아크릴12T</option>
+					<option value="15">아크릴15T</option>
+					<option value="20">아크릴20T</option>
+					<option value="25">아크릴25T</option>
+          <option value="30">아크릴30T</option>
+          <option value="40">아크릴40T</option>
+          <option value="50">아크릴50T</option>
+				</select>
+			</div>
+			
+			<br>
+			<br>
+			
+			<div class="col col-4">
+				<div class="input-group">
+					<span class="input-group-text m-group reline"><b>가로</b></span>
+					<input type="number" max="120" min="10" id="width" class="form-control m-group reline" step="10">
+					<span class="input-group-text m-group reline">cm</span>
+				</div>
+			</div>
+			
+			<div class="col col-4">
+				<div class="input-group">
+					<span class="input-group-text m-group reline" style="border-left:0;"><b>세로</b></span>
+					<input type="number" max="240" min="10" id="height" class="form-control m-group reline" step="10">
+					<span class="input-group-text m-group reline">cm</span>
+				</div>
+			</div>
+			
+			<div class="col col-4">
+				<div class="input-group">
+					<span class="input-group-text m-group">수량</span>
+					<input type="number" min="1" max="9999" id="cnt" class="form-control m-group">
+				</div>
+			</div>
+			
+			<br>
+			<br>
+			
+			<div class="col col-lg-4 col-5 alert-primary d-price">
+				1장당 가격 <span id="price"></span>원 X 주문 수량 <span id="orderCnt"></span>장 
+			</div>
+			<div class="col col-lg-4 col-5 alert-primary d-price">
+				총 주문 금액 = <span id="totalPrice"></span>원
+			</div>
+			<div class="col col-lg-4 col-5 alert-primary d-price">
+				총 주문 단위 수량 = <span id="totalOrder"></span>개
+			</div>
+		</div>
+		
+		<br>
+		<br>
+		
+		<!--
+		<div id="notice1" style="display:none;" class="alert alert-danger p-3 notice">
+			<p>주문 가능한 크기가 아닙니다.</p>
+			<p>최소 주문 가능 크기는 가로 5cm X 세로 5cm 이상,</p>
+			<p>최대 주문 가능 크기는 가로 90cm X 세로 180cm 이하입니다.</p>
+		</div>
+		
+		<div id="notice2" style="display:none;" class="alert alert-danger p-3 notice">
+			<p>주문 가능한 수량이 아닙니다.</p>
+			<p>최소 주문 가능한 수량은 1개 이상 입니다.</p>
+		</div>
+		
+		<div id="info" class="alert alert-primary infos">
+			<p>위의 색상, 두께, 가로, 세로, 수량을 입력하시면</p>
+            <p>장당 가격 및 전체 주문 금액까지 자동으로 계산이 됩니다.</p>
+            <p>더불어 구매하기 예시도 보실 수 있으니 참고 부탁드립니다.</p>
+            <p style="margin-top:100px;">아래로 내려 보시면 보다 자세하게</p>
+            <p>가격표 및 아크릴 관련 내용을 보실 수 있습니다.</p>
+		</div>
+		-->
+		
+		<div id="priceEx" style="display:none;">
+			<div id="content-img" class="alert contents-img">
+				<div>
+					<img id="comp" src="/assets/img/comps.png" style="width:100%;">
+				</div>
+				<div class="contents-txt1">
+					<p id="p-1"></p>
+				</div>
+				<div class="contents-txt2">
+					<p id="p-2"></p>
+				</div>
+				<div class="contents-txt3">
+					<p id="p-3"></p>
+				</div>
+				<div class="contents-txt4">
+					<p id="p-4"></p>
+				</div>
+				<div class="contents-txt5">
+					<p id="p-5"></p>
+				</div>
+			</div>
+			<div id="content" class="alert contents">
+				<div class="alert alert-primary">
+					<p style="margin-bottom:0px;">구매하기 내용을 아래와 같이 넣어주세요.</p>
+					<div id="p1" class="pd-10"></div>
+		            <div id="p2" class="pd-20"></div>
+		            <div id="p3" class="pd-30"></div>
+		            <div id="p4" class="pd-40"></div>
+		            <div id="p5" class="pd-190"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
