@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>사인팜 아크릴재단 자동견적 프로그램</title>
+    <!--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">-->
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/comm.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./js/helper.js"></script>
+    <script type="text/javascript" src="./js/jquery.form_new.js"></script>
+
+	<style type="text/css">
+		#container { background: #f8f8f8; width: 100%; max-width: 1020px; margin: 0 auto; padding-bottom: 50px; }
+
+		/* #header { background: #2e427b; color: #fff; padding: 20px 15px; position: relative; }
+		#header h3 { font-size: 18px; font-weight: bold; }
+		#header p { font-size: 12px; margin-top: 10px; }
+		#header span { font-size: 12px; position: absolute; right: 30px; bottom: 20px; } */
+		#header img { width: 100%; }
+		#contents { background: #f8f8f8; padding-bottom: 50px; }
+		#contents > div { padding: 15px; }
+		#contents > div > p { margin-bottom: 10px; color: #222; font-weight: bold; font-size: 16px; }
+		#contents > div > form > p { margin-bottom: 10px; color: #222; font-weight: bold; font-size: 16px; }
+		.line { border-top: 1px dotted #cbcbcb; margin: 0px 15px; padding: 0px !important; }
+
+		#contents .con_1 { padding: 30px 15px 15px 15px; }
+		.con_1 ul li { float: left; width: calc(25% - 11.25px); margin-left: 15px; text-align: center; background: #fff; height: 40px; line-height: 40px; font-weight: 500; cursor: pointer; font-size: 14px; -webkit-border-radius:3px; -moz-border-radius:3px; -o-border-radius:3px; -ms-border-radius:3px; border-radius:3px!important; }
+		.con_1 ul li:first-child,
+		.con_1 ul li:nth-child(5), 
+		.con_1 ul li:nth-child(9) { margin-left: 0px; }
+		.con_1 ul li:nth-child(n+5) { margin-top: 15px; }
+		.con_1 .con1_type li.select { background: #555; color: #fff; }
+
+		.con_2 { padding: 15px; }
+		.con_2 > ul > li:first-child { width: 50%; }
+		.con_2 > ul > li:last-child { width: 50%; }
+		.con_2 .con2_typeinfo { width: 100%; height: 310px; position: relative; }
+		.con_2 .con2_typeinfo li { float: left; position: absolute; width: 100%; height: 100%; text-align: left; opacity:0; font-size: 18px; font-weight: 500; }
+		.con_2 .con2_typeinfo li:nth-child(1) { background: none; opacity: 1; }
+		.con_2 .con2_typeinfo li:nth-child(2) { background: none; }
+		.con_2 .con2_typeinfo li:nth-child(3) { background: none; }
+		.con_2 .con2_typeinfo li:nth-child(4) { background: none; }
+		.con_2 .con2_typeinfo li:nth-child(5) { background: none; }
+		.con_2 .con2_typeinfo li:nth-child(6) { background: none; }
+		.con_2 .con2_typeinfo li:nth-child(7) { background: none; }
+		.con_2 .con2_typeinfo li:nth-child(8) { background: none; }
+		.con_2 .con2_typeinfo li img { max-width: 100%; height: 310px; line-height: 0; vertical-align: top; }
+		.con_2 .con2_size { padding: 0px 15px 0px 30px; }
+		.con_2 .con2_size li { border-bottom: 1px solid #ddd; padding: 10.5px 0px; font-size: 14px; }
+		.con_2 .con2_size li:last-child { margin-bottom: 0px; }
+		.con_2 .con2_size li > span:first-child { width: 90px; font-weight: bold; }
+		.con_2 .con2_size li > span:last-child { width: 50px; font-weight: bold; }
+		.con_2 .con2_size li > input { width: 125px; text-align: right; }
+		.con_2 .con2_size li > select { width: 125px; }
+
+		.con_2 .con2_option { margin-top: 0px; }
+		.con_2 .con2_option_chk { margin: 0px; padding: 0px; }
+		.con_2 .con2_option_chk li { float: left; position: relative; width: calc(20% - 12px); margin-left: 15px; }
+		.con_2 .con2_option_chk li:first-child { margin-left: 0px; }
+		.con_2 .con2_option_chk li > input { position: absolute; opacity: 0; cursor: pointer; }
+		.con_2 .con2_option_chk li > label { width: 100%; height: 40px; line-height: 40px; text-align: center; background: #fff; -webkit-border-radius:3px; -moz-border-radius:3px; -o-border-radius:3px; -ms-border-radius:3px; border-radius:3px!important; font-size: 14px; font-weight: 500; }
+		.con_2 .con2_option_info1 { border: 1px solid #cbcbcb; width: 100%; height: 100px; line-height: 100px; background: rgba(255,255,255,0.6); font-size: 14px; text-align: center; }
+		.con_2 .con2_option_chk li > input[type="checkbox"]:checked + label { background: #555; color: #fff; }
+		.con_2 .con2_option_chk .notSelOption { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); display: none; z-index: 2; }
+		.con_2 .con2_option_chk .btn_option5 { line-height:35px; }
+		.con_2 .con2_option_chk .btn_option5 > span { position: relative; width: 100%; }
+		.con_2 .con2_option_chk .btn_option5 > span > span { width:100%;text-align:center;font-size:12px;position:absolute;bottom:-2px;left:0px;line-height:12px; }
+
+		.con_2 .con2_option .con2_option_info2 { width: 100%; min-height: 150px; position: relative; margin-top: 15px; }
+		.con_2 .con2_option .con2_option_info2 li { float: left; width: 100%; height: 100%; text-align: center; display:none; margin-bottom: 15px; border: 1px solid #ccc; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(1) { border: 0px solid #cbcbcb; width: 100%; height: 100px; line-height: 100px; background: rgba(255,255,255,1); font-size: 14px; text-align: center; display: block; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(2) { background: lightyellow; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(3) { background: lightpink; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(4) { background: lightgreen; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(5) { background: lightseagreen; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(6) { background: lightslategrey; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(7) { background: lightsalmon; }
+		.con_2 .con2_option .con2_option_info2 li:nth-child(8) { background: lightskyblue; }
+		.option_sub_info { width: 100%; background: #fff; *zoom: 1; padding: 15px 30px; border-bottom: 1px dotted #ccc; }
+		.option_sub_info:after { display: block; content: ""; clear: both; }
+		.option_sub_info > span { height: 30px; line-height: 30px; }
+		.option_sub_info > span:first-child { float: left; width: 80px; text-align: left; font-weight: 500; }
+		.option_sub_info .btn_op_detail { float: left; margin-left: 15px; width: 80px; text-align: center; height: 30px; line-height: 30px; background: #eee; }
+		.option_sub_info .option_price { float: right; color: red; text-align: right; }
+		.option_sub_info select { width: 180px; float: left; margin-left: 15px; color: #333; }
+		.option_sub_img { width: 100%; display: none; }
+		.option_sub_img > img { max-width: 100%; line-height: 0; vertical-align: top; }
+
+		.con_2 .con2_btn { text-align: center; padding: 30px; }
+		.con_2 .con2_btn .btn_selend { background: #2e427b; color: #fff; width: 150px; height: 50px; text-align: center; border: none; font-size: 14px; font-weight:500; }
+
+		.con_3 table { width: 100%; }
+		.con_3 .con3_thead { overflow-x: auto; }
+		.con_3 .con3_thead table { /*width: calc(100% - 30px); max-width: 970px;*/ width: 100%; max-width: 990px; }
+		.con_3 .con3_thead table th { font-size: 12px; background: #d9e3ff; font-weight: bold; padding: 10px 5px; }
+		.con_3 .con3_tbody { height: 200px; overflow-y: auto; overflow-x: auto; }
+		.con_3 .con3_tbody table { /*width: calc(100% - 30px); max-width: 970px;*/ width: 100%; max-width: 990px; }
+		.con_3 .con3_tbody table tbody { min-height: 200px; }
+		.con_3 .con3_tbody table td { font-size: 12px; padding: 5px; background: #fff; text-align: center; }
+		.con_3 .con3_tbody table td:nth-child(4),
+		.con_3 .con3_tbody table td:nth-child(7) { text-align: left; }
+		/* .con_3 .con3_tbody table td:nth-child(6),
+		.con_3 .con3_tbody table td:nth-child(8),
+		.con_3 .con3_tbody table td:nth-child(9) { text-align: right; padding-right: 10px; } */
+		.con_3 .con3_tbody .estiItemChk { width: 15px; height: 15px; vertical-align: middle; }
+		.con_3 .con3_del { background: #555; padding: 10px 15px; }
+		.con_3 .con3_del button { background: #fff; border: 0px; font-size: 12px; margin-right:5px; }
+
+		.con_3 .con3_total { background: #fff; border: 3px solid #2e427b; margin-top: 15px; padding: 15px; }
+		.con_3 .con3_total .con3_total_l { width: 60%; }
+		.con_3 .con3_total .con3_total_l h3 { font-size: 22px; font-weight: bold; color: #000; }
+		.con_3 .con3_total .con3_total_l p { font-size: 12px; color: #000; }
+		.con_3 .con3_total .con3_total_l ul { margin-top: 10px; list-style-type: disc; padding-left: 15px; }
+		.con_3 .con3_total .con3_total_l ul li { font-size: 12px; color: #000; }
+		.con_3 .con3_total .con3_total_r { width: 40%; font-size: 12px; }
+		.con_3 .con3_total .con3_total_r ul { margin-top: 11px; }
+		.con_3 .con3_total .con3_total_r ul li { *zoom: 1; margin-bottom: 5px; }
+		.con_3 .con3_total .con3_total_r ul li:after { content: ""; clear: both; display: block; }
+		.con_3 .con3_total .con3_total_r ul li span { float: right; height: 30px; line-height: 30px; margin-left: 5px; font-weight: bold; }
+		.con_3 .con3_total .con3_total_r ul li span:first-child { width: 20px; }
+		.con_3 .con3_total .con3_total_r ul li input { float: right; text-align: right; width: 120px; margin-left: 5px; font-weight: bold; background: #f3f3f3; }
+		.con_3 .con3_total .con3_total_r ul li:last-child { margin: 0px; }
+		.con_3 .con3_total .con3_total_r .total_price { color: #000; font-size: 14px; }
+		.con_3 .con3_total .con3_total_r .pay_qty { color: red; font-size: 14px; }
+
+		.con_4 .con4_custinfo { padding: 15px; background: #fff; }
+		.con_4 .con4_custinfo p { font-size: 14px; color: red; margin-bottom: 10px; }
+		.con_4 .con4_custinfo ul { width: 100%; }
+		.con_4 .con4_custinfo ul li { margin-bottom: 10px; width: 100%; }
+		.con_4 .con4_custinfo ul li:last-child { margin-bottom: 0px; }
+		.con_4 .con4_custinfo ul li input { width: 100%; }
+		.con_4 .con4_custinfo textarea { resize: none; width: 100%; height: 110px; }
+		.con_4 .con4_custinfo > div > div { width: calc(50% - 7.5px); }
+		.con_4 .con4_custinfo > div > div:last-child { margin-left: 15px; }
+
+		.con_4 .con4_info h5 { font-size: 14px; font-weight: 500; color: red; }
+		.con_4 .con4_info ul { margin-top: 10px; }
+		.con_4 .con4_info ul li { font-size: 12px; color: #000; }
+
+		.con_4 .con4_agree { margin-top: 30px; }
+		.con_4 .con4_agree .agree_btn { text-align: center; font-size: 14px; font-weight: 500; color: #000; }
+		.con_4 .con4_agree .agree_btn .btn_agree { background: #555; color: #fff; font-size: 12px; padding: 5px 10px; margin-left: 15px; }
+		.con_4 .con4_agree #agree_contents textarea { background: #ddd; width: 100%; height: 100%; resize: none; padding: 15px; font-size: 11px; word-break: keep-all; letter-spacing: 0px; }
+		.con_4 .btn_wrap { text-align: center; margin-top: 50px; }
+		.con_4 .btn_wrap .btn_send { background: rgb(5, 117, 112); color: #fff; text-align: center; padding: 15px 25px; font-size: 16px; font-weight: 500; }
+
+		/* 레이어 */
+		.layer-box { position: relative; max-width: 1000px; margin: 0; padding: 0 0 5px 0; background: #fefdf8; border: 0px #bdbdbd solid; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; -o-border-radius: 8px; -ms-border-radius: 8px; }
+		.layer-box h3 { padding: 15px 20px; color: #FFF; font-size: 1.2em; background: rgb(5, 117, 112); /*#34559c;*/ font-weight: normal;
+			text-align: center; margin-top: -10px; border-top-left-radius: 8px; border-top-right-radius: 8px; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; }
+		.layer-box .close {	position: absolute;	top: 0px; right: 10px; display: block; width: 50px; height: 50px; background: url(./images/btn_close.png) center center no-repeat; background-size: 23px; margin-top: -10px; }
+		.layer-box .layer_img { width: 100%; max-height: 800px; overflow-y: auto; overflow-x: hidden; }
+		.layer-box .layer_img img { width: 100%; max-width: 100%; }
+
+		/* 타블렛 스타일 */
+		@media screen and (max-width:1023px) {
+		}
+
+		/* 모바일 스타일 */
+		@media screen and (max-width: 767px) {
+			/* 1. 판종류 메뉴 */
+			.con_1 ul li { width: calc(33.3% - 6px); margin-left: 9px; }
+			.con_1 ul li:nth-child(4), 
+			.con_1 ul li:nth-child(7) { margin-left: 0px; }
+			.con_1 ul li:nth-child(5), 
+			.con_1 ul li:nth-child(9) { margin-left: 9px; }
+			.con_1 ul li:nth-child(n+4) { margin-top: 9px; }
+
+			/* 2. 판재 이미지 및 사이즈 입력 폼 */
+			.con_2 > ul > li:first-child { width: 100%; }
+			.con_2 > ul > li:last-child { width: 100%; }
+			.con_2 .con2_typeinfo { height: auto; }
+			.con_2 .con2_typeinfo li { height: auto; }
+			.con_2 .con2_typeinfo li img { width: 100%; max-width: 100%; height: auto; }
+			.con_2 .con2_size { padding-top: 15px; }
+			.con_2 .con2_option_chk li { width: calc(33.3% - 8px); margin-left: 12px; }
+			.con_2 .con2_option_chk li:nth-child(4) { margin-left: 0px; margin-top: 12px; }
+			.con_2 .con2_option_chk li:nth-child(5) { margin-top: 12px; }
+			.con_2 .con2_option_chk li > label { font-size: 12px; }
+			.con_2 .con2_option .con2_option_info2 { margin-top: 10px; }
+			.option_sub_info > span.option_tit { display: none; }
+			.option_sub_info select { width: calc(100% - 190px); }
+
+			/* 총 결제금액 안내 폼 */
+			.con_3 .con3_total .con3_total_l { width: 100%; }
+			.con_3 .con3_total .con3_total_r { width: 100%; margin-top: 15px; }
+			.con_3 .con3_total .con3_total_r ul li span { width: 80px; text-align: right; }
+			.con_3 .con3_total .con3_total_r ul li input { margin-left: 15px; width: calc(100% - 125px); }
+
+			/* 수취인 정보 입력 폼 */
+			.con_4 .con4_custinfo > div > div { width: 100%; }
+			.con_4 .con4_custinfo > div > div:last-child { margin-left: 0px; margin-top: 20px; }
+			/*
+			.con_4 .con4_custinfo ul { width: 100%; }
+			.con_4 .con4_custinfo textarea { width: 100%; margin-left: 0px; margin-top: 10px; }
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<div id="header" class="child_height">
+				<img src="./images/title/title_1000x119.jpg?v=1" class="f_l" alt="아크릴 재단 자동견적 계산기 타이틀" />
+				<!--
+				<h3>아크릴재단 자동견적 계산기</h3>
+				<p>※ 선택가능한 사이즈 : 가로 최소 50mm ~ 최대 1200mm / 세로 최소 50mm ~ 최대 2400mm</p>
+				<span>(단위 : mm)</span>
+				-->
+			</div>
+			<div id="contents">
+				<div class="con_1">
+					<p>1. 구매하실 판의 종류를 선택해주세요.</p>
+					<ul class="con1_type child_height">
+						<li class="itemType1" onclick="selItemType('1');">투명아크릴</li>
+						<li class="itemType2" onclick="selItemType('2');">컬러아크릴</li>
+						<li class="itemType3" onclick="selItemType('3');">백색포맥스</li>
+						<li class="itemType4" onclick="selItemType('4');">컬러포맥스</li>
+						<li class="itemType5" onclick="selItemType('5');">폴리카보네이트</li>
+						<li class="itemType6" onclick="selItemType('6');">거울아크릴</li>
+						<li class="itemType7" onclick="selItemType('7');">펄아크릴</li>
+					</ul>
+				</div>
+				<div class="line"></div>
+				<div class="con_2">
+					<p>2. 선택하신 판재의 사이즈를 입력해주세요.</p>
+					<ul class="child_height">
+						<li class="f_l">
+							<ul class="con2_typeinfo child_height">
+								<li class="itemTypeImg0"><img src="./images/item/item_0.jpg" alt="기본정보" /></li>
+								<li class="itemTypeImg1"><img src="./images/item/item_1.jpg" alt="투명아크릴" /></li>
+								<li class="itemTypeImg2"><img src="./images/item/item_2.jpg" alt="컬러아크릴" /></li>
+								<li class="itemTypeImg3"><img src="./images/item/item_3.jpg" alt="백색포맥스" /></li>
+								<li class="itemTypeImg4"><img src="./images/item/item_4.jpg" alt="컬러포맥스" /></li>
+								<li class="itemTypeImg5"><img src="./images/item/item_5.jpg" alt="폴리카보네이트" /></li>
+								<li class="itemTypeImg6"><img src="./images/item/item_6.jpg" alt="거울아크릴" /></li>
+								<li class="itemTypeImg7"><img src="./images/item/item_7.jpg" alt="펄아크릴" /></li>
+								<li style="position: relative; opacity:0;"><img src="./images/item/item_0.jpg" alt="기본정보" /></li>
+							</ul>
+						</li>
+						<li class="f_l">
+							<ul class="con2_size">
+								<li>
+									<span>색상</span>
+									<select id="itemColor" class="select_r" dir="rtl" onchange="getThick();">
+										<option>--</option>
+										<option value="똥색">똥색</option>
+										<option value="백색">백색</option>
+										<option value="검정">검정</option>
+										<option value="회색">회색</option>
+										<option value="빨강">빨강</option>
+										<option value="주황">주황</option>
+										<option value="노랑">노랑</option>
+										<option value="연두">연두</option>
+										<option value="녹색">녹색</option>
+										<option value="하늘">하늘</option>
+										<option value="청색">청색</option>
+										<option value="미색">미색</option>
+										<option value="갈색">갈색</option>
+										<option value="분홍">분홍</option>
+										<option value="와인">와인</option>
+									</select>
+								</li>
+								<li>
+									<span>두께</span>
+									<select id="itemThick" class="select_r" onchange="itemCalc();" dir="rtl">
+										<option>--</option>
+										<option value="2">2T</option>
+										<option value="3">3T</option>
+										<option value="5">5T</option>
+										<option value="8">8T</option>
+										<option value="10">10T</option>
+										<option value="15">15T</option>
+										<option value="20">20T</option>
+										<option value="30">30T</option>
+										<option value="40">40T</option>
+										<option value="50">50T</option>
+										<option value="60">60T</option>
+									</select>
+									<span>mm</span>
+								</li>
+								<li>
+									<span>가로</span>
+									<input type="text" name="" id="itemWidth" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
+									<span>mm</span>
+								</li>
+								<li>
+									<span>세로</span>
+									<input type="text" name="" id="itemHeight" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
+									<span>mm</span>
+								</li>
+								<li>
+									<span>수량</span>
+									<input type="text" name="" id="itemQty" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
+									<span>EA</span>
+								</li>
+								<li>
+									<span style="color:red;";>금액</span>
+									<input type="text" name="" value="0" id="itemPrice" readonly style="background:rgba(255,255,255,0.5);" />
+									<span style="color:red;">원</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					
+					<p class="top_mt30">2-1. 가공 옵션을 선택해 주세요.</p>
+					<div class="con2_option">
+						<p style="font-size: 14px; color: red;">※ 가공 옵션이 필요한 경우 선택해 주세요. (중복선택 가능. 단, 레이저가공은 단일 선택 및 두께 10T까지만 주문 가능)</p>
+						<ul class="con2_option_chk child_height top_mt15">
+							<li>
+								<input type="checkbox" value="1" id="optionChk1" class="optionChk" onclick="optionCalc('1');">
+								<label for="optionChk1">구멍가공</label>
+								<span class="notSelOption notSelOption1" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
+							</li>
+							<li>
+								<input type="checkbox" value="2" id="optionChk2" class="optionChk" onclick="optionCalc('2');">
+								<label for="optionChk2">모서리라운드</label>
+								<span class="notSelOption notSelOption2" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
+							</li>
+							<li>
+								<input type="checkbox" value="3" id="optionChk3" class="optionChk" onclick="optionCalc('3');">
+								<label for="optionChk3">테두리45도</label>
+								<span class="notSelOption notSelOption3" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
+							</li>
+							<li>
+								<input type="checkbox" value="4" id="optionChk4" class="optionChk" onclick="optionCalc('4');">
+								<label for="optionChk4">불광</label>
+								<span class="notSelOption notSelOption4" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
+							</li>
+							<li>
+								<input type="checkbox" value="5" id="optionChk5" class="optionChk" onclick="optionCalc('5');">
+								<label for="optionChk5" class="btn_option5"><span>레이저가공<span>(원형/도면)</span></span></label>
+								<span class="notSelOption notSelOption5" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
+							</li>
+						</ul>
+						<!-- <div class="con2_option_info1">가공서비스를 선택해 주세요.</div> -->
+						<ul class="con2_option_info2 child_height">
+							<li class="itemOption0">선택된 가공옵션이 없습니다.</li>
+							<li class="itemOption1">
+								<div class="option_sub_info">
+									<span>구멍가공</span>
+									<span class="f_l left_mt10 option_tit">상세옵션</span>
+									<select id="itemOptionSub1" class="">
+										<option value="">--</option>
+										<option value="구멍 4개">구멍 4개</option>
+										<option value="긴 쪽 구멍 2개">긴 쪽 구멍 2개</option>
+										<option value="짧은 쪽 구멍 2개">짧은 쪽 구멍 2개</option>
+										<option value="모서리 구멍 1개">모서리 구멍 1개</option>
+										<option value="긴쪽 중앙 구멍 1개">긴쪽 중앙 구멍 1개</option>
+										<option value="짧은 쪽 중앙 구멍 1개">짧은 쪽 중앙 구멍 1개</option>
+									</select>
+									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '1');">안내보기</button>
+									<span class="option_price">￦1,000원</span>
+								</div>
+								<div class="option_sub_img option_sub_img1">
+									<img src="./images/option/hole4_770px.jpg" alt="구멍가공 옵션 안내 이미지" />
+								</div>
+							</li>
+							<li class="itemOption2">
+								<div class="option_sub_info">
+									<span>모서리라운드</span>
+									<span class="f_l left_mt10 option_tit">상세옵션</span>
+									<select id="itemOptionSub2" class="">
+										<option value="">--</option>
+										<option value="라운드 4개">라운드 4개</option>
+										<option value="긴 쪽 라운드 2개">긴 쪽 라운드 2개</option>
+										<option value="짧은 쪽 라운드 2개">짧은 쪽 라운드 2개</option>
+										<option value="모서리 라운드 1개">모서리 라운드 1개</option>
+									</select>
+									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '2');">안내보기</button>
+									<span class="option_price">￦1,000원</span>
+								</div>
+								<div class="option_sub_img option_sub_img2">
+									<img src="./images/option/roundin_1000px.jpg" alt="모서리 라운드 옵션 안내 이미지" />
+								</div>
+							</li>
+							<li class="itemOption3">
+								<div class="option_sub_info">
+									<span>테두리45도</span>
+									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '3');">안내보기</button>
+									<span class="option_price">￦1,000원</span>
+								</div>
+								<div class="option_sub_img option_sub_img3">
+									<img src="./images/option/bevel45_770px.jpg" alt="테두리45도 옵션 안내 이미지" />
+								</div>
+							</li>
+							<li class="itemOption4">
+								<div class="option_sub_info">
+									<span>불광</span>
+									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '4');">안내보기</button>
+									<span class="option_price">￦3,000원</span>
+								</div>
+								<div class="option_sub_img option_sub_img4">
+									<img src="./images/option/fire_770px.jpg" alt="불광 옵션 안내 이미지" />
+								</div>
+							</li>
+							<li class="itemOption5">
+								<div class="option_sub_info">
+									<span>레이저가공</span>
+                                    <span class="f_l left_mt10 option_tit">상세옵션</span>
+									<select id="itemOptionSub5" class="">
+										<option value="">--</option>
+										<option value="원형">원형</option>
+										<option value="타원형">타원형</option>
+										<option value="사각형">사각형</option>
+										<option value="도면첨부">도면첨부(acmc6954@naver.com)</option>
+									</select>
+									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '5');">안내보기</button>
+									<span class="option_price">￦1,000원</span>
+								</div>
+								<div class="option_sub_img option_sub_img5">
+									<img src="./images/option/laser_1000px.jpg" alt="레이저가공 옵션 안내 이미지" />
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="con2_btn">
+						<button type="button" class="btn_selend br5px" onclick="putItemInfo();">제품담기</button>
+					</div>
+				</div><!--con_2-->
+
+				<div class="line"></div>
+				<div class="con_3">
+					<form id="EstiForm" name="EstiForm" method="post" action="">
+						<p>3. 주문하실 견적서를 확인한 뒤 판매자에게 전송해주세요.</p>
+						<div>
+							<div class="con3_thead">
+								<table>
+									<colgroup>
+										<col width="5%" />
+										<col width="10%" />
+										<col width="7%" />
+										<col width="19%" />
+										<col width="5%" />
+										<col width="10%" />
+										<col width="19%" />
+										<col width="10%" />
+										<col width="15%" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th></th>
+											<th>제품명</th>
+											<th>색상</th>
+											<th>주문크기</th>
+											<th>수량</th>
+											<th>금액</th>
+											<th>가공옵션</th>
+											<th>가공금액</th>
+											<th>총금액</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="con3_tbody">
+								<table>
+									<colgroup>
+										<col width="5%" />
+										<col width="10%" />
+										<col width="7%" />
+										<col width="19%" />
+										<col width="5%" />
+										<col width="10%" />
+										<col width="19%" />
+										<col width="10%" />
+										<col width="15%" />
+									</colgroup>
+									<tbody id="esti_list"></tbody>
+								</table>
+							</div>
+							<div class="con3_del">
+								<ul class="child_height">
+									<li class="f_l">
+										<button type="button" class="br2px" onclick="delItem();">선택삭제</button>
+										<button type="button" class="br2px" onclick="delItemAll();">전체삭제</button>
+									</li>
+									<li class="f_l"></li>
+									<li class="f_l"></li>
+								</ul>
+							</div>
+						</div>
+						<div class="con3_total child_height">
+							<div class="f_l con3_total_l">
+								<h3>총 결제금액</h3>
+								<ul>
+									<li>백원단위결제금액에서 <span style="font-weight:bold;"><span style="color:red;">결제수량</span>대로 수량을 동일하게 입력하여 구매하시면 됩니다.</span></li>
+									<li>택배가능한 사이즈는 1200mm x 900mm 이하로만 가능합니다. 그 이상 대형사이즈는 방문수령이나 퀵화물(배송비 별도 발생)로 가능합니다. 방문수령시 배송메시지에 남겨주세요.</li>
+									<li class="top_mt5 strong">
+										가로 + 세로 사이즈가 아래에 해당되면 포장비가 추가 발생됩니다.
+										<br/>
+										- 1500mm 이상 10,000원
+										<br/>
+										- 2000mm 이상 15,000원
+										<br/>
+										- 2500mm 이상 20,000원
+									</li>
+								</ul>
+							</div>
+							<div class="f_r con3_total_r">
+								<ul>
+									<li>
+										<span>원</span>
+										<input type="text" value="" id="TotalEstiPrice1" readonly />
+										<input type="hidden" name="TotalEstiPrice" value="" id="TotalEstiPrice" readonly />
+										<span class="total_tit">총견적금액</span>
+									</li>
+									<!-- <li>
+										<span>원</span>
+										<input type="text" value="" id="DeliveryFee1" readonly />
+										<input type="hidden" name="DeliveryFee" value="" id="DeliveryFee" readonly />
+										<span class="total_tit">배송비</span>
+									</li> -->
+									<li>
+										<span>원</span>
+										<input type="text" value="" id="PackingFee1" readonly />
+										<input type="hidden" name="PackingFee" value="" id="PackingFee" readonly />
+										<span class="total_tit">포장비</span>
+									</li>
+									<li class="total_price">
+										<span>원</span>
+										<input type="text" value="" id="TotalPrice1" readonly />
+										<input type="hidden" name="TotalPrice" value="" id="TotalPrice" readonly />
+										<span class="total_tit">총결제금액</span>
+									</li>
+									<li class="pay_qty">
+										<span>개</span>
+										<input type="text" value="" id="TotalQty1" readonly />
+										<input type="hidden" name="TotalQty" value="" id="TotalQty" readonly />
+										<span class="total_tit">결제수량</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<input type="hidden" name="TotalItemCount" value="" id="TotalItemCount" />
+						<input type="hidden" name="CustName" value="" id="CustName" />
+						<input type="hidden" name="CustHP" value="" id="CustHP" />
+						<input type="hidden" name="CustEmail" value="" id="CustEmail" />
+						<input type="hidden" name="CustMsg" value="" id="CustMsg" />
+						<input type="hidden" name="RegRefer" value="" id="RegRefer" />
+						<input type="hidden" name="Market" value="storefarm" />
+					</form>
+				</div><!--con_3-->
+				<div class="line"></div>
+				<div class="con_4">
+					<div class="con4_custinfo">
+						<!--<p>※ 주문시 수취인 성함과 동일하게 작성해주셔야 확인이 가능합니다.</p>-->
+						<div class="child_height">
+							<div class="f_l">
+								<p>※ 주문시 수취인 성함과 동일하게 작성해주셔야 확인이 가능합니다.</p>
+								<ul class="">
+									<li><input type="text" id="cust_name" placeholder="수취인명" maxlength="20" /></li>
+									<li><input type="text" id="cust_hp" placeholder="수취인 연락처 ('-'제외하고 숫자만 입력해 주세요.)" maxlength="11" onkeyup="onlyNumber(this);" /></li>
+									<li><input type="text" id="cust_email" placeholder="수취인 이메일 (견적서가 전송됩니다.)" maxlength="100" /></li>
+								</ul>
+							</div>
+							<div class="f_r">
+								<p>※ 요청사항을 남겨주세요.</p>
+								<textarea name="" id="cust_msg" rows="5" class="" placeholder="견적문의 및 상품문의는 톡톡 또는 1:1 문의 게시판으로 올려주시면 빠른 상담이 가능합니다." maxlength="250"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="con4_info top_mt30">
+						<div>
+							<h5>※ 반드시 확인 후 결제를 진행해주세요!</h5>
+							<ul>
+								<li style="color:red;">- 판매자에게 견적서를 전송해주신 뒤 결제수량대로 결제를 진행해주시면 됩니다.</li>
+								<li>- 재단 상품은 주문과 동시에 원판을 재단하여 제작되기 때문에 <span style="color:red;">교환/환불/취소</span>가 불가합니다.</li>
+								<li>- 아크릴 원판생산과정에서 <span style="color:red;">두께편차</span>가 발생할 수 있습니다.</li>
+								<li>- 사이즈를 입력하실때에는 반드시 <span style="color:red;">mm 단위로 입력</span>해 주시기 바랍니다.(120cm → 1200mm)</li>
+								<li>- 가공서비스 후 남은 자투리는 보내드리지 않습니다.</li>
+							</ul>
+						</div>
+					</div>
+					<!-- 개인정보 취급방침 -->
+					<div class="con4_agree">
+						<div>
+							<div class="agree_btn">
+								<label>
+									<input type="checkbox" id="agree_chk" name="agree_chk" value="">
+									<span>개인정보 취급방침에 동의합니다.</span>
+								</label>
+								<a href="javascript:viewAgree();" class="btn_agree br3px">전문보기</a>
+							</div>
+							<div id="agree_contents" style="display:none; margin-top:20px;">
+								<textarea cols="30" rows="10">
+아크릴 전문쇼핑몰 사인팜은 고객님들의 개인정보를 매우 소중하게 생각하며 다음과 같은 개인정보취급방침을 시행하고 있습니다.
+이 개인정보취금방침은 관련 법률 또는 지침의 변경, 회사정책의 변화에 따라 달라질 수 있으니, 고객님께서는 사인팜 방문시 수시로 확인하여 주시기 바랍니다. 
+
+'사인팜'은 (이하 '회사')는 고객님의 개인정보를 중요시하며, "정보통신망 이용촉진 및 정보보호"에 관한 법류을 준수하고 있습니다. 
+회사는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.
+회사는 개인정보 취급방침을 개정하는 경우 웹사이트 공지사항 (또는 개별공지)를 통하여 공지할 것입니다.
+본 방침은 2009년 05월 01일부터 시행됩니다. 
+
+
+
+1. 수집하는 개인정보의 항목 및 방법
+
+회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
+
+* 수집항목 : 이름, 성별, 로그인ID, 비밀번호, 자택 전화번호, 자택주소, 휴대전화번호, 이메일, 직업, 신용카드정보, 은행계좌 정보, 서비스 이용기록, 접속 로그, 쿠키, 접속 IP정보, 결제기록, 관심상품, 접속경로
+* 개인정보 수집방법 : 홈페이지 (회원가입, 물품구매)
+
+
+
+2. 개인정보의 수집 및 이용목적
+
+회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.
+
+* 서비스 제공에 과한 계약 이행 및 서비스 제공에 따른 요금정산 - 콘텐츠 제공, 구매 및 요금 결제, 물품배송 또는 청구지 등 발송, 금융거래 본인 인증 및 금융 서비스, 요금 추심
+* 회원관리- 회원제 서비스 이용에 따른 본인확인, 개인식별, 불량회원의 부정 이용 방지와 비인가 사용방지, 불만처리 등 민원처리, 고지사항 전달
+* 마케팅 및 광고에 활용- 이벤트 등 광고성 정보전달
+
+
+
+3. 개인정보의 보유 및 이용기간
+
+원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체없이 파기합니다.
+단, 관계법령의 규정에 희아혀 보존 할 필요가 있는 경우, 회사는 아래와 같이 관계법령에서 정한 일정한 기간동안 회원정보를 보관합니다.
+
+* 보존항목 : 이름, 성별, 로그인ID, 자택 전화번호, 휴대전화번호, 신용카드정보, 은행계좌 정보
+* 보존근거 : 전자상거래등에서의 소비자보호에 관한 법률, 신용정보의 이용 및 보호에 관한 법률
+* 보존기간 : 3개월
+
+
+
+4. 개인정보의 파기 절차 및 방법
+
+회사는 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체없이 파기합니다. 파기절차 및 방법은 다음과 같습니다.
+
+* 파기절차 : 회원밍 ㅣ회원가입 등을 위해 입력하신 정보는 목적이 달성된 후 별도의 DB로 옮겨져 (종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라 (보유 및 이용기간 참조) 일정기간 저장된 후 파기되어 집니다. 별도 DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 보유되어지는 이외의 다른 목적으로 이용되지 않습니다.
+* 파기방법 : 전자적 파일형태로 저장되 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제됩니다.
+
+
+
+5. 개인정보 제공동의
+
+회사는 회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.
+
+- 이용자들이 사전에 동의한 경우
+- 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우
+
+
+
+6. 수집한 개인정보의 취급위탁
+
+회사는 고객님의 동의없이 고객님의 정보를 외부 업체에 위탁하지 않습니다. 
+향후 그러한 필요가 생길 경우, 위탁 대상자와 위탁 업무 내용에 대해 고객님에게 통지하고 필요한 경우 사전 동의를 받도록 하겠습니다.
+
+* 수탁자 : NICE평가정(주) - 수탁범위 : 실명/본인인증, 아이핀 제공 
+* 수탁자 : KCP, LG U+ - 수탁범위 : 상품구매에 필요한 신용카드, 현금결제등의 결제정보 전송 
+* 수탁자 : CJ대한통운택배, 경동택배 - 수탁범위 : 상품의 배송업무 처리
+
+
+
+7. 이용자 및 법정대리인의 권리와 그 행사방법
+
+이용자 및 법정 대리인은 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수 있습니다. 이용자 혹은 만 14세 미만 아동의 개인정보 조회 및 수정을 위해서는 '개인정보변경' (또는 '회원정보수정' 등)을 가입해지(동의철회)를 위해서는 "회원탈퇴"를 클릭하여 본인절차를 거치신 후 직접 열람, 정정 또는 탈퇴가 가능합니다. 혹은 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체없이 조치하겠습니다. 귀하가 개인정보의 오류에 대한 정정을 요청하신 경우에는 정정을 완료하기전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제 3자에게 지체없이 통보하여 정정이 이루어지도록 하겠습니다. 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보는 수닙하는 개인정보의 보유 및 이용기간에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용 할 수 없도록 처리하고 있습니다.
+
+
+
+8. 개인정보수집장치의 설치,운영,거부에 관한 사항
+
+회사는 귀하의 정보를 수시로 저장하고 찾아내는 '쿠키(Cookie)'등을 운영합니다. 쿠키란 "회사"의 웹사이트를 운용하는데 이용되는 서버가 
+귀하의 브라우저에 보내는 아주 작은 텍스트 파일로서 귀하의 컴퓨터 하드디스크에 저장됩니다. 회사는 다음과 같은 목적을 위해 쿠키를 사용합니다.
+단, 귀하께서 쿠키 설치를 거부하였을 경우, 서비스 제공에 어려움이 있을 수 있습니다.
+
+* 쿠키 등 사용목적 
+- 회원과 비회원의 접속 빈도나 방문 시간등을 분석, 이용자의 취향과 관심분야를 파악 및 자취 추적, 각종 이벤트 참여 정보 및 방문 횟수 파악등을 통한 타겟 마케팅 및 개인 맞춤 서비스 제공 
+- 귀하는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 귀하는 웹브라우저에서 옵션을 설정하여 모든 쿠키를 허용하거나, 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수 있습니다. 
+* 설정방법 : - (예: 인터넷 익스플로어의 경우 웹브라우저 상단의 도구 메뉴 &gt; 인터넷 옵션 &gt; 개인정보 클릭)
+
+
+
+9. 개인정보에 관한 민원서비스
+
+회사는 고객의 개인정보와 관련한 불만을 처리하기 위하여 아래와 같은 관련 부서 및 개인정보 관리책임자를 지정하고 있습니다.
+
+* 고객서비스 담당부서 : 고객관리팀 
+* 담당자 : 김보윤 
+* 전화번호 : 032-575-6606
+* 이메일 : acmc6954@naver.com
+
+
+귀하께서는 회사의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자 또는 담당부서로 신고하실 수 있습니다. 
+회사는 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴것입니다. 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.
+
+1. 개인분쟁조정위원회 (www.1336.or.kr/1336) 
+2. 정보보호마크인증위원회 (www.erprivacy.or.kr/02-580-0533~4) 
+3. 대검찰청 인터넷범죄수사센터 (http://icic.soop.go.kr/02-3480-3360)
+4. 경찰청 사이버테러대응센터 (www.ctrc.go.kr/02-392-0330)
+
+
+
+10. 기타 개인정보 취급에 관한 방침
+
+2006년 09월 25일부터 적용되는 개정 주민등록법에 의하면 타인의 주민등록번호를 도용하여 온라인 회원가입을 하는 등 타인의 주민등록번호를 부정사용하는 자는 3년 이하의 징역 또는 1천만원 이하의 벌금형에 처해질 수 있습니다. 따라서 타인의 주민등록번호를 도용하여 회원가입을 사히려는 분들 또는 회원으로 가입하신 분들은 즉시 도용행위를 중단해 주실 것을 부탁드립니다.
+								</textarea>
+							</div>
+						</div>
+					</div>
+					<!-- 개인정보 취급방침 내용 -->
+					<div class="btn_wrap">
+						<button type="button" class="btn_send br5px" onclick="sendEstimate();">판매자에게 견적전송하기</button>
+					</div>
+				</div><!--con_4-->
+			</div><!--contents-->
+		</div><!--container-->
+	</div>
+
+	<!-- <div id="popup_layer_w" class="club_lay layer_web" style="display: none; width: 20%; min-width: 400px; max-width: 450px; z-index: 999; background:#333;">
+		<div class="popupWrap child_height">
+			<img src="./images/" style="width:100%; vertical-align:top; line-height:0; float:left;">
+			<div style="width:100%;background:#333;color:#fff;height:25px;line-height:25px;margin-top:0px; float:left;">
+				<label style="width:100%;" class="child_height">
+					<span style="font-size:11px;float:left;margin-left:10px;" onClick="javascript: closeWin('popup_layer_w', 1);">하루 동안 이 창을 열지 않음</span>
+					<span style="font-size:11px;float:right;margin-right:10px;" onClick="hideLayer('popup_layer_w');">닫기</span>
+				</label>
+			</div>
+		</div>
+	</div> -->
+
+	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option1">
+		<h3>구멍가공 안내  <a href="javascript:hideLayer('layer_option1');" class="close"></a></h3>
+		<div class="layer_img">
+			<img src="./images/option/hole4_770px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
+		</div>
+	</div>
+	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option2">
+		<h3>모서리라운드 안내  <a href="javascript:hideLayer('layer_option2');" class="close"></a></h3>
+		<div class="layer_img">
+			<img src="./images/option/roundin_1000px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
+		</div>
+	</div>
+	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option3">
+		<h3>테두리45도 안내  <a href="javascript:hideLayer('layer_option3');" class="close"></a></h3>
+		<div class="layer_img">
+			<img src="./images/option/bevel45_770px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
+		</div>
+	</div>
+	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option4">
+		<h3>불광 안내  <a href="javascript:hideLayer('layer_option4');" class="close"></a></h3>
+		<div class="layer_img">
+			<img src="./images/option/fire_770px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	/* 기본 값 설정 시작 */
+	// 1:투명아크릴, 2:컬러아크릴, 3:백색포맥스, 4:컬러포맥스, 5:폴리카보네이트, 6:거울아크릴, 7:펄아크릴
+	var itemPriceArr = new Array();
+	itemPriceArr[0] = 0;
+	itemPriceArr[1] = 12500;
+	itemPriceArr[2] = 13500;
+	itemPriceArr[3] = 8000;
+	itemPriceArr[4] = 14000;
+	itemPriceArr[5] = 16000;
+	itemPriceArr[6] = 32000;
+	itemPriceArr[7] = 32000;
+	var itemTypeNameArr = new Array();
+	itemTypeNameArr[0] = "";
+	itemTypeNameArr[1] = "투명아크릴";
+	itemTypeNameArr[2] = "컬러아크릴";
+	itemTypeNameArr[3] = "백색포맥스";
+	itemTypeNameArr[4] = "컬러포맥스";
+	itemTypeNameArr[5] = "폴리카보네이트";
+	itemTypeNameArr[6] = "거울아크릴";
+	itemTypeNameArr[7] = "펄아크릴";
+
+	//1:구멍가공, 2:모서리라운드, 3:테두리45도, 4:불광
+	var itemOptionPriceArr = new Array();
+	itemOptionPriceArr[0] = 0;
+	itemOptionPriceArr[1] = 1000;
+	itemOptionPriceArr[2] = 1000;
+	itemOptionPriceArr[3] = 1000;
+	itemOptionPriceArr[4] = 3000;
+	itemOptionPriceArr[5] = 1000;
+	var isItemOptionArr = new Array();
+	isItemOptionArr[0] = 0;
+	isItemOptionArr[1] = 0;
+	isItemOptionArr[2] = 0;
+	isItemOptionArr[3] = 0;
+	isItemOptionArr[4] = 0;
+	isItemOptionArr[5] = 0;
+	var itemOptionNameArr = new Array();
+	itemOptionNameArr[0] = "가공옵션미선택";
+	itemOptionNameArr[1] = "구멍가공";
+	itemOptionNameArr[2] = "모서리라운드";
+	itemOptionNameArr[3] = "테두리45도";
+	itemOptionNameArr[4] = "불광";
+	itemOptionNameArr[5] = "레이저가공";
+
+	var itemType = "";
+	var itemColor = "";
+	var itemThick = "";
+	var itemWidth = "";
+	var itemHeight = "";
+	var itemQty = "";
+	var itemPrice = 0;
+	var itemOptionPrice = 0;
+	var itemOptionSelCount = 0;
+	var itemTotalPrice = 0;
+	var totalItemCount = 0;
+	/* 기본 값 설정 끝 */
+
+	$(function(){
+		selItemType("1");
+	});
+
+	// 판 종류 선택
+	function selItemType(type) {
+		// 기존 선택되어있던 제품스펙 초기화
+		// 변수데이터 초기화
+		itemThick = "";
+		itemColor = "";
+		itemWidth = "";
+		itemHeight = "";
+		itemQty = "";
+		itemPrice = 0;
+		itemTotalPrice = 0;
+		// 사이즈, 수량, 금액 초기화
+		$("#itemWidth").val("");
+		$("#itemHeight").val("");
+		$("#itemQty").val("");
+		$("#itemPrice").val("0");
+		
+		// 기존 선택되어있던 가공옵션 초기화
+		resetOption();
+
+		$(".itemType"+itemType).removeClass("select");
+		$(".itemTypeImg"+itemType).css({opacity: 0});
+		itemType = type;
+		$(".itemType"+itemType).addClass("select");
+		$(".itemTypeImg"+itemType).css({opacity: 1});
+		getColor();
+
+		if (itemType == "1" || itemType == "2") {
+			$(".notSelOption").hide();
+		} else if (itemType == "3" || itemType == "4") {
+			$(".notSelOption3").show();
+			$(".notSelOption4").show();
+			$(".notSelOption5").show();
+		} else if (itemType == "5") {
+			$(".notSelOption3").show();
+			$(".notSelOption4").show();
+			$(".notSelOption5").show();
+		} else if (itemType == "6") {
+			$(".notSelOption4").show();
+		} else if (itemType == "7") {
+			$(".notSelOption4").show();
+		}
+
+		// 투명아크릴, 컬러아크릴 - 구멍가공, 모서리라운드 옵션 무료가공 텍스트 출력 처리 2023.06.10
+		if (itemType == "1" || itemType == "2") {
+			itemOptionPriceArr[1] = 0;
+			itemOptionPriceArr[2] = 0;
+			$(".itemOption1 .option_price").text("무료가공");
+			$(".itemOption2 .option_price").text("무료가공");
+		} else {
+			itemOptionPriceArr[1] = 1000;
+			itemOptionPriceArr[2] = 1000;
+			$(".itemOption1 .option_price").text("￦1,000원");
+			$(".itemOption2 .option_price").text("￦1,000원");
+		}
+	}
+
+	// 판 종류 선택시 색상 정보 가져오기
+	function getColor() {
+		$.ajax({
+			beforeSend: function () {
+			},
+			type: "POST",
+			url: "./code_behind/getColor.php",
+			data: {
+				itemType: itemType
+			},
+			success: function (html) {
+				if (html != "") {
+					$("#itemColor").html(html);
+					getThick();
+				}
+			},
+			complete: function () {
+			}
+		});
+	}
+
+	// 색상 선택시 두께 정보 가져오기
+	function getThick() {
+		$.ajax({
+			beforeSend: function () {
+			},
+			type: "POST",
+			url: "./code_behind/getThick.php",
+			data: {
+				itemType: itemType,
+				itemColor: $("#itemColor").val()
+			},
+			success: function (html) {
+				if (html != "") {
+					$("#itemThick").html(html);
+				}
+			},
+			complete: function () {
+			}
+		});
+	}
+
+	// 제품스펙 입력 및 선택
+	function itemCalc() {
+		if (itemType == "") {
+			alert("1번 판의 종류를 선택해 주세요.");
+			return false;
+		}
+		itemColor = $("#itemColor").val();
+		itemThick = $("#itemThick").val();
+		itemWidth = $("#itemWidth").val();
+		itemHeight = $("#itemHeight").val();
+		itemQty = $("#itemQty").val();
+
+		if (itemThick != "") {
+			// 판두께가 2T(2mm) 이하는 테두리45도 옵션 불가능
+			if (itemType != "3" && itemType != "4" && itemType != "5") {
+				if (parseInt(itemThick) <= 2) {
+					if (isItemOptionArr[3] == 1) {
+						alert("판두께가 2T(2mm) 이하는 테두리45도 옵션 선택이 불가능 합니다.");
+						isItemOptionArr[3] = 0;
+						itemOptionPrice = itemOptionPrice - itemOptionPriceArr[3];
+						itemOptionSelCount = itemOptionSelCount - 1;
+						$("#optionChk3").prop("checked", false);
+						$(".itemOption3").hide();
+					}
+					$(".notSelOption3").show();
+					// 가공옵션 선택없음 안내 내용
+					if (itemOptionSelCount > 0) {
+						$(".itemOption0").hide();
+					} else {
+						$(".itemOption0").show();
+					}
+				} else {
+					$(".notSelOption3").hide();
+				}
+			}
+		}
+
+		// 계산하기
+		if (itemThick != "" && itemWidth != "" && itemHeight != "" && itemQty != "") {
+			var SG = 1.19; // 비중 - 기본값
+			if (parseInt(itemType) == 3 || parseInt(itemType) == 4) {
+				SG = 0.79; // 비중 - 포맥스
+			}
+			var TempItemPrice = 0; // 기본 계산공식을 이용한 금액.
+			var TempAdjustPrice = 0; // 500단위 올림 조정 값. (500 / 1000 두 값만 해당 됨.)
+			var TempAdjustFirstVal = ""; // 500단위 올림 조정을 위한 뒤 세자리를 제외한 앞 값.
+			var TempAdjustLastVal = ""; // 500단위 올림 조정을 위한 뒤 세자리 값.
+			// TempItemPrice = Math.floor((((itemThick*0.1)*(itemWidth*0.1)*(itemHeight*0.1)*SG/1000)*parseInt(itemQty))*itemPriceArr[itemType]);
+			TempItemPrice = Math.floor(((itemThick*0.1)*(itemWidth*0.1)*(itemHeight*0.1)*SG/1000)*itemPriceArr[itemType]);
+			// console.log("금액계산 = "+Math.floor((((itemThick*0.1)*(itemWidth*0.1)*(itemHeight*0.1)*SG/1000)*parseInt(itemQty))*itemPriceArr[itemType]));
+			TempAdjustFirstVal =  String(TempItemPrice).substring(0, String(TempItemPrice).length-3);
+			TempAdjustLastVal = String(TempItemPrice).slice(-3);
+			if (TempItemPrice < 1000) {
+				TempAdjustFirstVal = 0;
+			}
+			// console.log("TempAdjustFirstVal = "+TempAdjustFirstVal);
+			// console.log("TempAdjustLastVal = "+TempAdjustLastVal);
+			if (parseInt(TempAdjustLastVal) > 500) {
+				TempAdjustPrice = 1000;
+			} else if (parseInt(TempAdjustLastVal) > 0 && parseInt(TempAdjustLastVal) <= 500) {
+				TempAdjustPrice = 500;
+			}
+			// TempAdjustPrice = 500;
+			// if (parseInt(TempAdjustLastVal) >= 500) {
+			// 	TempAdjustPrice = 1000;
+			// }
+			itemPrice = (parseInt(TempAdjustFirstVal)*1000) + TempAdjustPrice;
+			//수정 - 금액 보정 후 수량 처리
+			itemPrice = itemPrice * parseInt(itemQty);
+			$("#itemPrice").val(addComma(String(itemPrice)));
+
+            // 레이저가공 옵션이 이미 선택되어 있는 경우 두께10T 이상 선택시 옵션 초기화처리
+            if (isItemOptionArr[5] == 1 && parseInt(itemThick) > 10) {
+                // 가공옵션 초기화
+                resetOption();
+            } else if (isItemOptionArr[5] == 1) {
+                optionCalc(5);
+            }
+		}
+	}
+
+	// 가공옵션 선택 시
+	function optionCalc(num) {
+		var this_val = $("#optionChk"+num).val();
+
+        // 레이저가공 옵션 선택 시 금액이 필수로 미리 계산되어야 함.
+        if (parseInt(this_val) == 5 && parseInt(itemThick) > 10) {
+            $("#optionChk"+this_val).prop("checked", false);
+            alert("레이저가공은 판재 두께 10T까지 주문 가능합니다.");
+            return false;
+        } else if (parseInt(this_val) == 5 && parseInt(itemPrice) < 1) {
+            $("#optionChk"+this_val).prop("checked", false);
+            alert("주문하실 판재 정보를 모두 입력해 주세요.");
+            return false;
+        } else if (parseInt(this_val) == 5 && parseInt(itemPrice) > 0) {
+            if ($("#optionChk5").is(":checked")) {
+                // 레이저가공 옵션 선택 시 다른 옵션 제거를 위해 옵션 초기화
+                resetOption();
+                // 레이저가공 옵션 강제 선택취소
+                $("#optionChk"+this_val).prop("checked", true);
+            } else {
+                // 레이저가공 옵션 강제 선택
+                $("#optionChk"+this_val).prop("checked", false);
+            }
+        } else {
+            if ($("#optionChk5").is(":checked")) {
+                // 레이저가공 옵션이 선택되어 있고 다른 옵션 선택 시 초기화
+                resetOption();
+                $("#optionChk5").prop("checked", false);
+                $("#optionChk"+this_val).prop("checked", true);
+            }
+        }
+		if ($("#optionChk"+num).is(":checked")) {
+            if (parseInt(this_val) == 5) {
+                // 레이저가공 옵션 선택인 경우 변동 옵션금액으로 적용.
+                // 금액의 50%, 최소금액 1000원
+                itemOptionPriceArr[5] = itemPrice/2;
+                if (itemPrice/2 < 1000) {
+                    itemOptionPriceArr[5] = 1000;
+                }
+				// 단가가 500원인 경우 예외처리 (옵션금액을 1000원으로 픽스하고 수량만큼 곱하기)
+				if (parseInt(itemQty) > 1 && (itemPrice/itemQty) == 500) {
+					itemOptionPriceArr[5] = itemQty * 1000;
+				}
+
+				// 500원, 1000원 단위로 금액 보정 시작
+				if (itemOptionPriceArr[5] > 1000) {
+					var TempItemPrice = itemOptionPriceArr[5]; // 보정 전 금액 담기
+					var TempAdjustPrice = 0; // 500단위 올림 조정 값. (500 / 1000 두 값만 해당 됨.)
+					var TempAdjustFirstVal = ""; // 500단위 올림 조정을 위한 뒤 세자리를 제외한 앞 값.
+					var TempAdjustLastVal = ""; // 500단위 올림 조정을 위한 뒤 세자리 값.
+					TempAdjustFirstVal =  String(TempItemPrice).substring(0, String(TempItemPrice).length-3);
+					TempAdjustLastVal = String(TempItemPrice).slice(-3);
+					if (TempItemPrice < 1000) {
+						TempAdjustFirstVal = 0;
+					}
+					if (parseInt(TempAdjustLastVal) > 500) {
+						TempAdjustPrice = 1000;
+					} else if (parseInt(TempAdjustLastVal) > 0 && parseInt(TempAdjustLastVal) <= 500) {
+						TempAdjustPrice = 500;
+					}
+					itemOptionPriceArr[5] = (parseInt(TempAdjustFirstVal)*1000) + TempAdjustPrice;
+				}
+				// 500원, 1000원 단위로 금액 보정 끝
+				
+				// 레이저가공 변동된 금액으로 표시하기
+				$(".itemOption5 .option_price").text("￦"+addComma(String(itemOptionPriceArr[5]))+"원");
+            }
+			isItemOptionArr[this_val] = 1;
+			itemOptionSelCount = itemOptionSelCount + 1;
+			itemOptionPrice = itemOptionPrice + itemOptionPriceArr[this_val];
+			$(".itemOption"+this_val).show();
+		} else {
+			isItemOptionArr[this_val] = 0;
+			itemOptionSelCount = itemOptionSelCount - 1;
+			itemOptionPrice = itemOptionPrice - itemOptionPriceArr[this_val];
+			$(".itemOption"+this_val).hide();
+		}
+
+		// 가공옵션 선택없음 안내 내용
+		if (itemOptionSelCount > 0) {
+			$(".itemOption0").hide();
+		} else {
+			$(".itemOption0").show();
+		}
+
+        console.log("itemOptionPrice = "+itemOptionPrice);
+
+		// // 부모에게 현재 컨텐츠의 높이를 보내준다.
+		// postMsgHeight();
+	}
+
+	// // 가공옵션 선택 시 안내보기 버튼 기능
+	// function showOptionInfo(obj, num) {
+	// 	if ($(".option_sub_img"+num).css("display") == "none") {
+	// 		$(obj).text("안내닫기");
+	// 		$(".option_sub_img"+num).show();
+	// 	} else {
+	// 		$(obj).text("안내보기");
+	// 		$(".option_sub_img"+num).hide();
+	// 	}
+
+	// 	// 부모에게 현재 컨텐츠의 높이를 보내준다.
+	// 	postMsgHeight();
+	// }
+	function showOptionInfo(obj, num) {
+		// 팝업 레이어
+		// showLayer("layer_option"+num);
+
+		// 팝업 이미지 선택
+		var img_url = "";
+		if (parseInt(num) == 1) {
+			img_url = "https://www.iruridesign.com/openmarket/images/option/hole4_770px.jpg";
+		} else if (parseInt(num) == 2) {
+			img_url = "https://www.iruridesign.com/openmarket/images/option/roundin_1000px.jpg";
+		} else if (parseInt(num) == 3) {
+			img_url = "https://www.iruridesign.com/openmarket/images/option/bevel45_770px.jpg";
+		} else if (parseInt(num) == 4) {
+			img_url = "https://www.iruridesign.com/openmarket/images/option/fire_770px.jpg";
+		} else if (parseInt(num) == 5) {
+			img_url = "https://www.iruridesign.com/openmarket/images/option/laser_1000px.jpg";
+		}
+
+		var img = new Image();
+  		img.src = img_url;
+
+		var img_w = "";
+		var pop_w = "";
+		var pop_h = "";
+
+		// 모바일체크
+		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+		if(!isMobile) {
+			//PC
+			img_w = img.width;
+			pop_w = img.width+25;
+			pop_h = "800";
+			var openImgPopup = window.open('', '_blank', 'width='+pop_w+',height='+pop_h+',scrollbars=auto,resize=yes,menubar=no');
+			openImgPopup.document.write("<title>"+itemOptionNameArr[num]+" 옵션 안내</title><style>body{margin:0px;padding-bottom:0px;}</style><img src='"+img_url+"' width='"+img_w+"' />");
+		} else {
+			//MOBILE
+			img_w = img.width;
+			pop_w = img.width+25;
+			pop_h = "800";
+			var openImgPopup = window.open(img_url, "사인팜 가공옵션 안내", "width="+pop_w+",height="+pop_h+",scrollbars=auto,resize=yes,menubar=no");
+		}
+		// var openImgPopup = window.open(img_url, "signfarm", "width="+pop_w+",height="+pop_h+",scrollbars=auto,resize=yes,menubar=no");
+		// var openImgPopup = window.open('', '_blank', 'width='+img_w+',height='+pop_h+',scrollbars=auto,resize=yes,menubar=no');
+		// openImgPopup.document.write("<title>"+itemOptionNameArr[num]+" 옵션 안내</title><style>body{margin:0px;padding-bottom:0px;}</style><img src='"+img_url+"' width='"+pop_w+"' />");
+    	openImgPopup.focus();
+	}
+
+	// 현재 사이트를 불러온 부모사이트의 iframe 높이를 보내준다.
+	function postMsgHeight() {
+		var height = $("#wrap").height(); 
+		window.parent.postMessage({ height: height }, '*'); 
+		// console.log("전송할 높이 : "+height);
+	}
+
+	// 제품담은 후 아이템 초기화
+	function resetItem() {
+		// 변수데이터 초기화
+		itemThick = "";
+		itemColor = "";
+		itemWidth = "";
+		itemHeight = "";
+		itemQty = "";
+		itemPrice = 0;
+		itemTotalPrice = 0;
+
+		// 사이즈, 수량, 금액 초기화
+		$("#itemWidth").val("");
+		$("#itemHeight").val("");
+		$("#itemQty").val("");
+		$("#itemPrice").val("0");
+
+		// 가공 옵션 초기화
+		resetOption();
+
+		// 기본 아이템 선택
+		selItemType("1");
+	}
+
+	// 가공 옵션 초기화
+	function resetOption() {
+		itemOptionPrice = 0;
+		itemOptionSelCount = 0;
+		isItemOptionArr[0] = 0;
+		isItemOptionArr[1] = 0;
+		isItemOptionArr[2] = 0;
+		isItemOptionArr[3] = 0;
+		isItemOptionArr[4] = 0;
+		isItemOptionArr[5] = 0;
+
+		// 가공 옵션 초기화
+		for (i=1;i<=$(".optionChk").length;i++) {
+			$("#optionChk"+i).prop("checked", false);
+			$(".itemOption"+i).hide();
+		}
+		// 가공 옵션 미선택 안내 보이기
+		$(".itemOption0").show();
+		// 옵션 모두 선택 가능하도록
+		$(".notSelOption").hide();
+
+		// 상세옵션 초기화 (구멍가공, 모서리라운드, 레이저가공)
+		$("#itemOptionSub1 option").prop("selected", false);
+		$("#itemOptionSub2 option").prop("selected", false);
+        $("#itemOptionSub5 option").prop("selected", false);
+
+		// 옵션 안내보기 버튼명 변경 및 안내 이미지 숨기기
+		$(".btn_op_detail").text("안내보기");
+		$(".option_sub_img").hide();
+	}
+
+	// 제품담기
+	function putItemInfo() {
+		if (itemColor == "") {
+			alert("색상을 선택해 주세요.");
+			return false;
+		}
+		if (itemThick == "") {
+			alert("두께를 선택해 주세요.");
+			return false;
+		}
+		if (itemWidth == "" || parseInt(itemWidth) == 0) {
+			alert("가로 사이즈를 입력해 주세요.");
+			return false;
+		}
+		if (itemHeight == "" || parseInt(itemHeight) == 0) {
+			alert("세로 사이즈를 입력해 주세요.");
+			return false;
+		}
+		if (itemQty == "" || parseInt(itemQty) == 0) {
+			alert("수량을 입력해 주세요.");
+			return false;
+		}
+		if (isItemOptionArr[1] == 1 && $("#itemOptionSub1").val() == "") {
+			alert("구멍가공의 상세 옵션을 선택해 주세요.");
+			return false;
+		}
+		if (isItemOptionArr[2] == 1 && $("#itemOptionSub2").val() == "") {
+			alert("모서리라운드의 상세 옵션을 선택해 주세요.");
+			return false;
+		}
+        if (isItemOptionArr[5] == 1 && $("#itemOptionSub5").val() == "") {
+			alert("레이저가공의 상세 옵션을 선택해 주세요.");
+			return false;
+		}
+
+		// 판매자 전송을 위해 제품 담기
+		var itemOptionStr = "";
+		var itemOptionStrDiv = "";
+		var itemOptionStr1 = "";
+		var itemOptionStr2 = "";
+		var itemOptionStr3 = "";
+		var itemOptionStr4 = "";
+		var itemOptionStr5 = "";
+		for (i=1;i<=isItemOptionArr.length;i++) {
+			if (parseInt(isItemOptionArr[i]) == 1) {
+				if (itemOptionStr != "") {
+					itemOptionStrDiv = "/";
+				}
+				if (isItemOptionArr[1] == 1 && i == 1) {
+					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i] + "-" + $("#itemOptionSub1").val();
+					itemOptionStr1 = itemOptionNameArr[i] + "-" + $("#itemOptionSub1").val();
+				} else if (isItemOptionArr[2] == 1 && i == 2) {
+					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i] + "-" + $("#itemOptionSub2").val();
+					itemOptionStr2 = itemOptionNameArr[i] + "-" + $("#itemOptionSub2").val();
+				} else if (isItemOptionArr[3] == 1 && i == 3) {
+					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i];
+					itemOptionStr3 = itemOptionNameArr[i];
+				} else if (isItemOptionArr[4] == 1 && i == 4) {
+					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i];
+					itemOptionStr4 = itemOptionNameArr[i];
+				} else if (isItemOptionArr[5] == 1 && i == 5) {
+					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i] + "-" + $("#itemOptionSub5").val();
+					itemOptionStr5 = itemOptionNameArr[i] + "-" + $("#itemOptionSub5").val();
+				}
+			}
+		}
+		if (itemOptionStr == "") {
+			itemOptionStr = "없음"
+		}
+
+		if (itemQty == "") {
+			itemQty = 0;
+		}
+		// 제품 수량 만큼 가공옵션 금액도 증가
+		var itemOptionTotalPrice = 0;
+		itemOptionTotalPrice = itemOptionPrice*itemQty;
+        if (isItemOptionArr[5] == 1) {
+			// 레이저가공 옵션인 경우 옵션금액을 수량만큼 곱하지 않는다.
+            itemOptionTotalPrice = itemOptionPrice;
+        }
+
+		// 총금액 (제품금액+가공옵션)
+		itemTotalPrice = itemPrice + itemOptionTotalPrice;
+		var putNum = parseInt($(".estiItemChk").length) + 1;
+		var putStr = '';
+		putStr += '<tr class="estiItem'+putNum+'">';
+		putStr += '<td><input type="checkbox" value="'+putNum+'" class="estiItemChk estiItemChk'+putNum+'" /></td>';
+		putStr += '<td>'+itemTypeNameArr[itemType]+'<input type="hidden" name="ItemType[]" value="'+itemTypeNameArr[itemType]+'" /></td>';
+		putStr += '<td>'+itemColor+'<input type="hidden" name="ItemColor[]" value="'+itemColor+'" /></td>';
+		putStr += '<td>';
+		putStr += itemThick+'T/가로'+itemWidth+'mm/세로'+itemHeight+'mm';
+		putStr += '<input type="hidden" name="ItemThick[]" value="'+itemThick+'" />';
+		putStr += '<input type="hidden" name="ItemWidth[]" value="'+itemWidth+'" />';
+		putStr += '<input type="hidden" name="ItemHeight[]" value="'+itemHeight+'" />';
+		putStr += '</td>';
+		putStr += '<td>'+itemQty+'개<input type="hidden" name="ItemQty[]" value="'+itemQty+'" /></td>';
+		putStr += '<td>'+addComma(String(itemPrice))+'원<input type="hidden" name="ItemPrice[]" value="'+itemPrice+'" /></td>';
+		putStr += '<td>';
+		putStr += itemOptionStr;
+		putStr += '<input type="hidden" name="ItemOption1[]" value="'+itemOptionStr1+'" />';
+		putStr += '<input type="hidden" name="ItemOption2[]" value="'+itemOptionStr2+'" />';
+		putStr += '<input type="hidden" name="ItemOption3[]" value="'+itemOptionStr3+'" />';
+		putStr += '<input type="hidden" name="ItemOption4[]" value="'+itemOptionStr4+'" />';
+		putStr += '<input type="hidden" name="ItemOption5[]" value="'+itemOptionStr5+'" />';
+		putStr += '</td>';
+		putStr += '<td>'+addComma(String(itemOptionTotalPrice))+'원<input type="hidden" name="ItemOptionPrice[]" value="'+itemOptionTotalPrice+'" /></td>';
+		putStr += '<td>'+addComma(String(itemTotalPrice))+'원<input type="hidden" name="ItemTotalPrice[]" value="'+itemTotalPrice+'" /></td>';
+		putStr += '</tr>';
+		
+		// 제품 전송 폼에 넣기
+		$("#esti_list").append(putStr);
+
+		// 전송할 총 아이템종류 갯수 담기
+		totalItemCount = putNum;
+
+		// 총 결제금액 계산
+		totalPriceCalc();
+
+		// 선택한 제품 초기화
+		resetItem();
+	}
+
+	// 총 결제금액 계산
+	function totalPriceCalc() {
+		var totalEstiPrice = 0;		// 총견적금액
+		var totalQty = 0;			// 총제품수량
+		var marketPayQty = 0;		// 결제수량
+		var deliveryFee = 0;		// 배송비
+		var packingFee = 0;			// 포장비
+		var totalPrice = 0;			// 총결제금액
+		var isItemSizeLimit = 0;	// 포장비 대상 여부 1/0
+		var packingFeeType = 0;		// 포장비 금액 타입 0/1(10000원)/2(15000원)/3(20000원)
+		var packingFeeSize = 0;		// 포장비 금액 체크 사이즈
+
+		// 총견적금액 계산
+		for (i=0;i<$("#esti_list input[name='ItemTotalPrice[]']").length;i++) {
+			totalEstiPrice = parseInt(totalEstiPrice) + parseInt($("#esti_list input[name='ItemTotalPrice[]']").eq(i).val());
+			totalQty = parseInt(totalQty) + parseInt($("#esti_list input[name='ItemQty[]']").eq(i).val());
+			packingFeeSize = parseInt($("#esti_list input[name='ItemWidth[]']").eq(i).val()) + parseInt($("#esti_list input[name='ItemHeight[]']").eq(i).val());
+			if ( parseInt(packingFeeSize) >= 1500 && parseInt(packingFeeSize) <= 1999) {
+				if (parseInt(packingFeeType) < 1) {
+					packingFeeType = 1;
+				}
+			} else if ( parseInt(packingFeeSize) >= 2000 && parseInt(packingFeeSize) <= 2499) {
+				if (parseInt(packingFeeType) < 2) {
+					packingFeeType = 2;
+				}
+			} else if ( parseInt(packingFeeSize) >= 2500) {
+				if (parseInt(packingFeeType) < 3) {
+					packingFeeType = 3;
+				}
+			}
+		}
+		// 포장비 계산 전에는 주문금액 만원 이하만 포장비 추가했는데.. 이제는 사이즈 1500넘으면 무조건 포장비 발생 22.04.30 수정.
+		// if (packingFeeType == 1 && totalEstiPrice < 100000) {
+		// 	packingFee = 10000;
+		// }
+		if (packingFeeType == 1) {
+			packingFee = 10000;
+		} else if (packingFeeType == 2) {
+			packingFee = 15000;
+		} else if (packingFeeType == 3) {
+			packingFee = 20000;
+		}
+		console.log("packingFeeType = " + packingFeeType);
+		console.log("totalEstiPrice = " + totalEstiPrice);
+		console.log("packingFee = " + packingFee);
+		// 총결제금액 계산
+		totalPrice = totalEstiPrice+deliveryFee+packingFee;
+		// 결제수량 계산
+		marketPayQty = totalPrice / 100;
+		$("#TotalEstiPrice").val(totalEstiPrice);
+		$("#TotalQty").val(marketPayQty);
+		// $("#DeliveryFee").val(deliveryFee);
+		$("#PackingFee").val(packingFee);
+		$("#TotalPrice").val(totalPrice);
+		$("#TotalEstiPrice1").val(addComma(String(totalEstiPrice)));
+		$("#TotalQty1").val(addComma(String(marketPayQty)));
+		// $("#DeliveryFee1").val(addComma(String(deliveryFee)));
+		$("#PackingFee1").val(addComma(String(packingFee)));
+		$("#TotalPrice1").val(addComma(String(totalPrice)));
+	}
+
+	// 담은 상품 전체삭제 시
+	function resetTotalPriceCalc() {
+		$("#TotalEstiPrice").val("0");
+		$("#TotalQty").val("0");
+		$("#PackingFee").val("0");
+		$("#TotalPrice").val("0");
+		$("#TotalEstiPrice1").val("0");
+		$("#TotalQty1").val("0");
+		$("#PackingFee1").val("0");
+		$("#TotalPrice1").val("0");
+	}
+
+	// 담은 제품 선택 삭제
+	function delItem() {
+		var cnt = 0;
+		for (i=1;i<=$(".estiItemChk").length;i++) {
+			if ($(".estiItemChk"+i).is(":checked")) {
+				$(".estiItem"+i).remove();
+				cnt++;
+			}
+		}
+		if (cnt == 0) {
+			alert("삭제할 제품을 선택해 주세요.");
+		} else {
+			// 총 결제금액 계산
+			totalPriceCalc();
+		}
+	}
+
+	// 담은 제품 전체 삭제
+	function delItemAll() {
+		if (confirm("담겨있는 모든 제품을 삭제 하시겠습니까?")) {
+			$("#esti_list > tr").remove();
+			resetTotalPriceCalc();
+		}
+	}
+
+	function viewAgree() {
+		if ($("#agree_contents").css("display") == "none") {
+			$("#agree_contents").show();	
+		} else {
+			$("#agree_contents").hide();
+		}
+	}
+
+	function sendEstimate() {
+		// 전송할 데이터 체크
+		if ($("#TotalQty1").val() == "" || $("#TotalQty1").val() == "0") {
+			alert("담겨있는 제품정보가 없습니다.");
+			return false;
+		}
+		if ($("#TotalPrice1").val() == "" || $("#TotalPrice1").val() == "0") {
+			alert("담겨있는 제품정보가 없습니다.");
+			return false;
+		}
+		if ($("#cust_name").val() == "") {
+			alert("수취인명을 입력해 주세요.");
+			$("#cust_name").focus();
+			return false;
+		}
+		if ($("#cust_hp").val() == "") {
+			alert("수취인 연락처를 입력해 주세요.");
+			$("#cust_hp").focus();
+			return false;
+		}
+		if ($("#cust_email").val() == "") {
+			alert("수취인 이메일을 입력해 주세요.");
+			$("#cust_email").focus();
+			return false;
+		}
+		if (!($("#agree_chk").is(":checked"))) {
+			alert("개인정보 취급방침을 동의해 주세요.");
+			return false;
+		}
+		// 수취인정보 전송 폼에 담기
+		$("#TotalItemCount").val(totalItemCount);
+		$("#CustName").val($("#cust_name").val());
+		$("#CustHP").val($("#cust_hp").val());
+		$("#CustEmail").val($("#cust_email").val());
+		$("#CustMsg").val($("#cust_msg").val());
+		$("#RegRefer").val(document.referrer);
+
+		if (confirm("판매자에게 견적을 전송 하시겠습니까?")) {
+			$('#EstiForm').ajaxForm({
+				beforeSend: function(){
+				},
+				type: "POST",
+				url: "https://www.iruridesign.com/openmarket/setAutoCalcEstimate.php",
+				crossDomain: true,
+				success: function(result){
+					if (result != "") {
+						sendEmail(result);
+						// alert("견적전송이 완료 되었습니다.\n\n자동견적의 결제수량과 동일하게 수량을 올려 금액에 맞춰 주문해 주세요.");
+						alert("견적이 전송되었습니다.\n결제는 100원 상품 수량 "+$("#TotalQty1").val()+"개 선택하여 금액 "+$("#TotalPrice1").val()+"원 맞춰 구매하시면 됩니다.");
+					} else {
+						alert("오류가 발생하였습니다. 잠시 후 다시 이용해주세요.\n\n지속적인 오류 발생시 판매자에게 문의 부탁드립니다.");
+					}
+					self.location.reload();
+				},
+				error: function(){
+					alert("오류가 발생하였습니다. 잠시 후 다시 이용해주세요.\n\n지속적인 오류 발생시 판매자에게 문의 부탁드립니다.");
+				},
+				complete: function () {
+				}
+			}).submit();
+		}
+	}
+
+	function sendEmail(secode) {
+		$.ajax({
+			type: "POST",
+			url: "https://www.iruridesign.com/openmarket_mail.php",
+			data: {
+				SECode: secode
+			}
+		});
+	}
+
+	// 세자리 콤마 찍기
+	function addComma(val) {
+		value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return value;
+	}
+
+	// 콤마 제거
+	function delComma(val) {
+		value = val.replace(/[^\d]+/g, "");
+        return value;
+	}
+</script>
+</html>
