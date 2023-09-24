@@ -837,7 +837,7 @@
 				$('#totalPrice').text(arrResult[2]);
 				$('#totalOrder').text(arrResult[3]);
 				
-				$('#totalPrice').val(arrResult[2]);
+				$('input[name=totalPrice]').attr('value',arrResult[2]);
 				
 				$.ajax({
 			    	type : "POST",           
