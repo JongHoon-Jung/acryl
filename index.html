@@ -201,11 +201,13 @@
 		// 2T 계산함수
 		function calPrice2T(width, height, cnt) {
 		  
+		  var widthtCnt = Math.ceil(width/10) * 10;
 			var heightCnt = Math.ceil((height - 100)/100);
       var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
+			alert("widthtCnt : " + widthtCnt);
 			alert("heightCnt : " + heightCnt);
 			
       var arrHeight10= ['1000','1000','1000','2000','2000','2000','3000','3000','3000','4000','4000','5000','10000','13000','16000','19000','21000','24000','27000','30000'];
@@ -781,40 +783,28 @@
 				var totPrice = 0;
 				
 				if(thick == 2) {
-				  alert("thick : " + thick);
 					arrResult = calPrice2T(width, height, cnt);
 				} else if(thick == 3) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice3T(width, height, cnt);
 				} else if(thick == 5) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice5T(width, height, cnt);
 				} else if(thick == 8) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice8T(width, height, cnt);
 				} else if(thick == 10) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice10T(width, height, cnt);
 				} else if(thick == 12) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice12T(trans, width, height, cnt);
 				} else if(thick == 15) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice15T(trans, width, height, cnt);
 				} else if(thick == 20) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice20T(trans, width, height, cnt);
 				} else if(thick == 25) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice25T(trans, width, height, cnt);
 				} else if(thick == 30) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice30T(trans, width, height, cnt);
 				} else if(thick == 40) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice40T(trans, width, height, cnt);
 				} else if(thick == 50) {
-				  alert("thick : " + thick);
 				  arrResult = calPrice50T(trans, width, height, cnt);
 				}
 				
