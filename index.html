@@ -207,10 +207,7 @@
       var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
-			
-			alert("widthtCnt : " + widthtCnt);
-			alert("heightCnt : " + heightCnt);
-			
+
       var arrHeight10= ['1000','1000','1000','2000','2000','2000','3000','3000','3000','4000','4000','5000','10000','13000','16000','19000','21000','24000','27000','30000'];
       var arrHeight20= ['1000','2000','2000','3000','3000','4000','5000','6000','6000','8000','8000','8000','15000','18000','21000','24000','26000','29000','33000','36000'];
       var arrHeight30= ['1000','2000','3000','4000','5000','6000','7000','8000','9000','11000','11000','11000','20000','23000','26000','29000','31000','33000','39000','42000'];
@@ -228,25 +225,25 @@
 			  price = arrHeight10[heightCnt];
 			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(widthtCnt == 300) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(widthtCnt == 400) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(widthtCnt == 500) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(widthtCnt == 600) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(widthtCnt == 700) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(widthtCnt == 800) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(widthtCnt == 900) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(widthtCnt == 1000) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(widthtCnt == 1100) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(widthtCnt == 1200) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
 			}																		
     	
@@ -259,7 +256,8 @@
 		
 		// 3T 계산함수
 		function calPrice3T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
@@ -277,31 +275,31 @@
       var arrHeight110=['6000','9000','14000','19000','25000','30000','35000','40000','45000','53000','60000','66000','73000','80000','87000','94000','101000','108000','127000','134000','141000','148000','155000','162000'];
       var arrHeight120=['7000','10000','16000','21000','27000','33000','38000','43000','49000','59000','66000','74000','82000','90000','98000','106000','114000','122000','136000','144000','152000','160000','168000','176000'];
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}								
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -312,7 +310,8 @@
 		
 		// 5T 계산함수
 		function calPrice5T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
@@ -330,31 +329,31 @@
       var arrHeight110=['11000','15000','23000','31000','38000','46000','54000','62000','70000','79000','87000','93000','101000','109000','120000','128000','136000','144000','190000','198000','206000','214000','222000','230000'];
       var arrHeight120=['13000','16000','25000','35000','42000','50000','59000','67000','76000','87000','93000','103000','110000','120000','130000','140000','150000','160000','205000','215000','225000','235000','245000','255000'];
  			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}												
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -365,7 +364,8 @@
 		
 		// 8T 계산함수
 		function calPrice8T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
@@ -383,31 +383,31 @@
       var arrHeight110=['12000','25000','38000','50000','63000','75000','88000','101000','113000','132000','147000','162000','177000','192000','207000','222000','237000','252000','278000','293000','308000','323000','338000','353000'];
       var arrHeight120=['15000','27000','41000','54000','68000','83000','96000','111000','123000','146000','162000','177000','192000','207000','222000','237000','252000','267000','302000','317000','332000','347000','362000','377000'];
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}												
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -418,7 +418,8 @@
 		
 		// 10T 계산함수
 		function calPrice10T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
@@ -436,31 +437,31 @@
       var arrHeight110=['18000','32000','46000','64000','79000','95000','111000','126000','143000','161000','178000','195000','212000','229000','246000','263000','280000','297000','305000','322000','339000','356000','373000','390000'];
       var arrHeight120=['21000','34000','50000','70000','86000','102000','121000','138000','156000','176000','194000','212000','230000','248000','266000','284000','302000','320000','327000','345000','363000','381000','399000','417000'];
       
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}															
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -471,7 +472,8 @@
 		
 		// 12T 계산함수
 		function calPrice12T(trans, width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
@@ -504,31 +506,31 @@
         var arrHeight120=['32000','62000','93000','124000','154000','188000','219000','250000','279000','312000','351000','385000','419000','453000','487000','520000','554000','588000','622000','656000','689000','723000','757000','791000'];
       }
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}														
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -539,36 +541,37 @@
 		
 		// 15T 계산함수
 		function calPrice15T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}															
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -579,36 +582,37 @@
 		
 		// 20T 계산함수
 		function calPrice20T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}															
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -619,36 +623,37 @@
 		
 		// 25T 계산함수
 		function calPrice25T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}																
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -659,36 +664,37 @@
 		
 		// 30T 계산함수
 		function calPrice30T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}																
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -699,36 +705,37 @@
 		
 		// 40T 계산함수
 		function calPrice40T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}															
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
@@ -739,36 +746,37 @@
 		
 		// 50T 계산함수
 		function calPrice50T(width, height, cnt) {
-			var heightCnt = (height - 10)/10;
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
 			var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			if(width == 10) {
+			if(widthtCnt > 0 && widthtCnt <= 100) {
 			  price = arrHeight10[heightCnt];
-			} else if(width == 20) {
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
 			  price = arrHeight20[heightCnt];
-			} else if(width == 30) {
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
 			  price = arrHeight30[heightCnt];
-			} else if(width == 40) {
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
 			  price = arrHeight40[heightCnt];
-			} else if(width == 50) {
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
 			  price = arrHeight50[heightCnt];
-			} else if(width == 60) {
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
 			  price = arrHeight60[heightCnt];
-			} else if(width == 70) {
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
 			  price = arrHeight70[heightCnt];
-			} else if(width == 80) {
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
 			  price = arrHeight80[heightCnt];
-			} else if(width == 90) {
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
 			  price = arrHeight90[heightCnt];
-			} else if(width == 100) {
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
 			  price = arrHeight100[heightCnt];
-			} else if(width == 110) {
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
 			  price = arrHeight110[heightCnt];
-			} else if(width == 120) {
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
 			  price = arrHeight120[heightCnt];
-			}																		
+			}															
     	
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
