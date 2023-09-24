@@ -950,7 +950,7 @@
 					<!--
 					<input type="number" max="2400" min="100" id="height" class="form-control m-group reline" step="10">
 					-->
-					<input type="text" max="2400" min="100" id="height" class="form-control m-group reline">
+					<input type="text" max="2400" min="100" id="height" class="form-control m-group reline" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 					<span class="input-group-text m-group reline">mm</span>
 				</div>
 			</div>
@@ -963,7 +963,7 @@
 					<!--
 					<input type="number" min="1" max="9999" id="cnt" class="form-control m-group">
 					-->
-					<input type="text" min="1" max="9999" id="cnt" class="form-control m-group">
+					<input type="text" min="1" max="9999" id="cnt" class="form-control m-group"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 				</div>
 			</div>
 		</div>	
