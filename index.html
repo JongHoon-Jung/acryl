@@ -202,7 +202,8 @@
 		function calPrice2T(width, height, cnt) {
 		  
 			var heightCnt = (height - 100)/100;
-			var price = 0;
+      heightCnt = Math.ceil(heightCnt);
+      var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
