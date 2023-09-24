@@ -838,6 +838,7 @@
 				$('#totalOrder').text(arrResult[3]);
 				
 				$('input[name=totalPrice]').attr('value',arrResult[2]);
+				$('input[name=totalOrder]').attr('value',arrResult[3]);
 				
 				$.ajax({
 			    	type : "POST",           
@@ -922,7 +923,7 @@
 				</select>
 			</div>
 		</div>
-		<br/><br/>
+		<br/>
 		<div class="row justify-content-md-center pd-150">	
 			<div class="col col-4">
 				<select id="thick" class="form-select m-group">
@@ -955,7 +956,7 @@
 				</div>
 			</div>
 		</div>
-		<br/><br/>
+		<br/>
 		<div class="row justify-content-md-center pd-150">	
 			<div class="col col-4">
 				<div class="input-group">
@@ -968,7 +969,7 @@
 				</div>
 			</div>
 		</div>
-		<br/><br/>
+		<br/>
 		<div class="row justify-content-md-center pd-150">	
 			<div class="col col-4">
 				<div class="input-group">
@@ -981,7 +982,7 @@
 				</div>
 			</div>
 		</div>	
-    <br/><br/>
+    <br/>
 		<div class="row justify-content-md-center pd-150">	
 		 	<!--
 			<div class="col col-lg-4 col-5 alert-primary d-price">
@@ -1001,9 +1002,19 @@
 				</div>
 			</div>
 		</div>
+		<br/>
 		<div class="row justify-content-md-center pd-150">	
+		  <!--
 			<div class="col col-lg-4 col-5 alert-primary d-price">
 				주문 시 결제 수량 = <span id="totalOrder"></span>개
+			</div>
+			-->
+			<div class="col col-4">
+				<div class="input-group">
+					<span class="input-group-text m-group">주문 시 결제 수량</span>
+					<input type="text" id="totalOrder" class="form-control m-group" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+					<span class="input-group-text m-group reline">EA</span>
+				</div>
 			</div>
 		</div>
 		
