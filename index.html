@@ -836,7 +836,9 @@
 				$('#orderCnt').text(arrResult[1]);
 				$('#totalPrice').text(arrResult[2]);
 				$('#totalOrder').text(arrResult[3]);
-				$('#totalPrice').val() = arrResult[2];
+				
+				$('#totalPrice').val(arrResult[2]);
+				
 				$.ajax({
 			    	type : "POST",           
 			        url : "/pricing",      
