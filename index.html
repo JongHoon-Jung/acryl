@@ -201,13 +201,12 @@
 		// 2T 계산함수
 		function calPrice2T(width, height, cnt) {
 		  
-			var heightCnt = (height - 100)/100;
-      t = Math.ceil(heightCnt);
+			var heightCnt = Math.ceil((height - 100)/100);
       var price = 0;
 			var totPrice = 0;
 			var totOrder = 0;
 			
-			alert("t : " + t);
+			alert("heightCnt : " + heightCnt);
 			
       var arrHeight10= ['1000','1000','1000','2000','2000','2000','3000','3000','3000','4000','4000','5000','10000','13000','16000','19000','21000','24000','27000','30000'];
       var arrHeight20= ['1000','2000','2000','3000','3000','4000','5000','6000','6000','8000','8000','8000','15000','18000','21000','24000','26000','29000','33000','36000'];
