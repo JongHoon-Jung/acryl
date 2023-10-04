@@ -787,7 +787,7 @@
 		function formChk(trans, color, thick, width, height, cnt){
 			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
 				//$('#info').hide();
-				//$('#priceEx').show();
+				$('#priceEx').show();
 				
 				var totPrice = 0;
 				
@@ -923,8 +923,17 @@
 		</ul>
 		-->
 			
-			
+		
 		<div class="row justify-content-md-center pd-150">
+		
+  		<div id="priceEx" style="display:none;">
+  			<div id="content-img" class="alert contents-img">
+  				<div>
+  					<img id="comp" src="https://smartstore.naver.com/happyknit/products/6576315162" style="width:100%;">
+  				</div>
+  			</div>
+  		</div>
+		
 			<!--
 			<div class="col col-4">
 				<select id="trans" class="form-select m-group">
@@ -1072,6 +1081,7 @@
 		</div>
 		-->
 		
+		<!--
 		<div id="priceEx" style="display:none;">
 			<div id="content-img" class="alert contents-img">
 				<div>
@@ -1104,6 +1114,7 @@
 				</div>
 			</div>
 		</div>
+		-->
 	</div>
 </body>
 
