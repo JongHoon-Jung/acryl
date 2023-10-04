@@ -840,11 +840,11 @@
 				alert(arrResult[3]);
 				//$('#price').text(arrResult[0]);
 				//$('#orderCnt').text(arrResult[1]);
-				$('#totalPrice').text(arrResult[2]);
-				$('#totalOrder').text(arrResult[3]);
+				//$('#totalPrice').text(arrResult[2]);
+				//$('#totalOrder').text(arrResult[3]);
 				
-				//$('input[name=totalPrice]').attr('value',arrResult[2]);
-				//$('input[name=totalOrder]').attr('value',arrResult[3]);
+				$('input[name=totalPrice]').attr('value',arrResult[2]);
+				$('input[name=totalOrder]').attr('value',arrResult[3]);
 				
 				$.ajax({
 			    	type : "POST",           
