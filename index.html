@@ -250,6 +250,9 @@
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
     	var arrResult = [price, cnt, totPrice, totOrder];
+    	
+    	alert(arrResult);
+    	
     	return arrResult;
 		}
 		
@@ -787,7 +790,7 @@
 		function formChk(trans, color, thick, width, height, cnt){
 			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
 				//$('#info').hide();
-				$('#priceEx').show();
+				//$('#priceEx').show();
 				
 				var totPrice = 0;
 				
@@ -837,8 +840,8 @@
 				$('#totalPrice').text(arrResult[2]);
 				$('#totalOrder').text(arrResult[3]);
 				
-				$('input[name=totalPrice]').attr('value',arrResult[2]);
-				$('input[name=totalOrder]').attr('value',arrResult[3]);
+				//$('input[name=totalPrice]').attr('value',arrResult[2]);
+				//$('input[name=totalOrder]').attr('value',arrResult[3]);
 				
 				$.ajax({
 			    	type : "POST",           
