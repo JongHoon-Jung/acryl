@@ -51,15 +51,29 @@
 		}
 		
 		$('#color').change(function(){
-		  
-		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-1.png");
-		
+
 		  const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
+			
+			alert(colorChk);
+			
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-0.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-1.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-2.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-3.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-4.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-5.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-6.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-7.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-8.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-9.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-10.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-11.png");
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-12.png");
 			
 			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
