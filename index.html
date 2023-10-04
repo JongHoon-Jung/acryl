@@ -52,7 +52,6 @@
 		
 		$('#color').change(function(){
 
-		  const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
@@ -87,18 +86,17 @@
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-12.png");
 		  }
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 		$('#thick').change(function(){
-		  const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 		$(document).on('change', '#width', function() {
@@ -112,14 +110,13 @@
 				$('#info').show();
 			}
 			
-  		const transChk = $('#trans').val();
   		const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 			
 		$('#width').keyup(function(){
@@ -133,14 +130,13 @@
 				$('#info').show();
 			}
 			
-			const transChk = $('#trans').val();
-			const colorChk = $('#color').val();
+  		const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 		$('#height').keyup(function(){
@@ -154,14 +150,13 @@
 				$('#info').show();
 			}
 			
-			const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 		$(document).on('change', '#height', function() {
@@ -175,14 +170,13 @@
 				$('#info').show();
 			}
 			
-			const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 		$('#cnt').keyup(function(){
@@ -196,14 +190,13 @@
 				$('#info').show();
 			}
 			
-			const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 		$(document).on('change', '#cnt', function() {
@@ -217,14 +210,13 @@
 				$('#info').show();
 			}
 			
-			const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
 			const widthChk = $('#width').val();
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
 		
 
@@ -813,7 +805,7 @@
     	return arrResult;
 		}
 
-		function formChk(trans, color, thick, width, height, cnt){
+		function formChk(color, thick, width, height, cnt){
 			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
 				//$('#info').hide();
 				//$('#priceEx').show();
@@ -845,16 +837,13 @@
 				} else if(thick == 50) {
 				  arrResult = calPrice50T(trans, width, height, cnt);
 				}
-				
-				//alert("arrResult : " + arrResult);
-				
+        
 				$('.pd-150').css('padding-bottom', '0px');
 				
 				$('#p1').text(width + "x" + height + " 입력");
 				$('#p2').text(cnt + "개 입력");
 				$('#p3').text(color + " 선택");
 				$('#p4').text(thick + " 선택");
-				
 				$('#p-1').text(width + "x" + height + " / " + cnt + " / " + color + " / " + thick);
 				
 				var params = {
@@ -862,23 +851,6 @@
 					height : height,
 					thick : thick
 				}
-				
-				//alert(arrResult[2]);
-				//alert(arrResult[3]);
-				
-				//$("#totalPrice input:eq(0)").val(arrResult[2]);
-				
-				//$('#price').text(arrResult[0]);
-				//$('#orderCnt').text(arrResult[1]);
-				//$('#totalPrice').text(arrResult[2]);
-				//$('#totalOrder').text(arrResult[3]);
-				//$('#totalPrice').val() = arrResult[2];
-				//$('#totalOrder').val() = arrResult[3];
-				//$('input[name=totalPrice]').attr('value',arrResult[2]);
-				//$('input[name=totalOrder]').attr('value',arrResult[3]);
-				
-				//$('totalPrice').attr('value',arrResult[2]);
-				//$('totalOrder').attr('value',arrResult[3]);
 				
 				$("#totalPrice").val(arrResult[2]); 
 				$("#totalOrder").val(arrResult[3]); 
@@ -891,7 +863,6 @@
 						
 						var price = Number(res).toLocaleString('en');
 						var totPrice = Number(res * cnt).toLocaleString('en');
-						
 						var totCnt = Number((res * cnt) / 1000);
 						
 			      $('#price').text(price);
