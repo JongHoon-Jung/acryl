@@ -250,9 +250,6 @@
     	totPrice = price * cnt;
     	totOrder = totPrice / 1000;
     	var arrResult = [price, cnt, totPrice, totOrder];
-    	
-    	alert(arrResult);
-    	
     	return arrResult;
 		}
 		
@@ -794,6 +791,8 @@
 				
 				var totPrice = 0;
 				
+				alert("thick : " + thick);
+				
 				if(thick == 2) {
 					arrResult = calPrice2T(width, height, cnt);
 				} else if(thick == 3) {
@@ -819,6 +818,8 @@
 				} else if(thick == 50) {
 				  arrResult = calPrice50T(trans, width, height, cnt);
 				}
+				
+				alert("arrResult : " + arrResult);
 				
 				$('.pd-150').css('padding-bottom', '0px');
 				
