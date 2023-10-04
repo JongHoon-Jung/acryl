@@ -850,8 +850,11 @@
 				//$('input[name=totalPrice]').attr('value',arrResult[2]);
 				//$('input[name=totalOrder]').attr('value',arrResult[3]);
 				
-				$('totalPrice').attr('value',"123");
-				$('totalOrder').attr('value',"456");
+				//$('totalPrice').attr('value',"123");
+				//$('totalOrder').attr('value',"456");
+				
+				$("#totalPrice").val("123"); 
+				$("#totalOrder").val("456"); 
 				
 				$.ajax({
 			    	type : "POST",           
@@ -1026,7 +1029,7 @@
 			<div class="col col-4">
 				<div class="input-group">
 					<span class="input-group-text m-group">금액</span>
-					<input type="text" id="totalPrice" class="form-control m-group" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+					<input type="text" id="totalPrice" class="form-control m-group">
 					<span class="input-group-text m-group reline">원</span>
 				</div>
 			</div>
