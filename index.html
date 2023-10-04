@@ -59,21 +59,33 @@
 			const heightChk = $('#height').val();
 			const cntChk = $('#cnt').val();
 			
-			alert(colorChk);
-			
+			if(colorChk == 0) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-0.png");
+		  } else if(colorChk == 1) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-1.png");
+		  } else if(colorChk == 2) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-2.png");
+		  } else if(colorChk == 3) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-3.png");
+		  } else if(colorChk == 4) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-4.png");
+		  } else if(colorChk == 5) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-5.png");
+		  } else if(colorChk == 6) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-6.png");
+		  } else if(colorChk == 7) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-7.png");
+		  } else if(colorChk == 8) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-8.png");
+		  } else if(colorChk == 9) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-9.png");
+		  } else if(colorChk == 10) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-10.png");
+		  } else if(colorChk == 11) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-11.png");
+		  } else if(colorChk == 12) {
 		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-12.png");
+		  }
 			
 			formChk(transChk, colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
