@@ -51,6 +51,9 @@
 		}
 		
 		$('#color').change(function(){
+		  
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-1.png");
+		
 		  const transChk = $('#trans').val();
 			const colorChk = $('#color').val();
 			const thickChk = $('#thick').val();
@@ -787,7 +790,7 @@
 		function formChk(trans, color, thick, width, height, cnt){
 			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
 				//$('#info').hide();
-				$('#priceEx').show();
+				//$('#priceEx').show();
 				
 				var totPrice = 0;
 				
