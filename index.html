@@ -923,7 +923,7 @@
 			
 		
 		<div class="row justify-content-md-center pd-150">
-		
+		<!--
   		<div id="priceEx" style="display:none;">
   			<div id="content-img" class="alert contents-img">
   				<div>
@@ -931,7 +931,7 @@
   				</div>
   			</div>
   		</div>
-		
+		-->
 			<!--
 			<div class="col col-4">
 				<select id="trans" class="form-select m-group">
@@ -943,7 +943,7 @@
 			</div>
 			-->
 			
-			<div class="col col-2">
+			<div class="col col-3">
 				<select id="color" class="form-select m-group">
 					<option value="">색상</option>
 					<option value="0">투명</option>
@@ -960,11 +960,9 @@
 					<option value="11">C-11</option>
 					<option value="12">C-12</option>
 				</select>
-			</div>
-		</div>
+
 		<br/>
-		<div class="row justify-content-md-center pd-150">	
-			<div class="col col-2">
+
 				<select id="thick" class="form-select m-group">
 					<option>두께</option>
 					<option value="2">아크릴 2T</option>
@@ -980,11 +978,9 @@
 				  <option value="40">아크릴 40T</option>
 				  <option value="50">아크릴 50T</option>
 				</select>
-			</div>
-		</div>
+
 		<br/>
-		<div class="row justify-content-md-center pd-150">
-			<div class="col col-2">
+
 				<div class="input-group">
 					<span class="input-group-text m-group reline"><b>가로</b></span>
 					<input type="number" max="1200" min="100" id="width" class="form-control m-group reline" step="10">
@@ -993,11 +989,9 @@
 					-->
 					<span class="input-group-text m-group reline">mm</span>
 				</div>
-			</div>
-		</div>
+
 		<br/>
-		<div class="row justify-content-md-center pd-150">	
-			<div class="col col-2">
+
 				<div class="input-group">
 					<span class="input-group-text m-group reline" style="border-left:0;"><b>세로</b></span>
 					<input type="number" max="2400" min="100" id="height" class="form-control m-group reline" step="10">
@@ -1006,11 +1000,9 @@
 					-->
 					<span class="input-group-text m-group reline">mm</span>
 				</div>
-			</div>
-		</div>
+
 		<br/>
-		<div class="row justify-content-md-center pd-150">	
-			<div class="col col-2">
+
 				<div class="input-group">
 					<span class="input-group-text m-group">수량</span>
 					<input type="number" min="1" max="9999" id="cnt" class="form-control m-group" step="1">
@@ -1019,10 +1011,9 @@
 					-->
 					<span class="input-group-text m-group reline">EA</span>
 				</div>
-			</div>
-		</div>	
+
     <br/>
-		<div class="row justify-content-md-center pd-150">	
+
 		 	<!--
 			<div class="col col-lg-4 col-5 alert-primary d-price">
 				1장당 가격 <span id="price"></span>원 X 주문 수량 <span id="orderCnt"></span>장 
@@ -1033,16 +1024,15 @@
 				총 주문 금액 = <span id="totalPrice"></span>원
 			</div>
 			-->
-			<div class="col col-2">
+
 				<div class="input-group">
 					<span class="input-group-text m-group">금액</span>
 					<input type="text" id="totalPrice" class="form-control m-group" readonly>
 					<span class="input-group-text m-group reline">원</span>
 				</div>
-			</div>
-		</div>
+
 		<br/>
-		<div class="row justify-content-md-center pd-150">	
+
 		  <!--
 			<div class="col col-lg-4 col-5 alert-primary d-price">
 				주문 시 결제 수량 = <span id="totalOrder"></span>개
@@ -1054,8 +1044,7 @@
 					<input type="text" id="totalOrder" class="form-control m-group" readonly>
 					<span class="input-group-text m-group reline">EA</span>
 				</div>
-			</div>
-		</div>
+
 		
 	
 		<!--
