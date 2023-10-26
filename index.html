@@ -102,6 +102,8 @@
   		$(document).on('change', '#width', function() {
   			var widthVal = $('#width').val();
   			
+  			alert("widthVal : " + widthVal);
+  			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
   				$('#info').hide();
