@@ -232,8 +232,6 @@
   
       function chkValue(thick, width, height) {
       
-        //$("#cnt").val(""); 
-  			//$("#width").val(""); 
   			var flag = true;
       
         if(thick == 2) { 
@@ -244,10 +242,30 @@
               flag = false;
             } 
           }
-          
         } else if(thick >= 3 && thick <= 20) {
+          if(width < 100 || height < 100) {
+            flag = false;
+          } else {
+            if(width > 1200 || height > 2400) {
+              flag = false;
+            } 
+          }
         } else if(thick >= 25 && thick <= 40) {
+          if(width < 100 || height < 100) {
+            flag = false;
+          } else {
+            if(width > 1100 || height > 2300) {
+              flag = false;
+            } 
+          }
         } else if(thick == 50) {
+          if(width < 100 || height < 100) {
+            flag = false;
+          } else {
+            if(width > 1000 || height > 1600) {
+              flag = false;
+            } 
+          }
         } else {
         }
         
