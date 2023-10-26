@@ -184,6 +184,10 @@
   		
   		$('#cnt').keyup(function(){
   			var cntVal = $('#cnt').val();
+  			var thick = $('#thick').val();
+  			var widthVal = $('#width').val();
+  			
+  			chkWidthValue(thick, widthVal);
   			
   			if(cntVal == 0){
   				$('#notice2').show();
@@ -832,7 +836,7 @@
   
   		function formChk(color, thick, width, height, cnt){
   		
-  		  chkWidthValue(thick, width);
+  		  //chkWidthValue(thick, width);
   		
   			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
   				//$('#info').hide();
