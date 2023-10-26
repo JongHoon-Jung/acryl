@@ -224,6 +224,23 @@
   		
   
       function chkWidthValue(thick, width) {
+        if(width < 100) { 
+          alert("제작이 불가능한 사이즈 입니다.");
+        } else {
+          if(thick == 2 && width > 1000) { 
+            alert("제작이 불가능한 사이즈 입니다.");
+          } else if(thick >= 3 && thick <= 20) {
+            if(width > 1200) { 
+              alert("제작이 불가능한 사이즈 입니다.");
+            }
+          } else if(thick >= 25 && thick <= 40) {
+            if(width > 1100) { 
+              alert("제작이 불가능한 사이즈 입니다.");
+            }
+          } else if (thick == 50 && width > 1000) {
+            alert("제작이 불가능한 사이즈 입니다.");
+          }
+        } 
         alert("thick : " + thick);
         alert("width : " + width);
       }
