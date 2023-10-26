@@ -51,7 +51,14 @@
   		}
   		
   		$('#color').change(function(){
-  
+        
+        $("#thick").val("");
+        $("#width").val("");
+  		  $("#height").val("");
+  		  $("#cnt").val("");
+  		  $('#price').text("");
+  			$('#orderCnt').text("");
+        
   			const colorChk = $('#color').val();
   			const thickChk = $('#thick').val();
   			const widthChk = $('#width').val();
@@ -94,6 +101,8 @@
   		  $("#width").val("");
   		  $("#height").val("");
   		  $("#cnt").val("");
+  		  $('#price').text("");
+  			$('#orderCnt').text("");
   		
   			const colorChk = $('#color').val();
   			const thickChk = $('#thick').val();
@@ -109,6 +118,8 @@
   			
    		  $("#height").val("");
   		  $("#cnt").val("");
+  		  $('#price').text("");
+  			$('#orderCnt').text("");
   			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -132,6 +143,8 @@
   		  
    		  $("#height").val("");
   		  $("#cnt").val("");
+  		  $('#price').text("");
+  			$('#orderCnt').text("");
    			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -154,6 +167,8 @@
   			var heightVal = $('#height').val();
   			
   		  $("#cnt").val("");
+  		  $('#price').text("");
+  			$('#orderCnt').text("");
   			
   			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
   				$('#notice1').show();
@@ -176,6 +191,8 @@
   			var heightVal = $('#height').val();
   			
   		  $("#cnt").val("");
+  		  $('#price').text("");
+  			$('#orderCnt').text("");
   			
   			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
   				$('#notice1').show();
