@@ -90,6 +90,11 @@
   		});
   		
   		$('#thick').change(function(){
+  		  
+  		  $("#width").val("");
+  		  $("#height").val("");
+  		  $("#cnt").val("");
+  		
   			const colorChk = $('#color').val();
   			const thickChk = $('#thick').val();
   			const widthChk = $('#width').val();
@@ -101,6 +106,9 @@
   		
   		$(document).on('change', '#width', function() {
   			var widthVal = $('#width').val();
+  			
+   		  $("#height").val("");
+  		  $("#cnt").val("");
   			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -121,6 +129,9 @@
   			
   		$('#width').keyup(function(){
   		  var thick = $('#thick').val();
+  		  
+   		  $("#height").val("");
+  		  $("#cnt").val("");
    			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -142,6 +153,8 @@
   		$('#height').keyup(function(){
   			var heightVal = $('#height').val();
   			
+  		  $("#cnt").val("");
+  			
   			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
   				$('#notice1').show();
   				$('#info').hide();
@@ -161,6 +174,8 @@
   		
   		$(document).on('change', '#height', function() {
   			var heightVal = $('#height').val();
+  			
+  		  $("#cnt").val("");
   			
   			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
   				$('#notice1').show();
@@ -271,9 +286,9 @@
         
         if(!flag) {
           alert("제작이 불가능한 사이즈 입니다.");
-          $("#cnt").val(""); 
-  			  $("#width").val(""); 
-  			  $("#height").val(""); 
+          $("#cnt").val("");
+  			  $("#width").val("");
+  			  $("#height").val("");
         }
         
         /*
