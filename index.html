@@ -102,8 +102,6 @@
   		$(document).on('change', '#width', function() {
   			var widthVal = $('#width').val();
   			
-  			alert("widthVal : " + widthVal);
-  			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
   				$('#info').hide();
@@ -122,7 +120,10 @@
   		});
   			
   		$('#width').keyup(function(){
+  		  var thick = $('#thick').val();
   			var widthVal = $('#width').val();
+  			
+  			chkWidthValue(thick, widthVal);
   			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -221,6 +222,11 @@
   			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
   		});
   		
+  
+      function chkWidthValue(thick, width) {
+        alert("thick : " + thick);
+        alert("width : " + width);
+      }
   
   		// 2T 계산함수
   		function calPrice2T(width, height, cnt) {
