@@ -121,10 +121,7 @@
   			
   		$('#width').keyup(function(){
   		  var thick = $('#thick').val();
-  			var widthVal = $('#width').val();
-  			
-  			//chkWidthValue(thick, widthVal);
-  			
+   			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
   				$('#info').hide();
@@ -186,8 +183,9 @@
   			var cntVal = $('#cnt').val();
   			var thick = $('#thick').val();
   			var widthVal = $('#width').val();
+  			var heightVal = $('#height').val();
   			
-  			chkWidthValue(thick, widthVal);
+  			chkValue(thick, widthVal, heightVal);
   			
   			if(cntVal == 0){
   				$('#notice2').show();
@@ -210,8 +208,9 @@
   			var cntVal = $('#cnt').val();
   			var thick = $('#thick').val();
   			var widthVal = $('#width').val();
+  			var heightVal = $('#height').val();
   			
-  			chkWidthValue(thick, widthVal);
+  			chkValue(thick, widthVal, heightVal);
   			
   			if(cntVal == 0){
   				$('#notice2').show();
@@ -231,11 +230,7 @@
   		});
   		
   
-      function chkWidthValue(thick, width) {
-      
-        //var cntVal = $('#cnt').val();
-  			//var thick = $('#thick').val();
-  			//var widthVal = $('#width').val();
+      function chkValue(thick, width, height) {
       
         if(width < 100) { 
           alert("제작이 불가능한 사이즈 입니다.");
@@ -255,7 +250,28 @@
           } else if (thick == 50 && width > 1000) {
             alert("제작이 불가능한 사이즈 입니다.");
           }
-        } 
+        }
+        
+        if(height < 100) { 
+          alert("제작이 불가능한 사이즈 입니다.");
+          $("#cnt").val(""); 
+  				$("#width").val(""); 
+        } else {
+          if(thick == 2 && height > 2000) { 
+            alert("제작이 불가능한 사이즈 입니다.");
+          } else if(thick >= 3 && thick <= 20) {
+            if(height > 2400) { 
+              alert("제작이 불가능한 사이즈 입니다.");
+            }
+          } else if(thick >= 25 && thick <= 40) {
+            if(height > 2300) { 
+              alert("제작이 불가능한 사이즈 입니다.");
+            }
+          } else if (thick == 50 && height > 1600) {
+            alert("제작이 불가능한 사이즈 입니다.");
+          }
+        }
+        
       }
   
   		// 2T 계산함수
