@@ -232,10 +232,35 @@
   
       function chkValue(thick, width, height) {
       
-        if(width < 100) { 
+        //$("#cnt").val(""); 
+  			//$("#width").val(""); 
+  			var flag = true;
+      
+        if(thick == 2) { 
+          if(width < 100 || height < 100) {
+            flag = false;
+          } else {
+            if(width > 1000 || height > 2000) {
+              flag = false;
+            } 
+          }
+          
+        } else if(thick >= 3 && thick <= 20) {
+        } else if(thick >= 25 && thick <= 40) {
+        } else if(thick == 50) {
+        } else {
+        }
+        
+        if(!flag) {
           alert("제작이 불가능한 사이즈 입니다.");
           $("#cnt").val(""); 
-  				$("#width").val(""); 
+  			  $("#width").val(""); 
+  			  $("#height").val(""); 
+        }
+        
+        /*
+        if(width < 100) { 
+          alert("제작이 불가능한 사이즈 입니다.");
         } else {
           if(thick == 2 && width > 1000) { 
             alert("제작이 불가능한 사이즈 입니다.");
@@ -271,6 +296,7 @@
             alert("제작이 불가능한 사이즈 입니다.");
           }
         }
+        */
         
       }
   
