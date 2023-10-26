@@ -123,7 +123,7 @@
   		  var thick = $('#thick').val();
   			var widthVal = $('#width').val();
   			
-  			chkWidthValue(thick, widthVal);
+  			//chkWidthValue(thick, widthVal);
   			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -831,6 +831,9 @@
   		}
   
   		function formChk(color, thick, width, height, cnt){
+  		
+  		  chkWidthValue(thick, width);
+  		
   			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
   				//$('#info').hide();
   				//$('#priceEx').show();
@@ -838,7 +841,7 @@
   				var totPrice = 0;
   				
   				if(thick == 2) {
-  			          arrResult = calPrice2T(width, height, cnt);
+  			    arrResult = calPrice2T(width, height, cnt);
   				} else if(thick == 3) {
   				  arrResult = calPrice3T(width, height, cnt);
   				} else if(thick == 5) {
