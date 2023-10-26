@@ -56,8 +56,8 @@
         $("#width").val("");
   		  $("#height").val("");
   		  $("#cnt").val("");
-  		  $('#price').text("");
-  			$('#orderCnt').text("");
+  		  $("#totalPrice").val(""); 
+  			$("#totalOrder").val("");
         
   			const colorChk = $('#color').val();
   			const thickChk = $('#thick').val();
@@ -101,8 +101,8 @@
   		  $("#width").val("");
   		  $("#height").val("");
   		  $("#cnt").val("");
-  		  $('#price').text("");
-  			$('#orderCnt').text("");
+  		  $("#totalPrice").val(""); 
+  			$("#totalOrder").val("");
   		
   			const colorChk = $('#color').val();
   			const thickChk = $('#thick').val();
@@ -118,8 +118,8 @@
   			
    		  $("#height").val("");
   		  $("#cnt").val("");
-  		  $('#price').text("");
-  			$('#orderCnt').text("");
+  		  $("#totalPrice").val(""); 
+  			$("#totalOrder").val("");
   			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -143,8 +143,8 @@
   		  
    		  $("#height").val("");
   		  $("#cnt").val("");
-  		  $('#price').text("");
-  			$('#orderCnt').text("");
+  		  $("#totalPrice").val(""); 
+  			$("#totalOrder").val("");
    			
   			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
   				$('#notice1').show();
@@ -167,8 +167,8 @@
   			var heightVal = $('#height').val();
   			
   		  $("#cnt").val("");
-  		  $('#price').text("");
-  			$('#orderCnt').text("");
+  		  $("#totalPrice").val(""); 
+  			$("#totalOrder").val("");
   			
   			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
   				$('#notice1').show();
@@ -191,8 +191,8 @@
   			var heightVal = $('#height').val();
   			
   		  $("#cnt").val("");
-  		  $('#price').text("");
-  			$('#orderCnt').text("");
+  		  $$("#totalPrice").val(""); 
+  			$("#totalOrder").val("");
   			
   			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
   				$('#notice1').show();
@@ -936,8 +936,6 @@
   		}
   
   		function formChk(color, thick, width, height, cnt){
-  		
-  		  //chkWidthValue(thick, width);
   		
   			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
   				//$('#info').hide();
