@@ -208,6 +208,10 @@
   		
   		$(document).on('change', '#cnt', function() {
   			var cntVal = $('#cnt').val();
+  			var thick = $('#thick').val();
+  			var widthVal = $('#width').val();
+  			
+  			chkWidthValue(thick, widthVal);
   			
   			if(cntVal == 0){
   				$('#notice2').show();
@@ -228,8 +232,15 @@
   		
   
       function chkWidthValue(thick, width) {
+      
+        //var cntVal = $('#cnt').val();
+  			//var thick = $('#thick').val();
+  			//var widthVal = $('#width').val();
+      
         if(width < 100) { 
           alert("제작이 불가능한 사이즈 입니다.");
+          $('#cnt').val() = "";
+          $('#width').val() = "";
         } else {
           if(thick == 2 && width > 1000) { 
             alert("제작이 불가능한 사이즈 입니다.");
