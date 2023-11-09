@@ -1,7 +1,8 @@
 /* DivTable.com */
 .divTable{
 	display: table;
-	width: 100%;
+	width: 50%;
+	align: center;
 }
 .divTableRow {
 	display: table-row;
@@ -11,7 +12,7 @@
 	display: table-header-group;
 }
 .divTableCell, .divTableHead {
-	border: 1px solid #999999;
+	border: 0px solid #999999;
 	display: table-cell;
 	padding: 3px 10px;
 }
