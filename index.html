@@ -1154,70 +1154,14 @@
   </script>
   
   <body>
+
   	<div class="container-fluid p-6">
-  		<div class="text-center top">
-  		</div>
-  		
   		<div class="text-center titles">
   			아크릴 주문 금액 계산기<br/>
   		</div>
-  
-  		<!--
-  		<div class="text-center titles">
-  			<div>
-  				주문은 최소 <span>가로 100mm X 세로 100mm</span> 이상 <span>최대 가로 1200mm X 세로 2400mm</span> 이하 까지 주문 가능합니다.<br/>
-  				주문 및 장당 가격에 대한 내용은 아래 주문 방법 및 가격표 참고 부탁드립니다.<br/><br/>
-  			</div>
-  		</div>
-  		-->
-  		
-  		<!--
-  		<div class="row red">
-  			<div>
-  				정확한 mm 사이즈의 재단이 필요하신분은 소숫점으로 입력하시면 됩니다.<br/>
-  				(예시) 115mm = 11.5cm<br/><br/>
-  			</div>
-  		</div>
-  		-->
-  		
-  		<!--
-  		<ul class="con2_typeinfo child_height">
-  			<li class="itemTypeImg0"><img src="./images/item/item_0.jpg" alt="기본정보" /></li>
-  			<li class="itemTypeImg1"><img src="./images/item/item_1.jpg" alt="투명아크릴" /></li>
-  			<li class="itemTypeImg2"><img src="./images/item/item_2.jpg" alt="컬러아크릴" /></li>
-  			<li class="itemTypeImg3"><img src="./images/item/item_3.jpg" alt="백색포맥스" /></li>
-  			<li class="itemTypeImg4"><img src="./images/item/item_4.jpg" alt="컬러포맥스" /></li>
-  			<li class="itemTypeImg5"><img src="./images/item/item_5.jpg" alt="폴리카보네이트" /></li>
-  			<li class="itemTypeImg6"><img src="./images/item/item_6.jpg" alt="거울아크릴" /></li>
-  			<li class="itemTypeImg7"><img src="./images/item/item_7.jpg" alt="펄아크릴" /></li>
-  			<li style="position: relative; opacity:0;"><img src="./images/item/item_0.jpg" alt="기본정보" /></li>
-  		</ul>
-  		-->
-  			
   		
   		<div class="row justify-content-md-center pd-300">
-  		<!--
-    		<div id="priceEx" style="display:none;">
-    			<div id="content-img" class="alert contents-img">
-    				<div>
-    					<img id="comp" src="https://sell.smartstore.naver.com/shop1.phinf.naver.net/20191114_171/1573725037983MuddQ_PNG/11087371539358272_381278620.png?type=f154" width="200" height="400" style="width:100%;">
-    				</div>
-    			</div>
-    		</div>
-  		-->
-  			<!--
-  			<div class="col col-4">
-  				<select id="trans" class="form-select m-group">
-  					<option value="">투명도</option>
-  					<option value="1">1.투명아크릴</option>
-  					<option value="2">2.불투명아크릴</option>
-  					<option value="3">3.반투명아크릴</option>
-  				</select>
-  			</div>
-  			-->
-  			
   			<div class="col col-3" align="center">
-  			
     			<div id="priceEx">
       			<div id="content-img" class="alert contents-img">
       				<div>
@@ -1242,9 +1186,7 @@
   					<option value="11">C-11</option>
   					<option value="12">C-12</option>
   				</select>
-  
-  		<br/>
-  
+  		  <br/>
   				<select id="thick" class="form-select m-group">
   					<option value="">두께</option>
   					<option value="2">아크릴 2mm</option>
@@ -1256,135 +1198,41 @@
   					<option value="15">아크릴 15mm</option>
   					<option value="20">아크릴 20mm</option>
   					<option value="25">아크릴 25mm</option>
-  				  	<option value="30">아크릴 30mm</option>
-  				  	<option value="40">아크릴 40mm</option>
-  				  	<option value="50">아크릴 50mm</option>
+				  	<option value="30">아크릴 30mm</option>
+				  	<option value="40">아크릴 40mm</option>
+				  	<option value="50">아크릴 50mm</option>
   				</select>
-  
   		<br/>
-  
   				<div class="input-group">
   					<span class="input-group-text m-group reline"><b>가로</b></span>
   					<input type="number" max="1200" min="100" id="width" class="form-control m-group reline" step="10">
-  					<!--
-  					<input type="text" max="1200" min="100" id="width" class="form-control m-group reline" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-  					-->
   					<span class="input-group-text m-group reline">mm</span>
   				</div>
-  
   		<br/>
-  
   				<div class="input-group">
   					<span class="input-group-text m-group reline" style="border-left:0;"><b>세로</b></span>
   					<input type="number" max="2400" min="100" id="height" class="form-control m-group reline" step="10">
-  					<!--
-  					<input type="text" max="2400" min="100" id="height" class="form-control m-group reline" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-  					-->
   					<span class="input-group-text m-group reline">mm</span>
   				</div>
-  
   		<br/>
-  
   				<div class="input-group">
   					<span class="input-group-text m-group">수량</span>
   					<input type="number" min="1" max="9999" id="cnt" class="form-control m-group" step="1">
-  					<!--
-  					<input type="text" min="1" max="9999" id="cnt" class="form-control m-group" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-  					-->
   					<span class="input-group-text m-group reline">EA</span>
   				</div>
-  
       <br/>
-  
-  		 	<!--
-  			<div class="col col-lg-4 col-5 alert-primary d-price">
-  				1장당 가격 <span id="price"></span>원 X 주문 수량 <span id="orderCnt"></span>장 
-  			</div>
-  			-->
-  			<!--
-  			<div class="col col-lg-4 col-5 alert-primary d-price">
-  				총 주문 금액 = <span id="totalPrice"></span>원
-  			</div>
-  			-->
-  
   				<div class="input-group">
   					<span class="input-group-text m-group">금액</span>
   					<input type="text" id="totalPrice" class="form-control m-group" readonly>
   					<span class="input-group-text m-group reline">원</span>
   				</div>
-  
   		<br/>
-  
-  		  <!--
-  			<div class="col col-lg-4 col-5 alert-primary d-price">
-  				주문 시 결제 수량 = <span id="totalOrder"></span>개
-  			</div>
-  			-->
-  
   				<div class="input-group">
   					<span class="input-group-text m-group">결제 수량</span>
   					<input type="text" id="totalOrder" class="form-control m-group" readonly>
   					<span class="input-group-text m-group reline">EA</span>
   				</div>
-  
-  		
-  	
-  		<!--
-  		<div id="notice1" style="display:none;" class="alert alert-danger p-3 notice">
-  			<p>주문 가능한 크기가 아닙니다.</p>
-  			<p>최소 주문 가능 크기는 가로 5cm X 세로 5cm 이상,</p>
-  			<p>최대 주문 가능 크기는 가로 90cm X 세로 180cm 이하입니다.</p>
-  		</div>
-  		
-  		<div id="notice2" style="display:none;" class="alert alert-danger p-3 notice">
-  			<p>주문 가능한 수량이 아닙니다.</p>
-  			<p>최소 주문 가능한 수량은 1개 이상 입니다.</p>
-  		</div>
-  		
-  		<div id="info" class="alert alert-primary infos">
-  			<p>위의 색상, 두께, 가로, 세로, 수량을 입력하시면</p>
-              <p>장당 가격 및 전체 주문 금액까지 자동으로 계산이 됩니다.</p>
-              <p>더불어 구매하기 예시도 보실 수 있으니 참고 부탁드립니다.</p>
-              <p style="margin-top:100px;">아래로 내려 보시면 보다 자세하게</p>
-              <p>가격표 및 아크릴 관련 내용을 보실 수 있습니다.</p>
-  		</div>
-  		-->
-  		
-  		<!--
-  		<div id="priceEx" style="display:none;">
-  			<div id="content-img" class="alert contents-img">
-  				<div>
-  					<img id="comp" src="/assets/img/comps.png" style="width:100%;">
-  				</div>
-  				<div class="contents-txt1">
-  					<p id="p-1"></p>
-  				</div>
-  				<div class="contents-txt2">
-  					<p id="p-2"></p>
-  				</div>
-  				<div class="contents-txt3">
-  					<p id="p-3"></p>
-  				</div>
-  				<div class="contents-txt4">
-  					<p id="p-4"></p>
-  				</div>
-  				<div class="contents-txt5">
-  					<p id="p-5"></p>
-  				</div>
-  			</div>
-  			<div id="content" class="alert contents">
-  				<div class="alert alert-primary">
-  					<p style="margin-bottom:0px;">구매하기 내용을 아래와 같이 넣어주세요.</p>
-  					<div id="p1" class="pd-10"></div>
-  		            <div id="p2" class="pd-20"></div>
-  		            <div id="p3" class="pd-30"></div>
-  		            <div id="p4" class="pd-40"></div>
-  		            <div id="p5" class="pd-190"></div>
-  				</div>
-  			</div>
-  		</div>
-  		-->
   	</div>
+
   </body>
-  
-  </html>
+</html>
