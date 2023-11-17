@@ -205,9 +205,11 @@
 		}
 	</style>
 </head>
+
 <body>
 	<div id="wrap">
 		<div id="container">
+		
 			<div id="header" class="child_height">
 				<img src="./images/title/title_1000x119.jpg?v=1" class="f_l" alt="아크릴 재단 자동견적 계산기 타이틀" />
 				<!--
@@ -216,20 +218,8 @@
 				<span>(단위 : mm)</span>
 				-->
 			</div>
+			
 			<div id="contents">
-				<div class="con_1">
-					<p>1. 구매하실 판의 종류를 선택해주세요.</p>
-					<ul class="con1_type child_height">
-						<li class="itemType1" onclick="selItemType('1');">투명아크릴</li>
-						<li class="itemType2" onclick="selItemType('2');">컬러아크릴</li>
-						<li class="itemType3" onclick="selItemType('3');">백색포맥스</li>
-						<li class="itemType4" onclick="selItemType('4');">컬러포맥스</li>
-						<li class="itemType5" onclick="selItemType('5');">폴리카보네이트</li>
-						<li class="itemType6" onclick="selItemType('6');">거울아크릴</li>
-						<li class="itemType7" onclick="selItemType('7');">펄아크릴</li>
-					</ul>
-				</div>
-				<div class="line"></div>
 				<div class="con_2">
 					<p>2. 선택하신 판재의 사이즈를 입력해주세요.</p>
 					<ul class="child_height">
@@ -250,6 +240,7 @@
 							<ul class="con2_size">
 								<li>
 									<span>색상</span>
+									<!--
 									<select id="itemColor" class="select_r" dir="rtl" onchange="getThick();">
 										<option>--</option>
 										<option value="똥색">똥색</option>
@@ -268,9 +259,27 @@
 										<option value="분홍">분홍</option>
 										<option value="와인">와인</option>
 									</select>
+									-->
+									<select id="color" class="form-select m-group">
+          					<option value="">색상</option>
+          					<option value="0">투명</option>
+          					<option value="1">C-1</option>
+          					<option value="2">C-2</option>
+          					<option value="3">C-3</option>
+          					<option value="4">C-4</option>
+          					<option value="5">C-5</option>
+          					<option value="6">C-6</option>
+          					<option value="7">C-7</option>
+          					<option value="8">C-8</option>
+          					<option value="9">C-9</option>
+          					<option value="10">C-10</option>
+          					<option value="11">C-11</option>
+          					<option value="12">C-12</option>
+          				</select>
 								</li>
 								<li>
 									<span>두께</span>
+									<!--
 									<select id="itemThick" class="select_r" onchange="itemCalc();" dir="rtl">
 										<option>--</option>
 										<option value="2">2T</option>
@@ -285,27 +294,68 @@
 										<option value="50">50T</option>
 										<option value="60">60T</option>
 									</select>
+									-->
+									<select id="thick" class="form-select m-group">
+          					<option value="">두께</option>
+          					<option value="2">아크릴 2mm</option>
+          					<option value="3">아크릴 3mm</option>
+          					<option value="5">아크릴 5mm</option>
+          					<option value="8">아크릴 8mm</option>
+          					<option value="10">아크릴 10mm</option>
+          					<option value="12">아크릴 12mm</option>
+          					<option value="15">아크릴 15mm</option>
+          					<option value="20">아크릴 20mm</option>
+          					<option value="25">아크릴 25mm</option>
+        				  	<option value="30">아크릴 30mm</option>
+        				  	<option value="40">아크릴 40mm</option>
+        				  	<option value="50">아크릴 50mm</option>
+          				</select>
 									<span>mm</span>
 								</li>
 								<li>
+								  <!--
 									<span>가로</span>
 									<input type="text" name="" id="itemWidth" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
 									<span>mm</span>
+									-->
+									<span class="input-group-text m-group reline"><b>가로</b></span>
+        					<input type="number" max="1200" min="100" id="width" class="form-control m-group reline" step="10">
+        					<span class="input-group-text m-group reline">mm</span>
 								</li>
 								<li>
+								  <!--
 									<span>세로</span>
 									<input type="text" name="" id="itemHeight" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
 									<span>mm</span>
+									-->
+									<span class="input-group-text m-group reline" style="border-left:0;"><b>세로</b></span>
+        					<input type="number" max="2400" min="100" id="height" class="form-control m-group reline" step="10">
+        					<span class="input-group-text m-group reline">mm</span>
 								</li>
 								<li>
+								  <!--
 									<span>수량</span>
 									<input type="text" name="" id="itemQty" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
 									<span>EA</span>
+									-->
+									<span class="input-group-text m-group">수량</span>
+        					<input type="number" min="1" max="9999" id="cnt" class="form-control m-group" step="1">
+        					<span class="input-group-text m-group reline">EA</span>
 								</li>
 								<li>
+								  <!--
 									<span style="color:red;";>금액</span>
 									<input type="text" name="" value="0" id="itemPrice" readonly style="background:rgba(255,255,255,0.5);" />
 									<span style="color:red;">원</span>
+									-->
+									<span class="input-group-text m-group">금액</span>
+        					<input type="text" id="totalPrice" class="form-control m-group" readonly>
+        					<span class="input-group-text m-group reline">원</span>
+								</li>
+								<li>
+									<span class="input-group-text m-group">결제 수량</span>
+        					<input type="text" id="totalOrder" class="form-control m-group" readonly>
+        					<span class="input-group-text m-group reline">EA</span>
 								</li>
 							</ul>
 						</li>
