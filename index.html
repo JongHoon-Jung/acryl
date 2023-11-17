@@ -1,24 +1,21 @@
-
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>사인팜 아크릴재단 자동견적 프로그램</title>
-    <!--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">-->
-    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./css/reset.css">
-	<link rel="stylesheet" href="./css/comm.css">
+    <title>아크릴공구 제작</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" href="./css/reset.css">
+	  <link rel="stylesheet" href="./css/comm.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="./js/helper.js"></script>
+	  <script type="text/javascript" src="./js/helper.js"></script>
     <script type="text/javascript" src="./js/jquery.form_new.js"></script>
 
-	<style type="text/css">
+	  <style type="text/css">
 		#container { background: #f8f8f8; width: 100%; max-width: 1020px; margin: 0 auto; padding-bottom: 50px; }
 
 		/* #header { background: #2e427b; color: #fff; padding: 20px 15px; position: relative; }
@@ -43,7 +40,7 @@
 		.con_2 { padding: 15px; }
 		.con_2 > ul > li:first-child { width: 50%; }
 		.con_2 > ul > li:last-child { width: 50%; }
-		.con_2 .con2_typeinfo { width: 100%; height: 310px; position: relative; }
+		.con_2 .con2_typeinfo { width: 100%; height: 250px; position: relative; }
 		.con_2 .con2_typeinfo li { float: left; position: absolute; width: 100%; height: 100%; text-align: left; opacity:0; font-size: 18px; font-weight: 500; }
 		.con_2 .con2_typeinfo li:nth-child(1) { background: none; opacity: 1; }
 		.con_2 .con2_typeinfo li:nth-child(2) { background: none; }
@@ -206,19 +203,28 @@
 		}
 	</style>
 </head>
+
 <body>
 	<div id="wrap">
 		<div id="container">
+		  <!--
 			<div id="header" class="child_height">
+			-->
+			<div id="header" style="text-align:center;">
+			  <!--
 				<img src="./images/title/title_1000x119.jpg?v=1" class="f_l" alt="아크릴 재단 자동견적 계산기 타이틀" />
-				<!--
+				-->
 				<h3>아크릴재단 자동견적 계산기</h3>
+				<!--
 				<p>※ 선택가능한 사이즈 : 가로 최소 50mm ~ 최대 1200mm / 세로 최소 50mm ~ 최대 2400mm</p>
 				<span>(단위 : mm)</span>
 				-->
 			</div>
+			
 			<div id="contents">
-				<div class="con_1">
+			
+			  <!--
+			  <div class="con_1">
 					<p>1. 구매하실 판의 종류를 선택해주세요.</p>
 					<ul class="con1_type child_height">
 						<li class="itemType1" onclick="selItemType('1');">투명아크릴</li>
@@ -231,26 +237,40 @@
 					</ul>
 				</div>
 				<div class="line"></div>
+				-->
+			
 				<div class="con_2">
-					<p>2. 선택하신 판재의 사이즈를 입력해주세요.</p>
-					<ul class="child_height">
-						<li class="f_l">
+				<!-- <p>2. 선택하신 판재의 사이즈를 입력해주세요.</p> -->
+					<ul class="child_height" style="list-style: none;">
+						<li class="f_l" style="list-style: none;">
 							<ul class="con2_typeinfo child_height">
-								<li class="itemTypeImg0"><img src="./images/item/item_0.jpg" alt="기본정보" /></li>
-								<li class="itemTypeImg1"><img src="./images/item/item_1.jpg" alt="투명아크릴" /></li>
-								<li class="itemTypeImg2"><img src="./images/item/item_2.jpg" alt="컬러아크릴" /></li>
-								<li class="itemTypeImg3"><img src="./images/item/item_3.jpg" alt="백색포맥스" /></li>
-								<li class="itemTypeImg4"><img src="./images/item/item_4.jpg" alt="컬러포맥스" /></li>
-								<li class="itemTypeImg5"><img src="./images/item/item_5.jpg" alt="폴리카보네이트" /></li>
-								<li class="itemTypeImg6"><img src="./images/item/item_6.jpg" alt="거울아크릴" /></li>
-								<li class="itemTypeImg7"><img src="./images/item/item_7.jpg" alt="펄아크릴" /></li>
-								<li style="position: relative; opacity:0;"><img src="./images/item/item_0.jpg" alt="기본정보" /></li>
+							  <!--
+								<li class="itemTypeImg0"><img src="https://acrylcalc.netlify.app/c-0.png" alt="기본정보" /></li>
+								<li class="itemTypeImg1"><img src="https://acrylcalc.netlify.app/c-0.png" alt="투명아크릴" /></li>
+								<li class="itemTypeImg2"><img src="https://acrylcalc.netlify.app/c-0.png" alt="컬러아크릴" /></li>
+								<li class="itemTypeImg3"><img src="https://acrylcalc.netlify.app/c-0.png" alt="백색포맥스" /></li>
+								<li class="itemTypeImg4"><img src="https://acrylcalc.netlify.app/c-0.png" alt="컬러포맥스" /></li>
+								<li class="itemTypeImg5"><img src="https://acrylcalc.netlify.app/c-0.png" alt="폴리카보네이트" /></li>
+								<li class="itemTypeImg6"><img src="https://acrylcalc.netlify.app/c-0.png" alt="거울아크릴" /></li>
+								<li class="itemTypeImg7"><img src="https://acrylcalc.netlify.app/c-0.png" alt="펄아크릴" /></li>
+								<li style="position: relative; opacity:0;"><img src="https://acrylcalc.netlify.app/c-0.png" alt="기본정보" /></li>
+								-->
+                  <div id="priceEx">
+              			<!--
+              			<div id="content-img">
+              					<img id="comp" src="https://acrylcalc.netlify.app/c-0.png" style="width:100%;">
+              			</div>
+              			-->
+              			<img id="comp" src="https://www.iruridesign.com/openmarket/images/item/item_0.jpg">
+              			
+              		</div>
 							</ul>
 						</li>
-						<li class="f_l">
-							<ul class="con2_size">
-								<li>
+						<li class="f_l" style="list-style: none;">
+							<ul class="con2_size" style="list-style: none;">
+								<li style="list-style: none;">
 									<span>색상</span>
+									<!--
 									<select id="itemColor" class="select_r" dir="rtl" onchange="getThick();">
 										<option>--</option>
 										<option value="똥색">똥색</option>
@@ -269,9 +289,27 @@
 										<option value="분홍">분홍</option>
 										<option value="와인">와인</option>
 									</select>
+									-->
+									<select id="color" class="form-select m-group">
+          					<option>--</option>
+          					<option value="0">투명</option>
+          					<option value="1">C-1</option>
+          					<option value="2">C-2</option>
+          					<option value="3">C-3</option>
+          					<option value="4">C-4</option>
+          					<option value="5">C-5</option>
+          					<option value="6">C-6</option>
+          					<option value="7">C-7</option>
+          					<option value="8">C-8</option>
+          					<option value="9">C-9</option>
+          					<option value="10">C-10</option>
+          					<option value="11">C-11</option>
+          					<option value="12">C-12</option>
+          				</select>
 								</li>
 								<li>
 									<span>두께</span>
+									<!--
 									<select id="itemThick" class="select_r" onchange="itemCalc();" dir="rtl">
 										<option>--</option>
 										<option value="2">2T</option>
@@ -287,1238 +325,1198 @@
 										<option value="60">60T</option>
 									</select>
 									<span>mm</span>
+									-->
+									<select id="thick" class="form-select m-group">
+          					<option>--</option>
+          					<option value="2">아크릴 2mm</option>
+          					<option value="3">아크릴 3mm</option>
+          					<option value="5">아크릴 5mm</option>
+          					<option value="8">아크릴 8mm</option>
+          					<option value="10">아크릴 10mm</option>
+          					<option value="12">아크릴 12mm</option>
+          					<option value="15">아크릴 15mm</option>
+          					<option value="20">아크릴 20mm</option>
+          					<option value="25">아크릴 25mm</option>
+        				  	<option value="30">아크릴 30mm</option>
+        				  	<option value="40">아크릴 40mm</option>
+        				  	<option value="50">아크릴 50mm</option>
+          				</select>
 								</li>
 								<li>
+								  <!--
 									<span>가로</span>
 									<input type="text" name="" id="itemWidth" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
 									<span>mm</span>
+									-->
+									<span class="input-group-text m-group reline"><b>가로</b></span>
+        					<input type="number" max="1200" min="100" id="width" class="form-control m-group reline" step="10">
+        					<span class="input-group-text m-group reline">mm</span>
 								</li>
 								<li>
+								  <!--
 									<span>세로</span>
 									<input type="text" name="" id="itemHeight" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
 									<span>mm</span>
+									-->
+									<span class="input-group-text m-group reline" style="border-left:0;"><b>세로</b></span>
+        					<input type="number" max="2400" min="100" id="height" class="form-control m-group reline" step="10">
+        					<span class="input-group-text m-group reline">mm</span>
 								</li>
 								<li>
+								  <!--
 									<span>수량</span>
 									<input type="text" name="" id="itemQty" maxlength="4" onkeyup="onlyNumber(this);itemCalc();" />
 									<span>EA</span>
+									-->
+									<span class="input-group-text m-group">수량</span>
+        					<input type="number" min="1" max="9999" id="cnt" class="form-control m-group" step="1">
+        					<span class="input-group-text m-group reline">EA</span>
 								</li>
 								<li>
+								  <!--
 									<span style="color:red;";>금액</span>
 									<input type="text" name="" value="0" id="itemPrice" readonly style="background:rgba(255,255,255,0.5);" />
 									<span style="color:red;">원</span>
+									-->
+									<span class="input-group-text m-group">금액</span>
+        					<input type="text" id="totalPrice" class="form-control m-group" readonly>
+        					<span class="input-group-text m-group reline">원</span>
+								</li>
+								<li>
+									<span class="input-group-text m-group">결제 수량</span>
+        					<input type="text" id="totalOrder" class="form-control m-group" readonly>
+        					<span class="input-group-text m-group reline">EA</span>
 								</li>
 							</ul>
 						</li>
 					</ul>
-					
-					<p class="top_mt30">2-1. 가공 옵션을 선택해 주세요.</p>
-					<div class="con2_option">
-						<p style="font-size: 14px; color: red;">※ 가공 옵션이 필요한 경우 선택해 주세요. (중복선택 가능. 단, 레이저가공은 단일 선택 및 두께 10T까지만 주문 가능)</p>
-						<ul class="con2_option_chk child_height top_mt15">
-							<li>
-								<input type="checkbox" value="1" id="optionChk1" class="optionChk" onclick="optionCalc('1');">
-								<label for="optionChk1">구멍가공</label>
-								<span class="notSelOption notSelOption1" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
-							</li>
-							<li>
-								<input type="checkbox" value="2" id="optionChk2" class="optionChk" onclick="optionCalc('2');">
-								<label for="optionChk2">모서리라운드</label>
-								<span class="notSelOption notSelOption2" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
-							</li>
-							<li>
-								<input type="checkbox" value="3" id="optionChk3" class="optionChk" onclick="optionCalc('3');">
-								<label for="optionChk3">테두리45도</label>
-								<span class="notSelOption notSelOption3" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
-							</li>
-							<li>
-								<input type="checkbox" value="4" id="optionChk4" class="optionChk" onclick="optionCalc('4');">
-								<label for="optionChk4">불광</label>
-								<span class="notSelOption notSelOption4" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
-							</li>
-							<li>
-								<input type="checkbox" value="5" id="optionChk5" class="optionChk" onclick="optionCalc('5');">
-								<label for="optionChk5" class="btn_option5"><span>레이저가공<span>(원형/도면)</span></span></label>
-								<span class="notSelOption notSelOption5" onclick="alert('선택하신 제품은 해당 옵션을 적용하실 수 없습니다.');"></span>
-							</li>
-						</ul>
-						<!-- <div class="con2_option_info1">가공서비스를 선택해 주세요.</div> -->
-						<ul class="con2_option_info2 child_height">
-							<li class="itemOption0">선택된 가공옵션이 없습니다.</li>
-							<li class="itemOption1">
-								<div class="option_sub_info">
-									<span>구멍가공</span>
-									<span class="f_l left_mt10 option_tit">상세옵션</span>
-									<select id="itemOptionSub1" class="">
-										<option value="">--</option>
-										<option value="구멍 4개">구멍 4개</option>
-										<option value="긴 쪽 구멍 2개">긴 쪽 구멍 2개</option>
-										<option value="짧은 쪽 구멍 2개">짧은 쪽 구멍 2개</option>
-										<option value="모서리 구멍 1개">모서리 구멍 1개</option>
-										<option value="긴쪽 중앙 구멍 1개">긴쪽 중앙 구멍 1개</option>
-										<option value="짧은 쪽 중앙 구멍 1개">짧은 쪽 중앙 구멍 1개</option>
-									</select>
-									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '1');">안내보기</button>
-									<span class="option_price">￦1,000원</span>
-								</div>
-								<div class="option_sub_img option_sub_img1">
-									<img src="./images/option/hole4_770px.jpg" alt="구멍가공 옵션 안내 이미지" />
-								</div>
-							</li>
-							<li class="itemOption2">
-								<div class="option_sub_info">
-									<span>모서리라운드</span>
-									<span class="f_l left_mt10 option_tit">상세옵션</span>
-									<select id="itemOptionSub2" class="">
-										<option value="">--</option>
-										<option value="라운드 4개">라운드 4개</option>
-										<option value="긴 쪽 라운드 2개">긴 쪽 라운드 2개</option>
-										<option value="짧은 쪽 라운드 2개">짧은 쪽 라운드 2개</option>
-										<option value="모서리 라운드 1개">모서리 라운드 1개</option>
-									</select>
-									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '2');">안내보기</button>
-									<span class="option_price">￦1,000원</span>
-								</div>
-								<div class="option_sub_img option_sub_img2">
-									<img src="./images/option/roundin_1000px.jpg" alt="모서리 라운드 옵션 안내 이미지" />
-								</div>
-							</li>
-							<li class="itemOption3">
-								<div class="option_sub_info">
-									<span>테두리45도</span>
-									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '3');">안내보기</button>
-									<span class="option_price">￦1,000원</span>
-								</div>
-								<div class="option_sub_img option_sub_img3">
-									<img src="./images/option/bevel45_770px.jpg" alt="테두리45도 옵션 안내 이미지" />
-								</div>
-							</li>
-							<li class="itemOption4">
-								<div class="option_sub_info">
-									<span>불광</span>
-									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '4');">안내보기</button>
-									<span class="option_price">￦3,000원</span>
-								</div>
-								<div class="option_sub_img option_sub_img4">
-									<img src="./images/option/fire_770px.jpg" alt="불광 옵션 안내 이미지" />
-								</div>
-							</li>
-							<li class="itemOption5">
-								<div class="option_sub_info">
-									<span>레이저가공</span>
-                                    <span class="f_l left_mt10 option_tit">상세옵션</span>
-									<select id="itemOptionSub5" class="">
-										<option value="">--</option>
-										<option value="원형">원형</option>
-										<option value="타원형">타원형</option>
-										<option value="사각형">사각형</option>
-										<option value="도면첨부">도면첨부(acmc6954@naver.com)</option>
-									</select>
-									<button type="button" class="btn_op_detail br3px" onclick="showOptionInfo(this, '5');">안내보기</button>
-									<span class="option_price">￦1,000원</span>
-								</div>
-								<div class="option_sub_img option_sub_img5">
-									<img src="./images/option/laser_1000px.jpg" alt="레이저가공 옵션 안내 이미지" />
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div class="con2_btn">
-						<button type="button" class="btn_selend br5px" onclick="putItemInfo();">제품담기</button>
-					</div>
 				</div><!--con_2-->
-
-				<div class="line"></div>
-				<div class="con_3">
-					<form id="EstiForm" name="EstiForm" method="post" action="">
-						<p>3. 주문하실 견적서를 확인한 뒤 판매자에게 전송해주세요.</p>
-						<div>
-							<div class="con3_thead">
-								<table>
-									<colgroup>
-										<col width="5%" />
-										<col width="10%" />
-										<col width="7%" />
-										<col width="19%" />
-										<col width="5%" />
-										<col width="10%" />
-										<col width="19%" />
-										<col width="10%" />
-										<col width="15%" />
-									</colgroup>
-									<thead>
-										<tr>
-											<th></th>
-											<th>제품명</th>
-											<th>색상</th>
-											<th>주문크기</th>
-											<th>수량</th>
-											<th>금액</th>
-											<th>가공옵션</th>
-											<th>가공금액</th>
-											<th>총금액</th>
-										</tr>
-									</thead>
-								</table>
-							</div>
-							<div class="con3_tbody">
-								<table>
-									<colgroup>
-										<col width="5%" />
-										<col width="10%" />
-										<col width="7%" />
-										<col width="19%" />
-										<col width="5%" />
-										<col width="10%" />
-										<col width="19%" />
-										<col width="10%" />
-										<col width="15%" />
-									</colgroup>
-									<tbody id="esti_list"></tbody>
-								</table>
-							</div>
-							<div class="con3_del">
-								<ul class="child_height">
-									<li class="f_l">
-										<button type="button" class="br2px" onclick="delItem();">선택삭제</button>
-										<button type="button" class="br2px" onclick="delItemAll();">전체삭제</button>
-									</li>
-									<li class="f_l"></li>
-									<li class="f_l"></li>
-								</ul>
-							</div>
-						</div>
-						<div class="con3_total child_height">
-							<div class="f_l con3_total_l">
-								<h3>총 결제금액</h3>
-								<ul>
-									<li>백원단위결제금액에서 <span style="font-weight:bold;"><span style="color:red;">결제수량</span>대로 수량을 동일하게 입력하여 구매하시면 됩니다.</span></li>
-									<li>택배가능한 사이즈는 1200mm x 900mm 이하로만 가능합니다. 그 이상 대형사이즈는 방문수령이나 퀵화물(배송비 별도 발생)로 가능합니다. 방문수령시 배송메시지에 남겨주세요.</li>
-									<li class="top_mt5 strong">
-										가로 + 세로 사이즈가 아래에 해당되면 포장비가 추가 발생됩니다.
-										<br/>
-										- 1500mm 이상 10,000원
-										<br/>
-										- 2000mm 이상 15,000원
-										<br/>
-										- 2500mm 이상 20,000원
-									</li>
-								</ul>
-							</div>
-							<div class="f_r con3_total_r">
-								<ul>
-									<li>
-										<span>원</span>
-										<input type="text" value="" id="TotalEstiPrice1" readonly />
-										<input type="hidden" name="TotalEstiPrice" value="" id="TotalEstiPrice" readonly />
-										<span class="total_tit">총견적금액</span>
-									</li>
-									<!-- <li>
-										<span>원</span>
-										<input type="text" value="" id="DeliveryFee1" readonly />
-										<input type="hidden" name="DeliveryFee" value="" id="DeliveryFee" readonly />
-										<span class="total_tit">배송비</span>
-									</li> -->
-									<li>
-										<span>원</span>
-										<input type="text" value="" id="PackingFee1" readonly />
-										<input type="hidden" name="PackingFee" value="" id="PackingFee" readonly />
-										<span class="total_tit">포장비</span>
-									</li>
-									<li class="total_price">
-										<span>원</span>
-										<input type="text" value="" id="TotalPrice1" readonly />
-										<input type="hidden" name="TotalPrice" value="" id="TotalPrice" readonly />
-										<span class="total_tit">총결제금액</span>
-									</li>
-									<li class="pay_qty">
-										<span>개</span>
-										<input type="text" value="" id="TotalQty1" readonly />
-										<input type="hidden" name="TotalQty" value="" id="TotalQty" readonly />
-										<span class="total_tit">결제수량</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<input type="hidden" name="TotalItemCount" value="" id="TotalItemCount" />
-						<input type="hidden" name="CustName" value="" id="CustName" />
-						<input type="hidden" name="CustHP" value="" id="CustHP" />
-						<input type="hidden" name="CustEmail" value="" id="CustEmail" />
-						<input type="hidden" name="CustMsg" value="" id="CustMsg" />
-						<input type="hidden" name="RegRefer" value="" id="RegRefer" />
-						<input type="hidden" name="Market" value="storefarm" />
-					</form>
-				</div><!--con_3-->
-				<div class="line"></div>
-				<div class="con_4">
-					<div class="con4_custinfo">
-						<!--<p>※ 주문시 수취인 성함과 동일하게 작성해주셔야 확인이 가능합니다.</p>-->
-						<div class="child_height">
-							<div class="f_l">
-								<p>※ 주문시 수취인 성함과 동일하게 작성해주셔야 확인이 가능합니다.</p>
-								<ul class="">
-									<li><input type="text" id="cust_name" placeholder="수취인명" maxlength="20" /></li>
-									<li><input type="text" id="cust_hp" placeholder="수취인 연락처 ('-'제외하고 숫자만 입력해 주세요.)" maxlength="11" onkeyup="onlyNumber(this);" /></li>
-									<li><input type="text" id="cust_email" placeholder="수취인 이메일 (견적서가 전송됩니다.)" maxlength="100" /></li>
-								</ul>
-							</div>
-							<div class="f_r">
-								<p>※ 요청사항을 남겨주세요.</p>
-								<textarea name="" id="cust_msg" rows="5" class="" placeholder="견적문의 및 상품문의는 톡톡 또는 1:1 문의 게시판으로 올려주시면 빠른 상담이 가능합니다." maxlength="250"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="con4_info top_mt30">
-						<div>
-							<h5>※ 반드시 확인 후 결제를 진행해주세요!</h5>
-							<ul>
-								<li style="color:red;">- 판매자에게 견적서를 전송해주신 뒤 결제수량대로 결제를 진행해주시면 됩니다.</li>
-								<li>- 재단 상품은 주문과 동시에 원판을 재단하여 제작되기 때문에 <span style="color:red;">교환/환불/취소</span>가 불가합니다.</li>
-								<li>- 아크릴 원판생산과정에서 <span style="color:red;">두께편차</span>가 발생할 수 있습니다.</li>
-								<li>- 사이즈를 입력하실때에는 반드시 <span style="color:red;">mm 단위로 입력</span>해 주시기 바랍니다.(120cm → 1200mm)</li>
-								<li>- 가공서비스 후 남은 자투리는 보내드리지 않습니다.</li>
-							</ul>
-						</div>
-					</div>
-					<!-- 개인정보 취급방침 -->
-					<div class="con4_agree">
-						<div>
-							<div class="agree_btn">
-								<label>
-									<input type="checkbox" id="agree_chk" name="agree_chk" value="">
-									<span>개인정보 취급방침에 동의합니다.</span>
-								</label>
-								<a href="javascript:viewAgree();" class="btn_agree br3px">전문보기</a>
-							</div>
-							<div id="agree_contents" style="display:none; margin-top:20px;">
-								<textarea cols="30" rows="10">
-아크릴 전문쇼핑몰 사인팜은 고객님들의 개인정보를 매우 소중하게 생각하며 다음과 같은 개인정보취급방침을 시행하고 있습니다.
-이 개인정보취금방침은 관련 법률 또는 지침의 변경, 회사정책의 변화에 따라 달라질 수 있으니, 고객님께서는 사인팜 방문시 수시로 확인하여 주시기 바랍니다. 
-
-'사인팜'은 (이하 '회사')는 고객님의 개인정보를 중요시하며, "정보통신망 이용촉진 및 정보보호"에 관한 법류을 준수하고 있습니다. 
-회사는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.
-회사는 개인정보 취급방침을 개정하는 경우 웹사이트 공지사항 (또는 개별공지)를 통하여 공지할 것입니다.
-본 방침은 2009년 05월 01일부터 시행됩니다. 
-
-
-
-1. 수집하는 개인정보의 항목 및 방법
-
-회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
-
-* 수집항목 : 이름, 성별, 로그인ID, 비밀번호, 자택 전화번호, 자택주소, 휴대전화번호, 이메일, 직업, 신용카드정보, 은행계좌 정보, 서비스 이용기록, 접속 로그, 쿠키, 접속 IP정보, 결제기록, 관심상품, 접속경로
-* 개인정보 수집방법 : 홈페이지 (회원가입, 물품구매)
-
-
-
-2. 개인정보의 수집 및 이용목적
-
-회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.
-
-* 서비스 제공에 과한 계약 이행 및 서비스 제공에 따른 요금정산 - 콘텐츠 제공, 구매 및 요금 결제, 물품배송 또는 청구지 등 발송, 금융거래 본인 인증 및 금융 서비스, 요금 추심
-* 회원관리- 회원제 서비스 이용에 따른 본인확인, 개인식별, 불량회원의 부정 이용 방지와 비인가 사용방지, 불만처리 등 민원처리, 고지사항 전달
-* 마케팅 및 광고에 활용- 이벤트 등 광고성 정보전달
-
-
-
-3. 개인정보의 보유 및 이용기간
-
-원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체없이 파기합니다.
-단, 관계법령의 규정에 희아혀 보존 할 필요가 있는 경우, 회사는 아래와 같이 관계법령에서 정한 일정한 기간동안 회원정보를 보관합니다.
-
-* 보존항목 : 이름, 성별, 로그인ID, 자택 전화번호, 휴대전화번호, 신용카드정보, 은행계좌 정보
-* 보존근거 : 전자상거래등에서의 소비자보호에 관한 법률, 신용정보의 이용 및 보호에 관한 법률
-* 보존기간 : 3개월
-
-
-
-4. 개인정보의 파기 절차 및 방법
-
-회사는 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체없이 파기합니다. 파기절차 및 방법은 다음과 같습니다.
-
-* 파기절차 : 회원밍 ㅣ회원가입 등을 위해 입력하신 정보는 목적이 달성된 후 별도의 DB로 옮겨져 (종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라 (보유 및 이용기간 참조) 일정기간 저장된 후 파기되어 집니다. 별도 DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 보유되어지는 이외의 다른 목적으로 이용되지 않습니다.
-* 파기방법 : 전자적 파일형태로 저장되 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제됩니다.
-
-
-
-5. 개인정보 제공동의
-
-회사는 회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.
-
-- 이용자들이 사전에 동의한 경우
-- 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우
-
-
-
-6. 수집한 개인정보의 취급위탁
-
-회사는 고객님의 동의없이 고객님의 정보를 외부 업체에 위탁하지 않습니다. 
-향후 그러한 필요가 생길 경우, 위탁 대상자와 위탁 업무 내용에 대해 고객님에게 통지하고 필요한 경우 사전 동의를 받도록 하겠습니다.
-
-* 수탁자 : NICE평가정(주) - 수탁범위 : 실명/본인인증, 아이핀 제공 
-* 수탁자 : KCP, LG U+ - 수탁범위 : 상품구매에 필요한 신용카드, 현금결제등의 결제정보 전송 
-* 수탁자 : CJ대한통운택배, 경동택배 - 수탁범위 : 상품의 배송업무 처리
-
-
-
-7. 이용자 및 법정대리인의 권리와 그 행사방법
-
-이용자 및 법정 대리인은 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수 있습니다. 이용자 혹은 만 14세 미만 아동의 개인정보 조회 및 수정을 위해서는 '개인정보변경' (또는 '회원정보수정' 등)을 가입해지(동의철회)를 위해서는 "회원탈퇴"를 클릭하여 본인절차를 거치신 후 직접 열람, 정정 또는 탈퇴가 가능합니다. 혹은 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체없이 조치하겠습니다. 귀하가 개인정보의 오류에 대한 정정을 요청하신 경우에는 정정을 완료하기전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제 3자에게 지체없이 통보하여 정정이 이루어지도록 하겠습니다. 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보는 수닙하는 개인정보의 보유 및 이용기간에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용 할 수 없도록 처리하고 있습니다.
-
-
-
-8. 개인정보수집장치의 설치,운영,거부에 관한 사항
-
-회사는 귀하의 정보를 수시로 저장하고 찾아내는 '쿠키(Cookie)'등을 운영합니다. 쿠키란 "회사"의 웹사이트를 운용하는데 이용되는 서버가 
-귀하의 브라우저에 보내는 아주 작은 텍스트 파일로서 귀하의 컴퓨터 하드디스크에 저장됩니다. 회사는 다음과 같은 목적을 위해 쿠키를 사용합니다.
-단, 귀하께서 쿠키 설치를 거부하였을 경우, 서비스 제공에 어려움이 있을 수 있습니다.
-
-* 쿠키 등 사용목적 
-- 회원과 비회원의 접속 빈도나 방문 시간등을 분석, 이용자의 취향과 관심분야를 파악 및 자취 추적, 각종 이벤트 참여 정보 및 방문 횟수 파악등을 통한 타겟 마케팅 및 개인 맞춤 서비스 제공 
-- 귀하는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 귀하는 웹브라우저에서 옵션을 설정하여 모든 쿠키를 허용하거나, 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수 있습니다. 
-* 설정방법 : - (예: 인터넷 익스플로어의 경우 웹브라우저 상단의 도구 메뉴 &gt; 인터넷 옵션 &gt; 개인정보 클릭)
-
-
-
-9. 개인정보에 관한 민원서비스
-
-회사는 고객의 개인정보와 관련한 불만을 처리하기 위하여 아래와 같은 관련 부서 및 개인정보 관리책임자를 지정하고 있습니다.
-
-* 고객서비스 담당부서 : 고객관리팀 
-* 담당자 : 김보윤 
-* 전화번호 : 032-575-6606
-* 이메일 : acmc6954@naver.com
-
-
-귀하께서는 회사의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자 또는 담당부서로 신고하실 수 있습니다. 
-회사는 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴것입니다. 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.
-
-1. 개인분쟁조정위원회 (www.1336.or.kr/1336) 
-2. 정보보호마크인증위원회 (www.erprivacy.or.kr/02-580-0533~4) 
-3. 대검찰청 인터넷범죄수사센터 (http://icic.soop.go.kr/02-3480-3360)
-4. 경찰청 사이버테러대응센터 (www.ctrc.go.kr/02-392-0330)
-
-
-
-10. 기타 개인정보 취급에 관한 방침
-
-2006년 09월 25일부터 적용되는 개정 주민등록법에 의하면 타인의 주민등록번호를 도용하여 온라인 회원가입을 하는 등 타인의 주민등록번호를 부정사용하는 자는 3년 이하의 징역 또는 1천만원 이하의 벌금형에 처해질 수 있습니다. 따라서 타인의 주민등록번호를 도용하여 회원가입을 사히려는 분들 또는 회원으로 가입하신 분들은 즉시 도용행위를 중단해 주실 것을 부탁드립니다.
-								</textarea>
-							</div>
-						</div>
-					</div>
-					<!-- 개인정보 취급방침 내용 -->
-					<div class="btn_wrap">
-						<button type="button" class="btn_send br5px" onclick="sendEstimate();">판매자에게 견적전송하기</button>
-					</div>
-				</div><!--con_4-->
 			</div><!--contents-->
 		</div><!--container-->
 	</div>
-
-	<!-- <div id="popup_layer_w" class="club_lay layer_web" style="display: none; width: 20%; min-width: 400px; max-width: 450px; z-index: 999; background:#333;">
-		<div class="popupWrap child_height">
-			<img src="./images/" style="width:100%; vertical-align:top; line-height:0; float:left;">
-			<div style="width:100%;background:#333;color:#fff;height:25px;line-height:25px;margin-top:0px; float:left;">
-				<label style="width:100%;" class="child_height">
-					<span style="font-size:11px;float:left;margin-left:10px;" onClick="javascript: closeWin('popup_layer_w', 1);">하루 동안 이 창을 열지 않음</span>
-					<span style="font-size:11px;float:right;margin-right:10px;" onClick="hideLayer('popup_layer_w');">닫기</span>
-				</label>
-			</div>
-		</div>
-	</div> -->
-
-	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option1">
-		<h3>구멍가공 안내  <a href="javascript:hideLayer('layer_option1');" class="close"></a></h3>
-		<div class="layer_img">
-			<img src="./images/option/hole4_770px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
-		</div>
-	</div>
-	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option2">
-		<h3>모서리라운드 안내  <a href="javascript:hideLayer('layer_option2');" class="close"></a></h3>
-		<div class="layer_img">
-			<img src="./images/option/roundin_1000px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
-		</div>
-	</div>
-	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option3">
-		<h3>테두리45도 안내  <a href="javascript:hideLayer('layer_option3');" class="close"></a></h3>
-		<div class="layer_img">
-			<img src="./images/option/bevel45_770px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
-		</div>
-	</div>
-	<div class="layer-box layer_web" style="top:20%; left:4%;  width:90%; display:none; z-index: 9999;" id="layer_option4">
-		<h3>불광 안내  <a href="javascript:hideLayer('layer_option4');" class="close"></a></h3>
-		<div class="layer_img">
-			<img src="./images/option/fire_770px.jpg" alt="구멍가공 옵션 안내 이미지" style="vertical-align:top;line-height:0;" />
-		</div>
-	</div>
 </body>
+
 <script type="text/javascript">
-	/* 기본 값 설정 시작 */
-	// 1:투명아크릴, 2:컬러아크릴, 3:백색포맥스, 4:컬러포맥스, 5:폴리카보네이트, 6:거울아크릴, 7:펄아크릴
-	var itemPriceArr = new Array();
-	itemPriceArr[0] = 0;
-	itemPriceArr[1] = 12500;
-	itemPriceArr[2] = 13500;
-	itemPriceArr[3] = 8000;
-	itemPriceArr[4] = 14000;
-	itemPriceArr[5] = 16000;
-	itemPriceArr[6] = 32000;
-	itemPriceArr[7] = 32000;
-	var itemTypeNameArr = new Array();
-	itemTypeNameArr[0] = "";
-	itemTypeNameArr[1] = "투명아크릴";
-	itemTypeNameArr[2] = "컬러아크릴";
-	itemTypeNameArr[3] = "백색포맥스";
-	itemTypeNameArr[4] = "컬러포맥스";
-	itemTypeNameArr[5] = "폴리카보네이트";
-	itemTypeNameArr[6] = "거울아크릴";
-	itemTypeNameArr[7] = "펄아크릴";
-
-	//1:구멍가공, 2:모서리라운드, 3:테두리45도, 4:불광
-	var itemOptionPriceArr = new Array();
-	itemOptionPriceArr[0] = 0;
-	itemOptionPriceArr[1] = 1000;
-	itemOptionPriceArr[2] = 1000;
-	itemOptionPriceArr[3] = 1000;
-	itemOptionPriceArr[4] = 3000;
-	itemOptionPriceArr[5] = 1000;
-	var isItemOptionArr = new Array();
-	isItemOptionArr[0] = 0;
-	isItemOptionArr[1] = 0;
-	isItemOptionArr[2] = 0;
-	isItemOptionArr[3] = 0;
-	isItemOptionArr[4] = 0;
-	isItemOptionArr[5] = 0;
-	var itemOptionNameArr = new Array();
-	itemOptionNameArr[0] = "가공옵션미선택";
-	itemOptionNameArr[1] = "구멍가공";
-	itemOptionNameArr[2] = "모서리라운드";
-	itemOptionNameArr[3] = "테두리45도";
-	itemOptionNameArr[4] = "불광";
-	itemOptionNameArr[5] = "레이저가공";
-
-	var itemType = "";
-	var itemColor = "";
-	var itemThick = "";
-	var itemWidth = "";
-	var itemHeight = "";
-	var itemQty = "";
-	var itemPrice = 0;
-	var itemOptionPrice = 0;
-	var itemOptionSelCount = 0;
-	var itemTotalPrice = 0;
-	var totalItemCount = 0;
-	/* 기본 값 설정 끝 */
-
 	$(function(){
-		selItemType("1");
-	});
-
-	// 판 종류 선택
-	function selItemType(type) {
-		// 기존 선택되어있던 제품스펙 초기화
-		// 변수데이터 초기화
-		itemThick = "";
-		itemColor = "";
-		itemWidth = "";
-		itemHeight = "";
-		itemQty = "";
-		itemPrice = 0;
-		itemTotalPrice = 0;
-		// 사이즈, 수량, 금액 초기화
-		$("#itemWidth").val("");
-		$("#itemHeight").val("");
-		$("#itemQty").val("");
-		$("#itemPrice").val("0");
 		
-		// 기존 선택되어있던 가공옵션 초기화
-		resetOption();
+		var filter = "win16|win32|win64|mac|macintel";
 
-		$(".itemType"+itemType).removeClass("select");
-		$(".itemTypeImg"+itemType).css({opacity: 0});
-		itemType = type;
-		$(".itemType"+itemType).addClass("select");
-		$(".itemTypeImg"+itemType).css({opacity: 1});
-		getColor();
-
-		if (itemType == "1" || itemType == "2") {
-			$(".notSelOption").hide();
-		} else if (itemType == "3" || itemType == "4") {
-			$(".notSelOption3").show();
-			$(".notSelOption4").show();
-			$(".notSelOption5").show();
-		} else if (itemType == "5") {
-			$(".notSelOption3").show();
-			$(".notSelOption4").show();
-			$(".notSelOption5").show();
-		} else if (itemType == "6") {
-			$(".notSelOption4").show();
-		} else if (itemType == "7") {
-			$(".notSelOption4").show();
-		}
-
-		// 투명아크릴, 컬러아크릴 - 구멍가공, 모서리라운드 옵션 무료가공 텍스트 출력 처리 2023.06.10
-		if (itemType == "1" || itemType == "2") {
-			itemOptionPriceArr[1] = 0;
-			itemOptionPriceArr[2] = 0;
-			$(".itemOption1 .option_price").text("무료가공");
-			$(".itemOption2 .option_price").text("무료가공");
-		} else {
-			itemOptionPriceArr[1] = 1000;
-			itemOptionPriceArr[2] = 1000;
-			$(".itemOption1 .option_price").text("￦1,000원");
-			$(".itemOption2 .option_price").text("￦1,000원");
-		}
-	}
-
-	// 판 종류 선택시 색상 정보 가져오기
-	function getColor() {
-		$.ajax({
-			beforeSend: function () {
-			},
-			type: "POST",
-			url: "./code_behind/getColor.php",
-			data: {
-				itemType: itemType
-			},
-			success: function (html) {
-				if (html != "") {
-					$("#itemColor").html(html);
-					getThick();
-				}
-			},
-			complete: function () {
-			}
-		});
-	}
-
-	// 색상 선택시 두께 정보 가져오기
-	function getThick() {
-		$.ajax({
-			beforeSend: function () {
-			},
-			type: "POST",
-			url: "./code_behind/getThick.php",
-			data: {
-				itemType: itemType,
-				itemColor: $("#itemColor").val()
-			},
-			success: function (html) {
-				if (html != "") {
-					$("#itemThick").html(html);
-				}
-			},
-			complete: function () {
-			}
-		});
-	}
-
-	// 제품스펙 입력 및 선택
-	function itemCalc() {
-		if (itemType == "") {
-			alert("1번 판의 종류를 선택해 주세요.");
-			return false;
-		}
-		itemColor = $("#itemColor").val();
-		itemThick = $("#itemThick").val();
-		itemWidth = $("#itemWidth").val();
-		itemHeight = $("#itemHeight").val();
-		itemQty = $("#itemQty").val();
-
-		if (itemThick != "") {
-			// 판두께가 2T(2mm) 이하는 테두리45도 옵션 불가능
-			if (itemType != "3" && itemType != "4" && itemType != "5") {
-				if (parseInt(itemThick) <= 2) {
-					if (isItemOptionArr[3] == 1) {
-						alert("판두께가 2T(2mm) 이하는 테두리45도 옵션 선택이 불가능 합니다.");
-						isItemOptionArr[3] = 0;
-						itemOptionPrice = itemOptionPrice - itemOptionPriceArr[3];
-						itemOptionSelCount = itemOptionSelCount - 1;
-						$("#optionChk3").prop("checked", false);
-						$(".itemOption3").hide();
-					}
-					$(".notSelOption3").show();
-					// 가공옵션 선택없음 안내 내용
-					if (itemOptionSelCount > 0) {
-						$(".itemOption0").hide();
-					} else {
-						$(".itemOption0").show();
-					}
-				} else {
-					$(".notSelOption3").hide();
-				}
-			}
-		}
-
-		// 계산하기
-		if (itemThick != "" && itemWidth != "" && itemHeight != "" && itemQty != "") {
-			var SG = 1.19; // 비중 - 기본값
-			if (parseInt(itemType) == 3 || parseInt(itemType) == 4) {
-				SG = 0.79; // 비중 - 포맥스
-			}
-			var TempItemPrice = 0; // 기본 계산공식을 이용한 금액.
-			var TempAdjustPrice = 0; // 500단위 올림 조정 값. (500 / 1000 두 값만 해당 됨.)
-			var TempAdjustFirstVal = ""; // 500단위 올림 조정을 위한 뒤 세자리를 제외한 앞 값.
-			var TempAdjustLastVal = ""; // 500단위 올림 조정을 위한 뒤 세자리 값.
-			// TempItemPrice = Math.floor((((itemThick*0.1)*(itemWidth*0.1)*(itemHeight*0.1)*SG/1000)*parseInt(itemQty))*itemPriceArr[itemType]);
-			TempItemPrice = Math.floor(((itemThick*0.1)*(itemWidth*0.1)*(itemHeight*0.1)*SG/1000)*itemPriceArr[itemType]);
-			// console.log("금액계산 = "+Math.floor((((itemThick*0.1)*(itemWidth*0.1)*(itemHeight*0.1)*SG/1000)*parseInt(itemQty))*itemPriceArr[itemType]));
-			TempAdjustFirstVal =  String(TempItemPrice).substring(0, String(TempItemPrice).length-3);
-			TempAdjustLastVal = String(TempItemPrice).slice(-3);
-			if (TempItemPrice < 1000) {
-				TempAdjustFirstVal = 0;
-			}
-			// console.log("TempAdjustFirstVal = "+TempAdjustFirstVal);
-			// console.log("TempAdjustLastVal = "+TempAdjustLastVal);
-			if (parseInt(TempAdjustLastVal) > 500) {
-				TempAdjustPrice = 1000;
-			} else if (parseInt(TempAdjustLastVal) > 0 && parseInt(TempAdjustLastVal) <= 500) {
-				TempAdjustPrice = 500;
-			}
-			// TempAdjustPrice = 500;
-			// if (parseInt(TempAdjustLastVal) >= 500) {
-			// 	TempAdjustPrice = 1000;
-			// }
-			itemPrice = (parseInt(TempAdjustFirstVal)*1000) + TempAdjustPrice;
-			//수정 - 금액 보정 후 수량 처리
-			itemPrice = itemPrice * parseInt(itemQty);
-			$("#itemPrice").val(addComma(String(itemPrice)));
-
-            // 레이저가공 옵션이 이미 선택되어 있는 경우 두께10T 이상 선택시 옵션 초기화처리
-            if (isItemOptionArr[5] == 1 && parseInt(itemThick) > 10) {
-                // 가공옵션 초기화
-                resetOption();
-            } else if (isItemOptionArr[5] == 1) {
-                optionCalc(5);
-            }
-		}
-	}
-
-	// 가공옵션 선택 시
-	function optionCalc(num) {
-		var this_val = $("#optionChk"+num).val();
-
-        // 레이저가공 옵션 선택 시 금액이 필수로 미리 계산되어야 함.
-        if (parseInt(this_val) == 5 && parseInt(itemThick) > 10) {
-            $("#optionChk"+this_val).prop("checked", false);
-            alert("레이저가공은 판재 두께 10T까지 주문 가능합니다.");
-            return false;
-        } else if (parseInt(this_val) == 5 && parseInt(itemPrice) < 1) {
-            $("#optionChk"+this_val).prop("checked", false);
-            alert("주문하실 판재 정보를 모두 입력해 주세요.");
-            return false;
-        } else if (parseInt(this_val) == 5 && parseInt(itemPrice) > 0) {
-            if ($("#optionChk5").is(":checked")) {
-                // 레이저가공 옵션 선택 시 다른 옵션 제거를 위해 옵션 초기화
-                resetOption();
-                // 레이저가공 옵션 강제 선택취소
-                $("#optionChk"+this_val).prop("checked", true);
-            } else {
-                // 레이저가공 옵션 강제 선택
-                $("#optionChk"+this_val).prop("checked", false);
-            }
-        } else {
-            if ($("#optionChk5").is(":checked")) {
-                // 레이저가공 옵션이 선택되어 있고 다른 옵션 선택 시 초기화
-                resetOption();
-                $("#optionChk5").prop("checked", false);
-                $("#optionChk"+this_val).prop("checked", true);
-            }
-        }
-		if ($("#optionChk"+num).is(":checked")) {
-            if (parseInt(this_val) == 5) {
-                // 레이저가공 옵션 선택인 경우 변동 옵션금액으로 적용.
-                // 금액의 50%, 최소금액 1000원
-                itemOptionPriceArr[5] = itemPrice/2;
-                if (itemPrice/2 < 1000) {
-                    itemOptionPriceArr[5] = 1000;
-                }
-				// 단가가 500원인 경우 예외처리 (옵션금액을 1000원으로 픽스하고 수량만큼 곱하기)
-				if (parseInt(itemQty) > 1 && (itemPrice/itemQty) == 500) {
-					itemOptionPriceArr[5] = itemQty * 1000;
-				}
-
-				// 500원, 1000원 단위로 금액 보정 시작
-				if (itemOptionPriceArr[5] > 1000) {
-					var TempItemPrice = itemOptionPriceArr[5]; // 보정 전 금액 담기
-					var TempAdjustPrice = 0; // 500단위 올림 조정 값. (500 / 1000 두 값만 해당 됨.)
-					var TempAdjustFirstVal = ""; // 500단위 올림 조정을 위한 뒤 세자리를 제외한 앞 값.
-					var TempAdjustLastVal = ""; // 500단위 올림 조정을 위한 뒤 세자리 값.
-					TempAdjustFirstVal =  String(TempItemPrice).substring(0, String(TempItemPrice).length-3);
-					TempAdjustLastVal = String(TempItemPrice).slice(-3);
-					if (TempItemPrice < 1000) {
-						TempAdjustFirstVal = 0;
-					}
-					if (parseInt(TempAdjustLastVal) > 500) {
-						TempAdjustPrice = 1000;
-					} else if (parseInt(TempAdjustLastVal) > 0 && parseInt(TempAdjustLastVal) <= 500) {
-						TempAdjustPrice = 500;
-					}
-					itemOptionPriceArr[5] = (parseInt(TempAdjustFirstVal)*1000) + TempAdjustPrice;
-				}
-				// 500원, 1000원 단위로 금액 보정 끝
+		if ( navigator.platform ) {
+			if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) {
+				//$('#comp').attr("src", "/assets/img/comps-m.png");
+				$('.contents-txt2').css("top", "78%");
+				$('.contents-txt3').css("top", "78%");
+				$('.contents-txt4').css("top", "90%");
+				$('.contents-txt5').css("top", "90%");
 				
-				// 레이저가공 변동된 금액으로 표시하기
-				$(".itemOption5 .option_price").text("￦"+addComma(String(itemOptionPriceArr[5]))+"원");
-            }
-			isItemOptionArr[this_val] = 1;
-			itemOptionSelCount = itemOptionSelCount + 1;
-			itemOptionPrice = itemOptionPrice + itemOptionPriceArr[this_val];
-			$(".itemOption"+this_val).show();
-		} else {
-			isItemOptionArr[this_val] = 0;
-			itemOptionSelCount = itemOptionSelCount - 1;
-			itemOptionPrice = itemOptionPrice - itemOptionPriceArr[this_val];
-			$(".itemOption"+this_val).hide();
-		}
-
-		// 가공옵션 선택없음 안내 내용
-		if (itemOptionSelCount > 0) {
-			$(".itemOption0").hide();
-		} else {
-			$(".itemOption0").show();
-		}
-
-        console.log("itemOptionPrice = "+itemOptionPrice);
-
-		// // 부모에게 현재 컨텐츠의 높이를 보내준다.
-		// postMsgHeight();
-	}
-
-	// // 가공옵션 선택 시 안내보기 버튼 기능
-	// function showOptionInfo(obj, num) {
-	// 	if ($(".option_sub_img"+num).css("display") == "none") {
-	// 		$(obj).text("안내닫기");
-	// 		$(".option_sub_img"+num).show();
-	// 	} else {
-	// 		$(obj).text("안내보기");
-	// 		$(".option_sub_img"+num).hide();
-	// 	}
-
-	// 	// 부모에게 현재 컨텐츠의 높이를 보내준다.
-	// 	postMsgHeight();
-	// }
-	function showOptionInfo(obj, num) {
-		// 팝업 레이어
-		// showLayer("layer_option"+num);
-
-		// 팝업 이미지 선택
-		var img_url = "";
-		if (parseInt(num) == 1) {
-			img_url = "https://www.iruridesign.com/openmarket/images/option/hole4_770px.jpg";
-		} else if (parseInt(num) == 2) {
-			img_url = "https://www.iruridesign.com/openmarket/images/option/roundin_1000px.jpg";
-		} else if (parseInt(num) == 3) {
-			img_url = "https://www.iruridesign.com/openmarket/images/option/bevel45_770px.jpg";
-		} else if (parseInt(num) == 4) {
-			img_url = "https://www.iruridesign.com/openmarket/images/option/fire_770px.jpg";
-		} else if (parseInt(num) == 5) {
-			img_url = "https://www.iruridesign.com/openmarket/images/option/laser_1000px.jpg";
-		}
-
-		var img = new Image();
-  		img.src = img_url;
-
-		var img_w = "";
-		var pop_w = "";
-		var pop_h = "";
-
-		// 모바일체크
-		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
-		if(!isMobile) {
-			//PC
-			img_w = img.width;
-			pop_w = img.width+25;
-			pop_h = "800";
-			var openImgPopup = window.open('', '_blank', 'width='+pop_w+',height='+pop_h+',scrollbars=auto,resize=yes,menubar=no');
-			openImgPopup.document.write("<title>"+itemOptionNameArr[num]+" 옵션 안내</title><style>body{margin:0px;padding-bottom:0px;}</style><img src='"+img_url+"' width='"+img_w+"' />");
-		} else {
-			//MOBILE
-			img_w = img.width;
-			pop_w = img.width+25;
-			pop_h = "800";
-			var openImgPopup = window.open(img_url, "사인팜 가공옵션 안내", "width="+pop_w+",height="+pop_h+",scrollbars=auto,resize=yes,menubar=no");
-		}
-		// var openImgPopup = window.open(img_url, "signfarm", "width="+pop_w+",height="+pop_h+",scrollbars=auto,resize=yes,menubar=no");
-		// var openImgPopup = window.open('', '_blank', 'width='+img_w+',height='+pop_h+',scrollbars=auto,resize=yes,menubar=no');
-		// openImgPopup.document.write("<title>"+itemOptionNameArr[num]+" 옵션 안내</title><style>body{margin:0px;padding-bottom:0px;}</style><img src='"+img_url+"' width='"+pop_w+"' />");
-    	openImgPopup.focus();
-	}
-
-	// 현재 사이트를 불러온 부모사이트의 iframe 높이를 보내준다.
-	function postMsgHeight() {
-		var height = $("#wrap").height(); 
-		window.parent.postMessage({ height: height }, '*'); 
-		// console.log("전송할 높이 : "+height);
-	}
-
-	// 제품담은 후 아이템 초기화
-	function resetItem() {
-		// 변수데이터 초기화
-		itemThick = "";
-		itemColor = "";
-		itemWidth = "";
-		itemHeight = "";
-		itemQty = "";
-		itemPrice = 0;
-		itemTotalPrice = 0;
-
-		// 사이즈, 수량, 금액 초기화
-		$("#itemWidth").val("");
-		$("#itemHeight").val("");
-		$("#itemQty").val("");
-		$("#itemPrice").val("0");
-
-		// 가공 옵션 초기화
-		resetOption();
-
-		// 기본 아이템 선택
-		selItemType("1");
-	}
-
-	// 가공 옵션 초기화
-	function resetOption() {
-		itemOptionPrice = 0;
-		itemOptionSelCount = 0;
-		isItemOptionArr[0] = 0;
-		isItemOptionArr[1] = 0;
-		isItemOptionArr[2] = 0;
-		isItemOptionArr[3] = 0;
-		isItemOptionArr[4] = 0;
-		isItemOptionArr[5] = 0;
-
-		// 가공 옵션 초기화
-		for (i=1;i<=$(".optionChk").length;i++) {
-			$("#optionChk"+i).prop("checked", false);
-			$(".itemOption"+i).hide();
-		}
-		// 가공 옵션 미선택 안내 보이기
-		$(".itemOption0").show();
-		// 옵션 모두 선택 가능하도록
-		$(".notSelOption").hide();
-
-		// 상세옵션 초기화 (구멍가공, 모서리라운드, 레이저가공)
-		$("#itemOptionSub1 option").prop("selected", false);
-		$("#itemOptionSub2 option").prop("selected", false);
-        $("#itemOptionSub5 option").prop("selected", false);
-
-		// 옵션 안내보기 버튼명 변경 및 안내 이미지 숨기기
-		$(".btn_op_detail").text("안내보기");
-		$(".option_sub_img").hide();
-	}
-
-	// 제품담기
-	function putItemInfo() {
-		if (itemColor == "") {
-			alert("색상을 선택해 주세요.");
-			return false;
-		}
-		if (itemThick == "") {
-			alert("두께를 선택해 주세요.");
-			return false;
-		}
-		if (itemWidth == "" || parseInt(itemWidth) == 0) {
-			alert("가로 사이즈를 입력해 주세요.");
-			return false;
-		}
-		if (itemHeight == "" || parseInt(itemHeight) == 0) {
-			alert("세로 사이즈를 입력해 주세요.");
-			return false;
-		}
-		if (itemQty == "" || parseInt(itemQty) == 0) {
-			alert("수량을 입력해 주세요.");
-			return false;
-		}
-		if (isItemOptionArr[1] == 1 && $("#itemOptionSub1").val() == "") {
-			alert("구멍가공의 상세 옵션을 선택해 주세요.");
-			return false;
-		}
-		if (isItemOptionArr[2] == 1 && $("#itemOptionSub2").val() == "") {
-			alert("모서리라운드의 상세 옵션을 선택해 주세요.");
-			return false;
-		}
-        if (isItemOptionArr[5] == 1 && $("#itemOptionSub5").val() == "") {
-			alert("레이저가공의 상세 옵션을 선택해 주세요.");
-			return false;
-		}
-
-		// 판매자 전송을 위해 제품 담기
-		var itemOptionStr = "";
-		var itemOptionStrDiv = "";
-		var itemOptionStr1 = "";
-		var itemOptionStr2 = "";
-		var itemOptionStr3 = "";
-		var itemOptionStr4 = "";
-		var itemOptionStr5 = "";
-		for (i=1;i<=isItemOptionArr.length;i++) {
-			if (parseInt(isItemOptionArr[i]) == 1) {
-				if (itemOptionStr != "") {
-					itemOptionStrDiv = "/";
-				}
-				if (isItemOptionArr[1] == 1 && i == 1) {
-					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i] + "-" + $("#itemOptionSub1").val();
-					itemOptionStr1 = itemOptionNameArr[i] + "-" + $("#itemOptionSub1").val();
-				} else if (isItemOptionArr[2] == 1 && i == 2) {
-					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i] + "-" + $("#itemOptionSub2").val();
-					itemOptionStr2 = itemOptionNameArr[i] + "-" + $("#itemOptionSub2").val();
-				} else if (isItemOptionArr[3] == 1 && i == 3) {
-					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i];
-					itemOptionStr3 = itemOptionNameArr[i];
-				} else if (isItemOptionArr[4] == 1 && i == 4) {
-					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i];
-					itemOptionStr4 = itemOptionNameArr[i];
-				} else if (isItemOptionArr[5] == 1 && i == 5) {
-					itemOptionStr += itemOptionStrDiv + itemOptionNameArr[i] + "-" + $("#itemOptionSub5").val();
-					itemOptionStr5 = itemOptionNameArr[i] + "-" + $("#itemOptionSub5").val();
-				}
+				$('.pd-100').css("padding-top", "155px");
+			} else {
+				//$('#comp').attr("src", "/assets/img/comps.png");
 			}
 		}
-		if (itemOptionStr == "") {
-			itemOptionStr = "없음"
-		}
-
-		if (itemQty == "") {
-			itemQty = 0;
-		}
-		// 제품 수량 만큼 가공옵션 금액도 증가
-		var itemOptionTotalPrice = 0;
-		itemOptionTotalPrice = itemOptionPrice*itemQty;
-        if (isItemOptionArr[5] == 1) {
-			// 레이저가공 옵션인 경우 옵션금액을 수량만큼 곱하지 않는다.
-            itemOptionTotalPrice = itemOptionPrice;
-        }
-
-		// 총금액 (제품금액+가공옵션)
-		itemTotalPrice = itemPrice + itemOptionTotalPrice;
-		var putNum = parseInt($(".estiItemChk").length) + 1;
-		var putStr = '';
-		putStr += '<tr class="estiItem'+putNum+'">';
-		putStr += '<td><input type="checkbox" value="'+putNum+'" class="estiItemChk estiItemChk'+putNum+'" /></td>';
-		putStr += '<td>'+itemTypeNameArr[itemType]+'<input type="hidden" name="ItemType[]" value="'+itemTypeNameArr[itemType]+'" /></td>';
-		putStr += '<td>'+itemColor+'<input type="hidden" name="ItemColor[]" value="'+itemColor+'" /></td>';
-		putStr += '<td>';
-		putStr += itemThick+'T/가로'+itemWidth+'mm/세로'+itemHeight+'mm';
-		putStr += '<input type="hidden" name="ItemThick[]" value="'+itemThick+'" />';
-		putStr += '<input type="hidden" name="ItemWidth[]" value="'+itemWidth+'" />';
-		putStr += '<input type="hidden" name="ItemHeight[]" value="'+itemHeight+'" />';
-		putStr += '</td>';
-		putStr += '<td>'+itemQty+'개<input type="hidden" name="ItemQty[]" value="'+itemQty+'" /></td>';
-		putStr += '<td>'+addComma(String(itemPrice))+'원<input type="hidden" name="ItemPrice[]" value="'+itemPrice+'" /></td>';
-		putStr += '<td>';
-		putStr += itemOptionStr;
-		putStr += '<input type="hidden" name="ItemOption1[]" value="'+itemOptionStr1+'" />';
-		putStr += '<input type="hidden" name="ItemOption2[]" value="'+itemOptionStr2+'" />';
-		putStr += '<input type="hidden" name="ItemOption3[]" value="'+itemOptionStr3+'" />';
-		putStr += '<input type="hidden" name="ItemOption4[]" value="'+itemOptionStr4+'" />';
-		putStr += '<input type="hidden" name="ItemOption5[]" value="'+itemOptionStr5+'" />';
-		putStr += '</td>';
-		putStr += '<td>'+addComma(String(itemOptionTotalPrice))+'원<input type="hidden" name="ItemOptionPrice[]" value="'+itemOptionTotalPrice+'" /></td>';
-		putStr += '<td>'+addComma(String(itemTotalPrice))+'원<input type="hidden" name="ItemTotalPrice[]" value="'+itemTotalPrice+'" /></td>';
-		putStr += '</tr>';
 		
-		// 제품 전송 폼에 넣기
-		$("#esti_list").append(putStr);
-
-		// 전송할 총 아이템종류 갯수 담기
-		totalItemCount = putNum;
-
-		// 총 결제금액 계산
-		totalPriceCalc();
-
-		// 선택한 제품 초기화
-		resetItem();
-	}
-
-	// 총 결제금액 계산
-	function totalPriceCalc() {
-		var totalEstiPrice = 0;		// 총견적금액
-		var totalQty = 0;			// 총제품수량
-		var marketPayQty = 0;		// 결제수량
-		var deliveryFee = 0;		// 배송비
-		var packingFee = 0;			// 포장비
-		var totalPrice = 0;			// 총결제금액
-		var isItemSizeLimit = 0;	// 포장비 대상 여부 1/0
-		var packingFeeType = 0;		// 포장비 금액 타입 0/1(10000원)/2(15000원)/3(20000원)
-		var packingFeeSize = 0;		// 포장비 금액 체크 사이즈
-
-		// 총견적금액 계산
-		for (i=0;i<$("#esti_list input[name='ItemTotalPrice[]']").length;i++) {
-			totalEstiPrice = parseInt(totalEstiPrice) + parseInt($("#esti_list input[name='ItemTotalPrice[]']").eq(i).val());
-			totalQty = parseInt(totalQty) + parseInt($("#esti_list input[name='ItemQty[]']").eq(i).val());
-			packingFeeSize = parseInt($("#esti_list input[name='ItemWidth[]']").eq(i).val()) + parseInt($("#esti_list input[name='ItemHeight[]']").eq(i).val());
-			if ( parseInt(packingFeeSize) >= 1500 && parseInt(packingFeeSize) <= 1999) {
-				if (parseInt(packingFeeType) < 1) {
-					packingFeeType = 1;
-				}
-			} else if ( parseInt(packingFeeSize) >= 2000 && parseInt(packingFeeSize) <= 2499) {
-				if (parseInt(packingFeeType) < 2) {
-					packingFeeType = 2;
-				}
-			} else if ( parseInt(packingFeeSize) >= 2500) {
-				if (parseInt(packingFeeType) < 3) {
-					packingFeeType = 3;
-				}
-			}
-		}
-		// 포장비 계산 전에는 주문금액 만원 이하만 포장비 추가했는데.. 이제는 사이즈 1500넘으면 무조건 포장비 발생 22.04.30 수정.
-		// if (packingFeeType == 1 && totalEstiPrice < 100000) {
-		// 	packingFee = 10000;
-		// }
-		if (packingFeeType == 1) {
-			packingFee = 10000;
-		} else if (packingFeeType == 2) {
-			packingFee = 15000;
-		} else if (packingFeeType == 3) {
-			packingFee = 20000;
-		}
-		console.log("packingFeeType = " + packingFeeType);
-		console.log("totalEstiPrice = " + totalEstiPrice);
-		console.log("packingFee = " + packingFee);
-		// 총결제금액 계산
-		totalPrice = totalEstiPrice+deliveryFee+packingFee;
-		// 결제수량 계산
-		marketPayQty = totalPrice / 100;
-		$("#TotalEstiPrice").val(totalEstiPrice);
-		$("#TotalQty").val(marketPayQty);
-		// $("#DeliveryFee").val(deliveryFee);
-		$("#PackingFee").val(packingFee);
-		$("#TotalPrice").val(totalPrice);
-		$("#TotalEstiPrice1").val(addComma(String(totalEstiPrice)));
-		$("#TotalQty1").val(addComma(String(marketPayQty)));
-		// $("#DeliveryFee1").val(addComma(String(deliveryFee)));
-		$("#PackingFee1").val(addComma(String(packingFee)));
-		$("#TotalPrice1").val(addComma(String(totalPrice)));
-	}
-
-	// 담은 상품 전체삭제 시
-	function resetTotalPriceCalc() {
-		$("#TotalEstiPrice").val("0");
-		$("#TotalQty").val("0");
-		$("#PackingFee").val("0");
-		$("#TotalPrice").val("0");
-		$("#TotalEstiPrice1").val("0");
-		$("#TotalQty1").val("0");
-		$("#PackingFee1").val("0");
-		$("#TotalPrice1").val("0");
-	}
-
-	// 담은 제품 선택 삭제
-	function delItem() {
-		var cnt = 0;
-		for (i=1;i<=$(".estiItemChk").length;i++) {
-			if ($(".estiItemChk"+i).is(":checked")) {
-				$(".estiItem"+i).remove();
-				cnt++;
-			}
-		}
-		if (cnt == 0) {
-			alert("삭제할 제품을 선택해 주세요.");
-		} else {
-			// 총 결제금액 계산
-			totalPriceCalc();
-		}
-	}
-
-	// 담은 제품 전체 삭제
-	function delItemAll() {
-		if (confirm("담겨있는 모든 제품을 삭제 하시겠습니까?")) {
-			$("#esti_list > tr").remove();
-			resetTotalPriceCalc();
-		}
-	}
-
-	function viewAgree() {
-		if ($("#agree_contents").css("display") == "none") {
-			$("#agree_contents").show();	
-		} else {
-			$("#agree_contents").hide();
-		}
-	}
-
-	function sendEstimate() {
-		// 전송할 데이터 체크
-		if ($("#TotalQty1").val() == "" || $("#TotalQty1").val() == "0") {
-			alert("담겨있는 제품정보가 없습니다.");
-			return false;
-		}
-		if ($("#TotalPrice1").val() == "" || $("#TotalPrice1").val() == "0") {
-			alert("담겨있는 제품정보가 없습니다.");
-			return false;
-		}
-		if ($("#cust_name").val() == "") {
-			alert("수취인명을 입력해 주세요.");
-			$("#cust_name").focus();
-			return false;
-		}
-		if ($("#cust_hp").val() == "") {
-			alert("수취인 연락처를 입력해 주세요.");
-			$("#cust_hp").focus();
-			return false;
-		}
-		if ($("#cust_email").val() == "") {
-			alert("수취인 이메일을 입력해 주세요.");
-			$("#cust_email").focus();
-			return false;
-		}
-		if (!($("#agree_chk").is(":checked"))) {
-			alert("개인정보 취급방침을 동의해 주세요.");
-			return false;
-		}
-		// 수취인정보 전송 폼에 담기
-		$("#TotalItemCount").val(totalItemCount);
-		$("#CustName").val($("#cust_name").val());
-		$("#CustHP").val($("#cust_hp").val());
-		$("#CustEmail").val($("#cust_email").val());
-		$("#CustMsg").val($("#cust_msg").val());
-		$("#RegRefer").val(document.referrer);
-
-		if (confirm("판매자에게 견적을 전송 하시겠습니까?")) {
-			$('#EstiForm').ajaxForm({
-				beforeSend: function(){
-				},
-				type: "POST",
-				url: "https://www.iruridesign.com/openmarket/setAutoCalcEstimate.php",
-				crossDomain: true,
-				success: function(result){
-					if (result != "") {
-						sendEmail(result);
-						// alert("견적전송이 완료 되었습니다.\n\n자동견적의 결제수량과 동일하게 수량을 올려 금액에 맞춰 주문해 주세요.");
-						alert("견적이 전송되었습니다.\n결제는 100원 상품 수량 "+$("#TotalQty1").val()+"개 선택하여 금액 "+$("#TotalPrice1").val()+"원 맞춰 구매하시면 됩니다.");
-					} else {
-						alert("오류가 발생하였습니다. 잠시 후 다시 이용해주세요.\n\n지속적인 오류 발생시 판매자에게 문의 부탁드립니다.");
-					}
-					self.location.reload();
-				},
-				error: function(){
-					alert("오류가 발생하였습니다. 잠시 후 다시 이용해주세요.\n\n지속적인 오류 발생시 판매자에게 문의 부탁드립니다.");
-				},
-				complete: function () {
-				}
-			}).submit();
-		}
-	}
-
-	function sendEmail(secode) {
-		$.ajax({
-			type: "POST",
-			url: "https://www.iruridesign.com/openmarket_mail.php",
-			data: {
-				SECode: secode
-			}
+		$('#color').change(function(){
+      
+      $("#thick").val("");
+      $("#width").val("");
+		  $("#height").val("");
+		  $("#cnt").val("");
+		  $("#totalPrice").val(""); 
+			$("#totalOrder").val("");
+      
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			if(colorChk == 0) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-0.png");
+		  } else if(colorChk == 1) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-1.png");
+		  } else if(colorChk == 2) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-2.png");
+		  } else if(colorChk == 3) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-3.png");
+		  } else if(colorChk == 4) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-4.png");
+		  } else if(colorChk == 5) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-5.png");
+		  } else if(colorChk == 6) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-6.png");
+		  } else if(colorChk == 7) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-7.png");
+		  } else if(colorChk == 8) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-8.png");
+		  } else if(colorChk == 9) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-9.png");
+		  } else if(colorChk == 10) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-10.png");
+		  } else if(colorChk == 11) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-11.png");
+		  } else if(colorChk == 12) {
+		  $('#comp').attr("src", "https://acrylcalc.netlify.app/c-12.png");
+		  }
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
 		});
-	}
+		
+		$('#thick').change(function(){
+		  
+		  $("#width").val("");
+		  $("#height").val("");
+		  $("#cnt").val("");
+		  $("#totalPrice").val(""); 
+			$("#totalOrder").val("");
+		
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$(document).on('change', '#width', function() {
+			var widthVal = $('#width').val();
+			
+ 		  $("#height").val("");
+		  $("#cnt").val("");
+		  $("#totalPrice").val(""); 
+			$("#totalOrder").val("");
+			
+			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+  		const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+			
+		$('#width').keyup(function(){
+		  var thick = $('#thick').val();
+		  
+ 		  $("#height").val("");
+		  $("#cnt").val("");
+		  $("#totalPrice").val(""); 
+			$("#totalOrder").val("");
+ 			
+			if((widthVal >= 0 && widthVal < 5) || widthVal > 90){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+  		const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$('#height').keyup(function(){
+			var heightVal = $('#height').val();
+			
+		  $("#cnt").val("");
+		  $("#totalPrice").val(""); 
+			$("#totalOrder").val("");
+			
+			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$(document).on('change', '#height', function() {
+			var heightVal = $('#height').val();
+			
+		  $("#cnt").val("");
+		  $$("#totalPrice").val(""); 
+			$("#totalOrder").val("");
+			
+			if((heightVal >= 0 && heightVal < 5) || heightVal > 180){
+				$('#notice1').show();
+				$('#info').hide();
+			} else {
+				$('#notice1').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$('#cnt').keyup(function(){
+			var cntVal = $('#cnt').val();
+			var thick = $('#thick').val();
+			var widthVal = $('#width').val();
+			var heightVal = $('#height').val();
+			
+			chkValue(thick, widthVal, heightVal);
+			
+			if(cntVal == 0){
+				$('#notice2').show();
+				$('#info').hide();
+			} else {
+				$('#notice2').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
+		$(document).on('change', '#cnt', function() {
+			var cntVal = $('#cnt').val();
+			var thick = $('#thick').val();
+			var widthVal = $('#width').val();
+			var heightVal = $('#height').val();
+			
+			chkValue(thick, widthVal, heightVal);
+			
+			if(cntVal == 0){
+				$('#notice2').show();
+				$('#info').hide();
+			} else {
+				$('#notice2').hide();
+				$('#info').show();
+			}
+			
+			const colorChk = $('#color').val();
+			const thickChk = $('#thick').val();
+			const widthChk = $('#width').val();
+			const heightChk = $('#height').val();
+			const cntChk = $('#cnt').val();
+			
+			formChk(colorChk, thickChk, widthChk, heightChk, cntChk);
+		});
+		
 
-	// 세자리 콤마 찍기
-	function addComma(val) {
-		value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return value;
-	}
+    function chkValue(thick, width, height) {
+    
+			var flag = true;
+    
+      if(thick == 2) { 
+        if(width < 100 || height < 100) {
+          flag = false;
+        } else {
+          if(width > 1000 || height > 2000) {
+            flag = false;
+          } 
+        }
+      } else if(thick >= 3 && thick <= 20) {
+        if(width < 100 || height < 100) {
+          flag = false;
+        } else {
+          if(width > 1200 || height > 2400) {
+            flag = false;
+          } 
+        }
+      } else if(thick >= 25 && thick <= 40) {
+        if(width < 100 || height < 100) {
+          flag = false;
+        } else {
+          if(width > 1100 || height > 2300) {
+            flag = false;
+          } 
+        }
+      } else if(thick == 50) {
+        if(width < 100 || height < 100) {
+          flag = false;
+        } else {
+          if(width > 1000 || height > 1600) {
+            flag = false;
+          } 
+        }
+      } else {
+      }
+      
+      if(!flag) {
+        alert("제작이 불가능한 사이즈 입니다.");
+			  $("#width").val("");
+			  $("#height").val("");
+        $("#cnt").val("");
+        $("#width").focus();
+      }
+      
+      /*
+      if(width < 100) { 
+        alert("제작이 불가능한 사이즈 입니다.");
+      } else {
+        if(thick == 2 && width > 1000) { 
+          alert("제작이 불가능한 사이즈 입니다.");
+        } else if(thick >= 3 && thick <= 20) {
+          if(width > 1200) { 
+            alert("제작이 불가능한 사이즈 입니다.");
+          }
+        } else if(thick >= 25 && thick <= 40) {
+          if(width > 1100) { 
+            alert("제작이 불가능한 사이즈 입니다.");
+          }
+        } else if (thick == 50 && width > 1000) {
+          alert("제작이 불가능한 사이즈 입니다.");
+        }
+      }
+      
+      if(height < 100) { 
+        alert("제작이 불가능한 사이즈 입니다.");
+        $("#cnt").val(""); 
+				$("#width").val(""); 
+      } else {
+        if(thick == 2 && height > 2000) { 
+          alert("제작이 불가능한 사이즈 입니다.");
+        } else if(thick >= 3 && thick <= 20) {
+          if(height > 2400) { 
+            alert("제작이 불가능한 사이즈 입니다.");
+          }
+        } else if(thick >= 25 && thick <= 40) {
+          if(height > 2300) { 
+            alert("제작이 불가능한 사이즈 입니다.");
+          }
+        } else if (thick == 50 && height > 1600) {
+          alert("제작이 불가능한 사이즈 입니다.");
+        }
+      }
+      */
+      
+    }
 
-	// 콤마 제거
-	function delComma(val) {
-		value = val.replace(/[^\d]+/g, "");
-        return value;
-	}
+		// 2T 계산함수
+		function calPrice2T(color, width, height, cnt) {
+		  
+		  var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+      var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+
+      var arrHeight10= ['1000','1000','1000','2000','2000','2000','3000','3000','3000','4000','4000','5000','10000','13000','16000','19000','21000','24000','27000','30000'];
+      var arrHeight20= ['1000','2000','2000','3000','3000','4000','5000','6000','6000','8000','8000','8000','15000','18000','21000','24000','26000','29000','33000','36000'];
+      var arrHeight30= ['1000','2000','3000','4000','5000','6000','7000','8000','9000','11000','11000','11000','20000','23000','26000','29000','31000','33000','39000','42000'];
+      var arrHeight40= ['2000','3000','4000','5000','7000','8000','9000','10000','12000','14000','14000','15000','28000','30000','33000','36000','38000','40000','45000','48000'];
+      var arrHeight50= ['2000','3000','5000','7000','8000','9000','11000','12000','14000','17000','17000','19000','35000','37000','40000','42000','44000','46000','51000','54000'];
+      var arrHeight60= ['2000','4000','6000','8000','9000','11000','13000','15000','17000','20000','20000','22000','41000','43000','46000','48000','50000','52000','57000','62000'];
+      var arrHeight70= ['3000','5000','7000','9000','11000','13000','15000','18000','19000','23000','24000','26000','45000','49000','52000','54000','56000','58000','63000','68000'];
+      var arrHeight80= ['3000','6000','8000','10000','12000','15000','18000','19000','23000','26000','27000','29000','50000','53000','56000','58000','60000','62000','69000','75000'];
+      var arrHeight90= ['3000','6000','9000','12000','14000','17000','19000','23000','25000','29000','30000','33000','58000','61000','64000','66000','68000','70000','76000','82000'];
+      var arrHeight100=['4000','8000','11000','14000','17000','20000','23000','26000','29000','35000','38000','45000','62000','66000','70000','74000','78000','82000','88000','92000'];
+      var arrHeight110=['','','','','','','','','','','','','','','','','','','',''];
+      var arrHeight120=['','','','','','','','','','','','','','','','','','','',''];
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}																		
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 3T 계산함수
+		function calPrice3T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['1000','1000','2000','2000','3000','3000','4000','4000','5000','5000','5000','6000','11000','16000','21000','25000','29000','32000','37000','40000','43000','46000','49000','52000'];
+      var arrHeight20= ['1000','2000','3000','4000','4000','5000','6000','7000','8000','8000','9000','10000','20000','23000','26000','29000','31000','34000','47000','50000','53000','56000','59000','62000'];
+      var arrHeight30= ['2000','3000','4000','5000','6000','8000','9000','11000','12000','13000','14000','16000','28000','30000','33000','36000','39000','42000','56000','60000','64000','68000','72000','76000'];
+      var arrHeight40= ['2000','4000','5000','7000','9000','11000','12000','14000','15000','17000','19000','21000','34000','36000','38000','42000','46000','50000','65000','69000','73000','77000','81000','85000'];
+      var arrHeight50= ['3000','4000','6000','9000','11000','13000','16000','18000','20000','23000','25000','27000','41000','44000','47000','50000','54000','58000','73000','77000','81000','85000','89000','93000'];
+      var arrHeight60= ['3000','5000','8000','11000','13000','16000','19000','22000','24000','27000','30000','33000','50000','52000','54000','58000','62000','66000','82000','86000','90000','94000','98000','102000'];
+      var arrHeight70= ['4000','6000','9000','12000','16000','19000','22000','25000','28000','32000','35000','38000','56000','59000','64000','68000','71000','74000','91000','95000','99000','103000','107000','111000'];
+      var arrHeight80= ['4000','7000','11000','14000','18000','22000','25000','29000','32000','36000','40000','43000','62000','69000','73000','76000','79000','82000','100000','104000','108000','112000','116000','120000'];
+      var arrHeight90= ['5000','8000','12000','15000','20000','24000','28000','32000','36000','41000','45000','49000','68000','72000','78000','82000','86000','90000','109000','114000','119000','124000','129000','134000'];
+      var arrHeight100=['5000','8000','13000','17000','23000','27000','32000','36000','41000','47000','53000','59000','65000','71000','77000','83000','89000','95000','118000','124000','130000','136000','142000','148000'];
+      var arrHeight110=['6000','9000','14000','19000','25000','30000','35000','40000','45000','53000','60000','66000','73000','80000','87000','94000','101000','108000','127000','134000','141000','148000','155000','162000'];
+      var arrHeight120=['7000','10000','16000','21000','27000','33000','38000','43000','49000','59000','66000','74000','82000','90000','98000','106000','114000','122000','136000','144000','152000','160000','168000','176000'];
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}								
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 5T 계산함수
+		function calPrice5T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['1000','1000','2000','3000','4000','5000','5000','6000','7000','9000','11000','13000','15000','19000','23000','27000','31000','35000','40000','45000','50000','55000','60000','65000'];
+      var arrHeight20= ['2000','2000','4000','5000','7000','8000','9000','11000','12000','14000','15000','16000','23000','28000','32000','36000','40000','44000','55000','61000','67000','73000','79000','85000'];
+      var arrHeight30= ['2000','4000','6000','8000','10000','12000','14000','16000','19000','21000','23000','25000','32000','35000','38000','46000','50000','55000','70000','77000','84000','91000','98000','105000'];
+      var arrHeight40= ['3000','5000','8000','11000','14000','16000','19000','22000','25000','28000','31000','35000','41000','46000','51000','57000','62000','66000','85000','92000','99000','106000','113000','120000'];
+      var arrHeight50= ['4000','7000','10000','14000','17000','21000','24000','28000','31000','35000','38000','42000','51000','57000','62000','70000','74000','78000','100000','107000','114000','121000','128000','135000'];
+      var arrHeight60= ['5000','8000','12000','16000','21000','25000','29000','33000','38000','42000','46000','50000','61000','68000','75000','81000','86000','91000','115000','123000','131000','139000','147000','155000'];
+      var arrHeight70= ['5000','9000','14000','19000','24000','29000','34000','39000','44000','49000','54000','59000','70000','79000','87000','93000','99000','104000','130000','138000','146000','154000','162000','170000'];
+      var arrHeight80= ['6000','11000','16000','22000','28000','33000','39000','45000','50000','56000','62000','67000','76000','85000','94000','103000','110000','116000','145000','153000','161000','169000','177000','185000'];
+      var arrHeight90= ['7000','12000','19000','25000','31000','38000','44000','50000','57000','63000','70000','76000','86000','98000','109000','116000','123000','129000','160000','17000','180000','190000','200000','210000'];
+      var arrHeight100=['9000','14000','21000','28000','35000','42000','49000','56000','63000','71000','79000','87000','95000','103000','111000','119000','127000','135000','175000','185000','195000','205000','215000','225000'];
+      var arrHeight110=['11000','15000','23000','31000','38000','46000','54000','62000','70000','79000','87000','93000','101000','109000','120000','128000','136000','144000','190000','198000','206000','214000','222000','230000'];
+      var arrHeight120=['13000','16000','25000','35000','42000','50000','59000','67000','76000','87000','93000','103000','110000','120000','130000','140000','150000','160000','205000','215000','225000','235000','245000','255000'];
+ 			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}												
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 8T 계산함수
+		function calPrice8T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['2000','2000','3000','4000','5000','6000','7000','9000','10000','11000','12000','15000','20000','26000','33000','40000','46000','52000','60000','66000','72000','78000','84000','90000'];
+      var arrHeight20= ['2000','4000','6000','9000','11000','13000','15000','18000','20000','22000','25000','27000','34000','41000','49000','53000','59000','65000','80000','88000','96000','104000','112000','120000'];
+      var arrHeight30= ['3000','6000','10000','14000','17000','20000','24000','27000','31000','34000','38000','41000','50000','55000','60000','66000','72000','82000','100000','106000','112000','118000','124000','130000'];
+      var arrHeight40= ['4000','9000','14000','18000','23000','27000','31000','36000','41000','45000','50000','54000','67000','75000','80000','86000','93000','100000','120000','129000','138000','147000','156000','165000'];
+      var arrHeight50= ['5000','11000','17000','23000','28000','34000','40000','46000','51000','57000','63000','68000','80000','89000','98000','107000','116000','120000','140000','150000','160000','170000','180000','190000'];
+      var arrHeight60= ['6000','13000','20000','27000','34000','41000','48000','55000','62000','68000','75000','83000','91000','100000','111000','121000','131000','141000','160000','170000','180000','190000','200000','210000'];
+      var arrHeight70= ['7000','15000','24000','31000','40000','48000','56000','64000','72000','80000','88000','96000','114000','123000','132000','141000','150000','161000','180000','191000','202000','213000','224000','235000'];
+      var arrHeight80= ['9000','18000','27000','36000','46000','55000','64000','73000','83000','92000','101000','111000','121000','132000','143000','154000','165000','178000','200000','212000','224000','236000','248000','260000'];
+      var arrHeight90= ['10000','2000','31000','41000','51000','62000','72000','83000','92000','103000','113000','123000','143000','153000','163000','173000','183000','193000','230000','243000','256000','269000','282000','295000'];
+      var arrHeight100=['11000','22000','34000','45000','57000','68000','80000','92000','103000','118000','132000','146000','160000','174000','188000','202000','216000','230000','254000','268000','282000','296000','310000','324000'];
+      var arrHeight110=['12000','25000','38000','50000','63000','75000','88000','101000','113000','132000','147000','162000','177000','192000','207000','222000','237000','252000','278000','293000','308000','323000','338000','353000'];
+      var arrHeight120=['15000','27000','41000','54000','68000','83000','96000','111000','123000','146000','162000','177000','192000','207000','222000','237000','252000','267000','302000','317000','332000','347000','362000','377000'];
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}												
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 10T 계산함수
+		function calPrice10T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['2000','3000','4000','5000','7000','8000','10000','11000','13000','16000','18000','21000','25000','31000','37000','43000','50000','58000','67000','74000','81000','88000','95000','102000'];
+      var arrHeight20= ['3000','5000','8000','11000','14000','17000','20000','23000','26000','29000','32000','34000','41000','50000','58000','61000','64000','66000','75000','82000','89000','96000','103000','110000'];
+      var arrHeight30= ['4000','8000','13000','17000','22000','26000','30000','34000','39000','41000','46000','50000','60000','69000','79000','84000','90000','94000','101000','109000','117000','125000','133000','141000'];
+      var arrHeight40= ['5000','11000','17000','23000','29000','36000','42000','48000','54000','58000','64000','70000','81000','90000','101000','106000','113000','118000','125000','134000','143000','152000','161000','170000'];
+      var arrHeight50= ['7000','14000','22000','29000','36000','43000','51000','58000','65000','72000','79000','86000','98000','111000','123000','129000','136000','143000','150000','160000','170000','180000','190000','200000'];
+      var arrHeight60= ['8000','17000','26000','36000','43000','52000','61000','71000','79000','87000','95000','102000','116000','130000','142000','151000','162000','169000','179000','190000','201000','212000','223000','234000'];
+      var arrHeight70= ['10000','20000','30000','42000','51000','610000','71000','81000','93000','101000','111000','121000','136000','151000','166000','176000','186000','196000','205000','217000','229000','241000','253000','265000'];
+      var arrHeight80= ['11000','23000','34000','48000','58000','71000','81000','91000','104000','115000','126000','138000','155000','171000','187000','199000','210000','222000','231000','244000','257000','270000','283000','296000'];
+      var arrHeight90= ['13000','26000','39000','54000','65000','79000','93000','104000','118000','131000','143000','156000','174000','192000','209000','222000','235000','248000','257000','271000','285000','299000','313000','327000'];
+      var arrHeight100=['16000','29000','41000','58000','72000','87000','101000','115000','131000','146000','161000','176000','191000','206000','221000','236000','251000','266000','275000','290000','305000','320000','335000','350000'];
+      var arrHeight110=['18000','32000','46000','64000','79000','95000','111000','126000','143000','161000','178000','195000','212000','229000','246000','263000','280000','297000','305000','322000','339000','356000','373000','390000'];
+      var arrHeight120=['21000','34000','50000','70000','86000','102000','121000','138000','156000','176000','194000','212000','230000','248000','266000','284000','302000','320000','327000','345000','363000','381000','399000','417000'];
+      
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}															
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 12T 계산함수
+		function calPrice12T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+      
+      if(color == 0) { 
+        var arrHeight10= ['2000','3000','5000','6000','8000','10000','12000','14000','16000','20000','22000','24000','28000','37000','44000','51000','58000','65000','72000','79000','86000','93000','100000','107000'];
+        var arrHeight20= ['3000','7000','11000','15000','19000','23000','27000','31000','35000','39000','43000','47000','51000','60000','67000','74000','81000','88000','95000','102000','109000','116000','123000','130000'];
+        var arrHeight30= ['5000','11000','17000','23000','29000','35000','41000','47000','53000','59000','65000','71000','77000','83000','90000','97000','104000','111000','118000','125000','132000','139000','146000','153000'];
+        var arrHeight40= ['6000','15000','23000','31000','39000','47000','55000','63000','71000','79000','87000','95000','103000','111000','118000','125000','132000','139000','146000','153000','160000','167000','174000','181000'];
+        var arrHeight50= ['8000','19000','29000','39000','48000','58000','68000','78000','88000','98000','108000','118000','128000','135000','146000','153000','160000','167000','174000','181000','188000','195000','202000','209000'];
+        var arrHeight60= ['10000','23000','35000','47000','58000','72000','84000','96000','108000','120000','132000','144000','150000','162000','174000','186000','198000','210000','222000','234000','246000','258000','270000','282000'];
+        var arrHeight70= ['12000','27000','41000','55000','68000','84000','98000','112000','126000','140000','154000','168000','175000','182000','196000','210000','224000','238000','252000','266000','280000','294000','308000','322000'];
+        var arrHeight80= ['14000','31000','47000','63000','78000','96000','112000','128000','144000','160000','176000','192000','199000','205000','221000','237000','253000','269000','285000','301000','317000','333000','349000','365000'];
+        var arrHeight90= ['16000','35000','53000','71000','88000','108000','126000','144000','160000','178000','196000','214000','227000','234000','252000','270000','288000','306000','324000','342000','360000','378000','396000','414000'];
+        var arrHeight100=['20000','39000','59000','79000','96000','120000','140000','160000','178000','200000','222000','244000','254000','257000','279000','301000','323000','345000','367000','389000','411000','433000','455000','477000'];
+        var arrHeight110=['22000','43000','65000','87000','108000','132000','154000','176000','196000','222000','246000','270000','294000','318000','342000','366000','390000','414000','438000','462000','486000','510000','534000','558000'];
+        var arrHeight120=['24000','47000','71000','95000','118000','144000','168000','192000','214000','240000','270000','296000','322000','348000','374000','400000','426000','452000','478000','504000','530000','556000','582000','608000'];
+      } else {
+        var arrHeight10= ['3000','4000','7000','8000','11000','13000','16000','19000','21000','26000','29000','32000','37000','49000','58000','67000','76000','85000','94000','103000','112000','121000','130000','140000'];
+        var arrHeight20= ['4000','10000','15000','20000','25000','30000','36000','41000','46000','51000','56000','62000','67000','78000','88000','97000','106000','115000','124000','133000','142000','151000','160000','169000'];
+        var arrHeight30= ['7000','15000','23000','30000','38000','46000','54000','62000','69000','77000','85000','93000','101000','108000','117000','127000','136000','145000','154000','163000','172000','181000','190000','199000'];
+        var arrHeight40= ['8000','20000','30000','41000','51000','62000','72000','82000','93000','103000','114000','124000','134000','145000','154000','163000','172000','181000','190000','199000','208000','218000','227000','236000'];
+        var arrHeight50= ['11000','25000','38000','51000','63000','76000','89000','102000','115000','128000','141000','154000','167000','176000','190000','199000','208000','218000','227000','236000','245000','254000','263000','272000'];
+        var arrHeight60= ['13000','30000','46000','62000','76000','94000','110000','125000','141000','156000','172000','188000','195000','211000','227000','242000','258000','273000','289000','305000','320000','336000','351000','367000'];
+        var arrHeight70= ['16000','36000','54000','72000','89000','110000','128000','146000','164000','182000','201000','219000','228000','237000','255000','273000','292000','310000','328000','346000','364000','383000','401000','419000'];
+        var arrHeight80= ['19000','41000','62000','82000','102000','125000','146000','167000','188000','208000','229000','250000','259000','267000','288000','309000','329000','350000','371000','392000','413000','433000','454000','475000'];
+        var arrHeight90= ['21000','46000','69000','93000','115000','141000','164000','188000','208000','232000','255000','279000','296000','305000','328000','351000','375000','398000','422000','445000','468000','492000','515000','539000'];
+        var arrHeight100=['26000','51000','77000','103000','125000','156000','182000','208000','232000','260000','289000','318000','331000','335000','363000','392000','420000','449000','478000','506000','535000','563000','592000','621000'];
+        var arrHeight110=['29000','56000','85000','114000','141000','172000','201000','229000','255000','289000','320000','351000','383000','414000','445000','476000','507000','539000','570000','601000','632000','663000','695000','726000'];
+        var arrHeight120=['32000','62000','93000','124000','154000','188000','219000','250000','279000','312000','351000','385000','419000','453000','487000','520000','554000','588000','622000','656000','689000','723000','757000','791000'];
+      }
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}														
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 15T 계산함수
+		function calPrice15T(color, width, height, cnt) {
+
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(color == 0) { 
+        var arrHeight10= ['3000','5000','8000','10000','13000','15000','18000','20000','23000','28000','31000','34000','39000','42000','50000','55000','58000','72000','80000','83000','86000','89000','92000','95000'];
+        var arrHeight20= ['5000','11000','17000','23000','29000','35000','41000','47000','53000','59000','65000','71000','83000','89000','95000','101000','107000','113000','119000','125000','131000','137000','143000','149000'];
+        var arrHeight30= ['8000','17000','26000','35000','44000','53000','62000','71000','80000','89000','98000','107000','121000','130000','139000','148000','157000','166000','175000','184000','193000','202000','211000','220000'];
+        var arrHeight40= ['10000','23000','35000','46000','58000','70000','82000','94000','106000','118000','130000','142000','161000','173000','185000','197000','209000','221000','233000','245000','257000','269000','281000','293000'];
+        var arrHeight50= ['13000','29000','44000','58000','73000','88000','103000','118000','127000','148000','163000','178000','198000','213000','228000','243000','258000','273000','288000','303000','318000','333000','348000','363000'];
+        var arrHeight60= ['15000','35000','53000','70000','88000','105000','123000','141000','157000','177000','195000','213000','236000','254000','272000','290000','308000','326000','344000','362000','380000','398000','416000','434000'];
+        var arrHeight70= ['18000','41000','62000','82000','103000','123000','144000','165000','187000','207000','228000','249000','275000','296000','317000','338000','359000','380000','401000','422000','443000','464000','485000','506000'];
+        var arrHeight80= ['20000','47000','71000','94000','118000','141000','165000','188000','217000','236000','260000','284000','313000','337000','361000','385000','409000','433000','457000','481000','505000','529000','553000','577000'];
+        var arrHeight90= ['23000','53000','80000','106000','127000','157000','187000','217000','247000','277000','307000','337000','372000','402000','432000','462000','492000','522000','552000','582000','612000','642000','672000','702000'];
+        var arrHeight100=['28000','59000','89000','118000','148000','177000','207000','236000','277000','307000','337000','367000','400000','430000','460000','490000','520000','550000','580000','610000','640000','670000','700000','730000'];
+        var arrHeight110=['31000','65000','98000','130000','163000','195000','228000','260000','307000','337000','367000','400000','440000','473000','506000','539000','572000','605000','638000','671000','704000','737000','770000','803000'];
+        var arrHeight120=['34000','71000','107000','142000','178000','213000','249000','284000','337000','367000','400000','436000','480000','516000','552000','588000','624000','660000','696000','732000','768000','804000','840000','876000'];
+      } else {
+        var arrHeight10= ['4000','7000','11000','13000','17000','20000','24000','26000','30000','37000','41000','45000','51000','55000','65000','72000','76000','94000','104000','108000','112000','116000','120000','124000'];
+        var arrHeight20= ['7000','15000','23000','30000','38000','46000','54000','62000','69000','77000','85000','93000','108000','116000','124000','132000','140000','147000','155000','163000','171000','179000','186000','194000'];
+        var arrHeight30= ['11000','23000','34000','46000','58000','69000','81000','93000','104000','116000','128000','140000','158000','169000','181000','193000','205000','216000','228000','240000','251000','263000','275000','286000'];
+        var arrHeight40= ['13000','30000','46000','60000','76000','91000','107000','123000','138000','154000','169000','185000','210000','225000','241000','257000','272000','288000','303000','319000','335000','350000','366000','381000'];
+        var arrHeight50= ['17000','38000','58000','76000','95000','115000','134000','154000','166000','193000','212000','232000','258000','277000','297000','316000','336000','355000','375000','394000','414000','433000','453000','472000'];
+        var arrHeight60= ['20000','46000','69000','91000','115000','137000','160000','184000','205000','231000','254000','277000','307000','331000','354000','377000','401000','424000','448000','471000','494000','518000','541000','565000'];
+        var arrHeight70= ['24000','54000','81000','107000','134000','160000','188000','215000','244000','270000','297000','324000','358000','385000','413000','440000','467000','494000','522000','549000','576000','604000','631000','658000'];
+        var arrHeight80= ['26000','62000','93000','123000','154000','184000','215000','245000','283000','307000','338000','370000','407000','439000','470000','501000','532000','563000','595000','626000','657000','688000','719000','751000'];
+        var arrHeight90= ['30000','69000','104000','138000','166000','205000','244000','283000','322000','361000','400000','439000','484000','523000','562000','601000','640000','679000','718000','757000','796000','835000','874000','913000'];
+        var arrHeight100=['37000','77000','116000','154000','193000','231000','270000','307000','361000','400000','439000','478000','520000','559000','598000','637000','676000','715000','754000','793000','832000','871000','910000','949000'];
+        var arrHeight110=['41000','85000','128000','169000','212000','254000','297000','338000','400000','439000','478000','520000','572000','615000','658000','701000','744000','787000','830000','873000','916000','959000','1001000','1044000'];
+        var arrHeight120=['45000','93000','140000','185000','232000','277000','324000','370000','439000','478000','520000','567000','624000','671000','718000','765000','812000','858000','905000','952000','999000','1046000','1092000','1139000'];
+      }
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}															
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 20T 계산함수
+		function calPrice20T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(color == 0) { 
+        var arrHeight10= ['5000','8000','12000','16000','20000','24000','28000','32000','36000','44000','48000','52000','60000','64000','68000','72000','76000','80000','90000','94000','98000','102000','106000','110000'];
+        var arrHeight20= ['8000','16000','24000','32000','40000','48000','56000','64000','72000','80000','88000','96000','104000','112000','120000','128000','136000','144000','152000','160000','168000','176000','184000','192000'];
+        var arrHeight30= ['12000','24000','36000','48000','60000','72000','84000','96000','108000','120000','132000','144000','156000','168000','180000','192000','204000','216000','228000','240000','252000','264000','276000','288000'];
+        var arrHeight40= ['16000','32000','48000','64000','80000','96000','112000','128000','144000','160000','176000','192000','208000','224000','240000','256000','272000','288000','304000','320000','336000','352000','368000','384000'];
+        var arrHeight50= ['20000','40000','60000','80000','100000','120000','140000','160000','180000','200000','220000','240000','260000','280000','300000','320000','340000','360000','3800000','400000','420000','440000','460000','480000'];
+        var arrHeight60= ['24000','48000','72000','96000','120000','144000','168000','192000','216000','240000','264000','288000','312000','336000','360000','384000','408000','432000','456000','480000','504000','528000','552000','576000'];
+        var arrHeight70= ['28000','56000','84000','112000','140000','168000','196000','224000','252000','280000','308000','364000','364000','392000','420000','448000','476000','504000','532000','560000','588000','616000','64000','672000'];
+        var arrHeight80= ['32000','64000','96000','128000','160000','192000','224000','256000','288000','320000','352000','416000','416000','448000','480000','512000','544000','576000','608000','640000','672000','704000','736000','768000'];
+        var arrHeight90= ['36000','72000','108000','144000','180000','216000','252000','288000','324000','360000','396000','432000','468000','504000','540000','576000','612000','648000','684000','720000','756000','792000','828000','864000'];
+        var arrHeight100=['44000','80000','120000','160000','200000','240000','280000','320000','360000','404000','444000','484000','524000','564000','604000','644000','684000','724000','764000','804000','844000','884000','924000','964000'];
+        var arrHeight110=['48000','88000','132000','176000','220000','264000','308000','352000','396000','444000','488000','532000','576000','620000','664000','708000','752000','796000','840000','884000','928000','972000','1016000','1060000'];
+        var arrHeight120=['52000','96000','144000','192000','240000','288000','336000','384000','432000','484000','532000','580000','628000','676000','724000','772000','820000','868000','916000','964000','1012000','1060000','1108000','1156000'];
+      } else {
+        var arrHeight10= ['7000','11000','16000','21000','26000','32000','37000','42000','47000','58000','63000','68000','78000','84000','89000','94000','99000','104000','117000','123000','128000','133000','138000','143000'];
+        var arrHeight20= ['11000','21000','32000','42000','52000','63000','73000','84000','94000','104000','115000','125000','136000','146000','156000','167000','177000','188000','198000','208000','219000','229000','240000','250000'];
+        var arrHeight30= ['16000','32000','47000','63000','78000','94000','110000','125000','141000','156000','172000','188000','203000','219000','234000','250000','266000','281000','297000','312000','328000','344000','359000','375000'];
+        var arrHeight40= ['21000','42000','63000','84000','104000','125000','146000','167000','188000','208000','229000','250000','271000','292000','312000','333000','354000','375000','396000','416000','437000','458000','479000','500000'];
+        var arrHeight50= ['26000','52000','78000','104000','130000','156000','182000','208000','234000','260000','286000','312000','338000','364000','390000','416000','442000','468000','4940000','520000','546000','572000','598000','624000'];
+        var arrHeight60= ['32000','63000','94000','125000','156000','188000','219000','250000','281000','312000','344000','375000','406000','437000','468000','500000','531000','562000','593000','624000','656000','687000','718000','749000'];
+        var arrHeight70= ['37000','73000','110000','146000','182000','219000','255000','292000','328000','364000','401000','474000','474000','510000','546000','583000','619000','656000','692000','728000','765000','801000','84000','874000'];
+        var arrHeight80= ['42000','84000','125000','167000','208000','250000','292000','333000','375000','416000','458000','541000','541000','583000','624000','666000','708000','749000','791000','832000','874000','916000','957000','999000'];
+        var arrHeight90= ['47000','94000','141000','188000','234000','281000','328000','375000','422000','468000','515000','562000','609000','656000','702000','749000','796000','843000','890000','936000','983000','1030000','1077000','1124000'];
+        var arrHeight100=['58000','104000','156000','208000','260000','312000','364000','416000','468000','526000','578000','630000','682000','734000','786000','838000','890000','942000','994000','1046000','1098000','1150000','1202000','1254000'];
+        var arrHeight110=['63000','115000','172000','229000','286000','344000','401000','458000','515000','578000','635000','692000','749000','806000','864000','921000','978000','1035000','1092000','1150000','1207000','1264000','1321000','1378000'];
+        var arrHeight120=['68000','125000','188000','250000','312000','375000','437000','500000','562000','630000','692000','754000','817000','879000','942000','1004000','1066000','1129000','1191000','1254000','1316000','1378000','1441000','1503000'];
+      }
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}															
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 25T 계산함수
+		function calPrice25T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(color == 0) { 
+        var arrHeight10= ['8000','15000','22000','30000','37000','44000','52000','59000','66000','74000','81000','88000','96000','103000','110000','117000','125000','132000','139000','147000','154000','161000','169000'];
+        var arrHeight20= ['15000','30000','44000','59000','74000','88000','103000','117000','132000','147000','161000','176000','191000','205000','220000','234000','249000','264000','278000','293000','308000','322000','337000'];
+        var arrHeight30= ['22000','44000','66000','88000','110000','132000','154000','176000','198000','220000','242000','264000','286000','308000','329000','351000','373000','395000','417000','439000','461000','483000','505000'];
+        var arrHeight40= ['30000','59000','88000','117000','147000','176000','205000','234000','264000','293000','322000','351000','381000','410000','439000','468000','498000','527000','556000','585000','615000','644000','673000'];
+        var arrHeight50= ['37000','74000','110000','147000','183000','220000','256000','293000','329000','366000','403000','439000','476000','512000','549000','585000','622000','658000','695000','731000','768000','805000','841000'];
+        var arrHeight60= ['44000','88000','132000','176000','220000','264000','308000','351000','395000','439000','483000','527000','571000','615000','658000','702000','746000','790000','834000','878000','922000','965000','1009000'];
+        var arrHeight70= ['52000','103000','154000','205000','256000','308000','359000','410000','461000','512000','563000','615000','666000','717000','768000','819000','870000','922000','973000','1024000','1075000','1126000','1177000'];
+        var arrHeight80= ['59000','117000','176000','234000','293000','351000','410000','468000','527000','585000','644000','702000','761000','819000','878000','936000','995000','1053000','1112000','1170000','1229000','1287000','1346000'];
+        var arrHeight90= ['66000','132000','198000','264000','329000','395000','461000','527000','593000','658000','724000','790000','856000','922000','987000','1053000','1119000','1185000','1251000','1316000','1382000','1448000','1514000'];
+        var arrHeight100=['74000','147000','220000','293000','366000','439000','512000','585000','658000','731000','805000','878000','951000','1024000','1097000','1170000','1243000','1316000','1389000','1462000','1536000','1609000','1682000'];
+        var arrHeight110=['81000','161000','242000','322000','403000','483000','563000','644000','724000','805000','885000','965000','1046000','1126000','1207000','1287000','1367000','1448000','1528000','1609000','1689000','1770000','1850000'];
+        var arrHeight120=['','','','','','','','','','','','','','','','','','','','','','',''];
+      } else {
+        var arrHeight10= ['9000','17000','25000','33000','41000','49000','58000','65000','73000','82000','90000','97000','106000','114000','121000','129000','138000','146000','153000','162000','170000','178000','186000'];
+        var arrHeight20= ['17000','33000','49000','65000','82000','97000','114000','129000','146000','162000','178000','194000','211000','226000','242000','258000','274000','291000','306000','323000','339000','355000','371000'];
+        var arrHeight30= ['25000','49000','73000','97000','121000','146000','170000','194000','218000','242000','267000','291000','315000','339000','362000','387000','411000','435000','459000','483000','508000','532000','556000'];
+        var arrHeight40= ['33000','65000','97000','129000','162000','194000','226000','258000','291000','323000','355000','387000','420000','451000','483000','515000','548000','580000','612000','644000','677000','709000','741000'];
+        var arrHeight50= ['41000','82000','121000','162000','202000','242000','282000','323000','362000','403000','444000','483000','524000','564000','604000','644000','685000','724000','765000','805000','845000','886000','926000'];
+        var arrHeight60= ['49000','97000','146000','194000','242000','291000','339000','387000','435000','483000','532000','580000','629000','677000','724000','773000','821000','869000','918000','966000','1015000','1062000','1110000'];
+        var arrHeight70= ['58000','114000','170000','226000','282000','339000','395000','451000','508000','564000','620000','677000','733000','789000','845000','901000','957000','1015000','1071000','1127000','1183000','1239000','1295000'];
+        var arrHeight80= ['65000','129000','194000','258000','323000','387000','451000','515000','580000','644000','709000','773000','838000','901000','966000','1030000','1095000','1159000','1224000','1287000','1352000','1416000','1481000'];
+        var arrHeight90= ['73000','146000','218000','291000','362000','435000','508000','580000','653000','724000','797000','869000','942000','1015000','1086000','1159000','1231000','1304000','1377000','1448000','1521000','1593000','1666000'];
+        var arrHeight100=['82000','162000','242000','323000','403000','483000','564000','644000','724000','805000','886000','966000','1047000','1127000','1207000','1287000','1368000','1448000','1528000','1609000','1690000','1770000','1851000'];
+        var arrHeight110=['90000','178000','267000','355000','444000','532000','620000','709000','797000','886000','974000','1062000','1151000','1239000','1328000','1416000','1504000','1593000','1681000','1770000','1858000','1947000','2035000'];
+        var arrHeight120=['','','','','','','','','','','','','','','','','','','','','','',''];
+      }
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}																
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 30T 계산함수
+		function calPrice30T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			if(color == 0) { 
+        var arrHeight10= ['9000','18000','27000','35000','44000','53000','61000','70000','79000','87000','96000','105000','113000','122000','131000','139000','148000','157000','165000','174000','183000','191000','200000'];
+        var arrHeight20= ['18000','35000','53000','70000','87000','105000','122000','139000','157000','174000','191000','209000','226000','243000','261000','278000','295000','313000','330000','347000','365000','382000','399000'];
+        var arrHeight30= ['27000','53000','79000','105000','131000','157000','183000','209000','235000','261000','287000','313000','339000','365000','391000','417000','443000','469000','495000','521000','547000','573000','599000'];
+        var arrHeight40= ['35000','70000','105000','139000','174000','209000','243000','278000','313000','347000','382000','417000','451000','486000','521000','555000','590000','625000','659000','694000','729000','763000','798000'];
+        var arrHeight50= ['44000','87000','131000','174000','217000','261000','304000','347000','391000','434000','477000','521000','564000','607000','651000','694000','737000','781000','824000','867000','911000','954000','998000'];
+        var arrHeight60= ['53000','105000','157000','209000','261000','313000','365000','417000','469000','521000','573000','625000','677000','729000','781000','833000','885000','937000','989000','1041000','1093000','1145000','1197000'];
+        var arrHeight70= ['61000','122000','183000','243000','304000','365000','425000','486000','547000','607000','668000','729000','789000','850000','911000','972000','1032000','1093000','1154000','1214000','1275000','1336000','1396000'];
+        var arrHeight80= ['70000','139000','209000','278000','347000','417000','486000','555000','625000','694000','763000','833000','902000','972000','1041000','1110000','1180000','1249000','1318000','1388000','1457000','1526000','1596000'];
+        var arrHeight90= ['79000','157000','235000','313000','391000','469000','547000','625000','703000','781000','859000','937000','1015000','1093000','1171000','1249000','1327000','1405000','1483000','1561000','1639000','1717000','1795000'];
+        var arrHeight100=['87000','174000','261000','347000','434000','521000','607000','694000','781000','867000','954000','1041000','1128000','1214000','1301000','1388000','1474000','1561000','1648000','1734000','1821000','1908000','1995000'];
+        var arrHeight110=['96000','191000','287000','382000','477000','573000','668000','763000','859000','954000','1050000','1145000','1240000','1336000','1431000','1526000','1622000','1717000','1813000','1908000','2003000','2099000','2194000'];
+        var arrHeight120=['','','','','','','','','','','','','','','','','','','','','','',''];
+      } else {
+        var arrHeight10= ['10000','20000','30000','39000','49000','59000','68000','77000','87000','96000','106000','116000','125000','135000','145000','153000','163000','173000','182000','192000','202000','211000','220000'];
+        var arrHeight20= ['20000','39000','59000','77000','96000','116000','135000','153000','173000','192000','211000','230000','249000','268000','288000','306000','325000','345000','363000','382000','402000','421000','439000'];
+        var arrHeight30= ['30000','59000','87000','116000','145000','173000','202000','230000','259000','288000','316000','345000','373000','402000','431000','459000','488000','516000','545000','574000','602000','631000','659000'];
+        var arrHeight40= ['39000','77000','116000','153000','192000','230000','268000','306000','345000','382000','421000','459000','497000','535000','574000','611000','649000','688000','725000','764000','802000','840000','878000'];
+        var arrHeight50= ['49000','96000','145000','192000','239000','288000','335000','382000','431000','478000','525000','574000','621000','668000','717000','764000','811000','860000','907000','954000','1003000','1050000','1098000'];
+        var arrHeight60= ['59000','116000','173000','230000','288000','345000','402000','459000','516000','574000','631000','688000','745000','802000','860000','917000','974000','1031000','1088000','1146000','1203000','1260000','1317000'];
+        var arrHeight70= ['68000','135000','202000','268000','335000','402000','468000','535000','602000','668000','735000','802000','868000','935000','1003000','1070000','1136000','1203000','1270000','1336000','1403000','1470000','1536000'];
+        var arrHeight80= ['77000','153000','230000','306000','382000','459000','535000','611000','688000','764000','840000','917000','993000','1070000','1146000','1221000','1298000','1374000','1450000','1527000','1603000','1679000','1756000'];
+        var arrHeight90= ['87000','173000','259000','345000','431000','516000','602000','688000','774000','860000','945000','1031000','1117000','1203000','1289000','1374000','1460000','1546000','1632000','1718000','1803000','1889000','1975000'];
+        var arrHeight100=['96000','192000','288000','382000','478000','574000','668000','764000','860000','954000','1050000','1146000','1241000','1336000','1432000','1527000','1622000','1718000','1813000','1908000','2004000','2099000','2195000'];
+        var arrHeight110=['106000','211000','316000','421000','525000','631000','735000','840000','945000','1050000','1155000','1260000','1364000','1470000','1575000','1679000','1785000','1889000','1995000','2099000','2204000','2309000','2414000'];
+        var arrHeight120=['','','','','','','','','','','','','','','','','','','','','','',''];
+      }
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}																
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 40T 계산함수
+		function calPrice40T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+      var arrHeight10= ['14000','28000','41000','55000','68000','82000','96000','109000','123000','136000','150000','164000','177000','191000','204000','218000','232000','245000','259000','272000','286000','300000','313000'];
+      var arrHeight20= ['28000','55000','82000','109000','136000','164000','191000','218000','245000','272000','300000','327000','354000','381000','408000','436000','463000','490000','517000','544000','572000','599000','626000'];
+      var arrHeight30= ['41000','82000','123000','164000','204000','245000','286000','327000','368000','408000','449000','490000','531000','572000','612000','653000','694000','735000','776000','816000','857000','898000','939000'];
+      var arrHeight40= ['55000','109000','164000','218000','272000','327000','381000','436000','490000','544000','599000','653000','708000','762000','816000','871000','925000','980000','1034000','1088000','1143000','1197000','1252000'];
+      var arrHeight50= ['68000','136000','204000','272000','340000','408000','476000','544000','612000','680000','748000','816000','884000','952000','1020000','1088000','1156000','1224000','1292000','1360000','1428000','1496000','1564000'];
+      var arrHeight60= ['82000','164000','245000','327000','408000','490000','572000','653000','735000','816000','898000','980000','1061000','1143000','1224000','1306000','1388000','1469000','1551000','1632000','1714000','1796000','1877000'];
+      var arrHeight70= ['96000','191000','286000','381000','476000','572000','667000','762000','857000','952000','1048000','1143000','1238000','1333000','1428000','1524000','1619000','1714000','1809000','1904000','2000000','2095000','2190000'];
+      var arrHeight80= ['109000','218000','327000','436000','544000','653000','762000','871000','980000','1088000','1197000','1306000','1415000','1524000','1632000','1741000','1850000','1959000','2068000','2176000','2285000','2394000','2503000'];
+      var arrHeight90= ['123000','245000','368000','490000','612000','735000','857000','980000','1102000','1224000','1347000','1469000','1592000','1714000','1836000','1959000','2081000','2204000','2326000','2448000','2571000','2693000','2816000'];
+      var arrHeight100=['136000','272000','408000','544000','680000','816000','952000','1088000','1224000','1360000','1496000','1632000','1768000','1904000','2040000','2176000','2312000','2448000','2584000','2720000','2856000','2992000','3128000'];
+      var arrHeight110=['150000','300000','449000','599000','748000','898000','1048000','1197000','1347000','1496000','1646000','1796000','1945000','2095000','2244000','2394000','2544000','2693000','2843000','2992000','3142000','3292000','3441000'];
+      var arrHeight120=['','','','','','','','','','','','','','','','','','','','','','',''];
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}															
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+		
+		
+		// 50T 계산함수
+		function calPrice50T(color, width, height, cnt) {
+			var widthtCnt = Math.ceil(width/10) * 10;
+			var heightCnt = Math.ceil((height - 100)/100);
+			var price = 0;
+			var totPrice = 0;
+			var totOrder = 0;
+			
+			var arrHeight10= ['23000','45000','67000','89000','111000','133000','155000','177000','199000','221000','244000','266000','288000','310000','332000','354000'];
+      var arrHeight20= ['45000','89000','133000','177000','221000','266000','310000','354000','398000','442000','487000','531000','575000','619000','663000','708000'];
+      var arrHeight30= ['67000','133000','199000','266000','332000','398000','465000','531000','597000','663000','730000','796000','862000','929000','995000','1061000'];
+      var arrHeight40= ['89000','177000','266000','354000','442000','531000','619000','708000','796000','884000','973000','1061000','1150000','1238000','1326000','1415000'];
+      var arrHeight50= ['111000','221000','332000','442000','553000','663000','774000','884000','995000','1105000','1216000','1326000','1437000','1547000','1658000','1768000'];
+      var arrHeight60= ['133000','266000','398000','531000','663000','796000','929000','1061000','1194000','1326000','1459000','1592000','1724000','1857000','1989000','2122000'];
+      var arrHeight70= ['155000','310000','465000','619000','774000','929000','1083000','1238000','1393000','1547000','1702000','1857000','2012000','2166000','2321000','2476000'];
+      var arrHeight80= ['177000','354000','531000','708000','884000','1061000','1238000','1415000','1592000','1768000','1945000','2122000','2299000','2476000','2652000','2829000'];
+      var arrHeight90= ['199000','398000','597000','796000','995000','1194000','1393000','1592000','1791000','1989000','2188000','2387000','2586000','2785000','2984000','3183000'];
+      var arrHeight100=['221000','442000','663000','884000','1105000','1326000','1547000','1768000','1989000','2210000','2431000','2652000','2873000','3094000','3315000','3536000'];
+      var arrHeight110=['','','','','','','','','','','','','','','',''];
+      var arrHeight120=['','','','','','','','','','','','','','','',''];
+			
+			if(widthtCnt > 0 && widthtCnt <= 100) {
+			  price = arrHeight10[heightCnt];
+			} else if(widthtCnt > 100 && widthtCnt <= 200) {
+			  price = arrHeight20[heightCnt];
+			} else if(widthtCnt > 200 && widthtCnt <= 300) {
+			  price = arrHeight30[heightCnt];
+			} else if(widthtCnt > 300 && widthtCnt <= 400) {
+			  price = arrHeight40[heightCnt];
+			} else if(widthtCnt > 400 && widthtCnt <= 500) {
+			  price = arrHeight50[heightCnt];
+			} else if(widthtCnt > 500 && widthtCnt <= 600) {
+			  price = arrHeight60[heightCnt];
+			} else if(widthtCnt > 600 && widthtCnt <= 700) {
+			  price = arrHeight70[heightCnt];
+			} else if(widthtCnt > 700 && widthtCnt <= 800) {
+			  price = arrHeight80[heightCnt];
+			} else if(widthtCnt > 800 && widthtCnt <= 900) {
+			  price = arrHeight90[heightCnt];
+			} else if(widthtCnt > 900 && widthtCnt <= 1000) {
+			  price = arrHeight100[heightCnt];
+			} else if(widthtCnt > 1000 && widthtCnt <= 1100) {
+			  price = arrHeight110[heightCnt];
+			} else if(widthtCnt > 1100 && widthtCnt <= 1200) {
+			  price = arrHeight120[heightCnt];
+			}															
+    	
+    	totPrice = price * cnt;
+    	totOrder = totPrice / 1000;
+    	var arrResult = [price, cnt, totPrice, totOrder];
+    	return arrResult;
+		}
+
+		function formChk(color, thick, width, height, cnt){
+		
+			if(color != '' && thick != '' && width > 4 && height > 4 && cnt > 0){
+				//$('#info').hide();
+				//$('#priceEx').show();
+				
+				var totPrice = 0;
+				
+				if(thick == 2) {
+			    arrResult = calPrice2T(color, width, height, cnt);
+				} else if(thick == 3) {
+				  arrResult = calPrice3T(color, width, height, cnt);
+				} else if(thick == 5) {
+				  arrResult = calPrice5T(color, width, height, cnt);
+				} else if(thick == 8) {
+				  arrResult = calPrice8T(color, width, height, cnt);
+				} else if(thick == 10) {
+				  arrResult = calPrice10T(color, width, height, cnt);
+				} else if(thick == 12) {
+				  arrResult = calPrice12T(color, width, height, cnt);
+				} else if(thick == 15) {
+				  arrResult = calPrice15T(color, width, height, cnt);
+				} else if(thick == 20) {
+				  arrResult = calPrice20T(color, width, height, cnt);
+				} else if(thick == 25) {
+				  arrResult = calPrice25T(color, width, height, cnt);
+				} else if(thick == 30) {
+				  arrResult = calPrice30T(color, width, height, cnt);
+				} else if(thick == 40) {
+				  arrResult = calPrice40T(color, width, height, cnt);
+				} else if(thick == 50) {
+				  arrResult = calPrice50T(color, width, height, cnt);
+				}
+        
+				$('.pd-150').css('padding-bottom', '0px');
+				
+				$('#p1').text(width + "x" + height + " 입력");
+				$('#p2').text(cnt + "개 입력");
+				$('#p3').text(color + " 선택");
+				$('#p4').text(thick + " 선택");
+				$('#p-1').text(width + "x" + height + " / " + cnt + " / " + color + " / " + thick);
+				
+				var params = {
+					width : width,
+					height : height,
+					thick : thick
+				}
+				
+				$("#totalPrice").val(arrResult[2]); 
+				$("#totalOrder").val(arrResult[3]); 
+				
+				$.ajax({
+			    	type : "POST",           
+			        url : "/pricing",      
+			        data : params,            
+			        success : function(res){
+						
+						var price = Number(res).toLocaleString('en');
+						var totPrice = Number(res * cnt).toLocaleString('en');
+						var totCnt = Number((res * cnt) / 1000);
+						
+			      $('#price').text(price);
+						$('#orderCnt').text(cnt);
+						
+						$('#p5').text("주문 수량 " + totCnt + "개 선택");
+						$('#p-2').text(totCnt);
+						$('#p-4').text("총 수량 " + totCnt + "개");
+						
+	        	$('#totalPrice').text(totPrice);
+	        	$('#p-3').text(totPrice + '원');
+	        	$('#p-5').text(totPrice + '원');
+	        }
+				});
+			}
+		}
+	})
 </script>
+
+
 </html>
